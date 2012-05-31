@@ -45,11 +45,12 @@
         class CImage {
         private:
             int ddtype;
+            PyArrayObject *ndraw;
         
         public:
             /* ---> THE WRAPPED INSTANCE <--- */
-            cimg_library::CImg<const char> raw;
-            const char dtype;
+            cimg_library::CImg<uint> raw;
+            char* dtype;
             
             /* ---> CONSTRUCTOR <--- */
             CImage();
@@ -65,14 +66,14 @@
             - with file path
             - with python data buffer (or whatever) etc */
             
-            CImage(cimg_library::CImg<const char> cimgFrom);
-            CImage(cimg_library::CImg<const char> cimgFrom, int newDType);
-            CImage(cimg_library::CImg<const char> cimgFrom, const bool cimgIsShared);
+            CImage(cimg_library::CImg<uint> cimgFrom);
+            CImage(cimg_library::CImg<uint> cimgFrom, int newDType);
+            CImage(cimg_library::CImg<uint> cimgFrom, const bool cimgIsShared);
             
             CImage(const char *const cimgFilename);
             
             #if CIL_NUMPY
-            CImage(PyArrayObject *ndimg);
+            CImage(PyObject *ndimg);
             #endif
             
             /* CImage(PyObject *pilFrom); */
@@ -97,4 +98,4 @@
     }
 
 #endif
-
+int main(void) {}

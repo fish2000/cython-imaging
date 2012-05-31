@@ -15,7 +15,6 @@ extern "C" {
 #include "include/CImage.h"
 #include <cstdlib>
 
-
 namespace CIL {
 
     CImage::CImage() {}
@@ -25,35 +24,32 @@ namespace CIL {
     CImage::CImage(CImage *cimageFrom, int newDType) {}
     CImage::CImage(CImage *cimageFrom, const bool cimageSharesData) {}
     
-    CImage::CImage(cimg_library::CImg<const char> cimgFrom) {
+    CImage::CImage(cimg_library::CImg<uint> cimgFrom) {
         raw = cimgFrom;
-        dtype = const charFromType(atoi(raw.pixel_type()))[0];
+        dtype = (char*)raw.pixel_type();
     }
-    CImage::CImage(cimg_library::CImg<const char> cimgFrom, int newDType) {}
-    CImage::CImage(cimg_library::CImg<const char> cimgFrom, const bool cimgIsShared) {}
+    CImage::CImage(cimg_library::CImg<uint> cimgFrom, int newDType) {}
+    CImage::CImage(cimg_library::CImg<uint> cimgFrom, const bool cimgIsShared) {}
     
     CImage::CImage(const char *const cimgFilename) {
-        raw = cimg_library::CImg<const char>();
-        raw.assign(cimgFilename[0]);
-        dtype = const charFromType(atoi(raw.pixel_type()))[0];
+        raw = cimg_library::CImg<uint>(cimgFilename);
+        dtype = (char*)raw.pixel_type();
     }
     
     #if CIL_NUMPY
-    CImage::CImage(PyArrayObject *ndimg) {
+    CImage::CImage(PyObject *ndimg) {
+        PyArrayObject *ndarrayimage;
+        
         assert(npimg->nd==3);
         printf("YO DOGG: %p %d x %d x %d\\n", \
             PyArray_DATA(ndimg), \
             PyArray_DIM(ndimg, 1), PyArray_DIM(ndimg, 0), PyArray_DIM(ndimg, 2));
         
-        raw = cimg_library::CImg<const char>();
-        ndraw = ndimg->PyArray_DATA(ndimg);
-        raw.assign(cimg_library::CImg<const char>(ndraw->data), \
+        raw = cimg_library::CImg<uint>();
+        ndarrayimage = (PyArrayObject *)PyArray_ContiguousFromObject(ndimg, PyArray_UBYTE, 2, 4);
+        raw.assign(cimg_library::CImg<uint>(ndarrayimage->data), \
             PyArray_DIM(ndimg, 1), PyArray_DIM(ndimg, 0), 1, PyArray_DIM(ndimg, 2));
-        
-        
-        /*image=image.blur(2.5);
-        return 0;*/
-        
+        Py_DECREF(ndarrayimage);
     }
     #endif
     
@@ -63,9 +59,6 @@ namespace CIL {
     
     /* ---> DESTRUCTOR <--- */
     CImage::~CImage() {}
-            
 }
 
-
-int main(void) {}
 
