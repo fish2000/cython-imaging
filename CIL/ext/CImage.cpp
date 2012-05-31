@@ -46,6 +46,7 @@ namespace CIL {
             PyArray_DIM(ndimg, 1), PyArray_DIM(ndimg, 0), PyArray_DIM(ndimg, 2));
         
         raw = cimg_library::CImg<PyArray_Descr>();
+        ndraw = ndimg->
         raw.assign(cimg_library::CImg<PyArray_Descr>(ndimg->data), \
             PyArray_DIM(ndimg, 1), PyArray_DIM(ndimg, 0), 1, PyArray_DIM(ndimg, 2));
         
