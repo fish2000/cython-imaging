@@ -38,7 +38,7 @@
     } /* end of 'extern "C"' */
     #endif
     
-    /*#define cimg *cimg_library::CImg<PyArray_Descr>*/
+    /*#define cimg *cimg_library::CImg<const char>*/
     
     namespace CIL {
     
@@ -48,8 +48,8 @@
         
         public:
             /* ---> THE WRAPPED INSTANCE <--- */
-            cimg_library::CImg<PyArray_Descr> raw;
-            PyArray_Descr dtype;
+            cimg_library::CImg<const char> raw;
+            const char dtype;
             
             /* ---> CONSTRUCTOR <--- */
             CImage();
@@ -65,9 +65,9 @@
             - with file path
             - with python data buffer (or whatever) etc */
             
-            CImage(cimg_library::CImg<PyArray_Descr> cimgFrom);
-            CImage(cimg_library::CImg<PyArray_Descr> cimgFrom, int newDType);
-            CImage(cimg_library::CImg<PyArray_Descr> cimgFrom, const bool cimgIsShared);
+            CImage(cimg_library::CImg<const char> cimgFrom);
+            CImage(cimg_library::CImg<const char> cimgFrom, int newDType);
+            CImage(cimg_library::CImg<const char> cimgFrom, const bool cimgIsShared);
             
             CImage(const char *const cimgFilename);
             

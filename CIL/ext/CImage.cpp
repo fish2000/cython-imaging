@@ -25,17 +25,17 @@ namespace CIL {
     CImage::CImage(CImage *cimageFrom, int newDType) {}
     CImage::CImage(CImage *cimageFrom, const bool cimageSharesData) {}
     
-    CImage::CImage(cimg_library::CImg<PyArray_Descr> cimgFrom) {
+    CImage::CImage(cimg_library::CImg<const char> cimgFrom) {
         raw = cimgFrom;
-        dtype = PyArray_DescrFromType(atoi(raw.pixel_type()))[0];
+        dtype = const charFromType(atoi(raw.pixel_type()))[0];
     }
-    CImage::CImage(cimg_library::CImg<PyArray_Descr> cimgFrom, int newDType) {}
-    CImage::CImage(cimg_library::CImg<PyArray_Descr> cimgFrom, const bool cimgIsShared) {}
+    CImage::CImage(cimg_library::CImg<const char> cimgFrom, int newDType) {}
+    CImage::CImage(cimg_library::CImg<const char> cimgFrom, const bool cimgIsShared) {}
     
     CImage::CImage(const char *const cimgFilename) {
-        raw = cimg_library::CImg<PyArray_Descr>();
+        raw = cimg_library::CImg<const char>();
         raw.assign(cimgFilename[0]);
-        dtype = PyArray_DescrFromType(atoi(raw.pixel_type()))[0];
+        dtype = const charFromType(atoi(raw.pixel_type()))[0];
     }
     
     #if CIL_NUMPY
@@ -45,9 +45,9 @@ namespace CIL {
             PyArray_DATA(ndimg), \
             PyArray_DIM(ndimg, 1), PyArray_DIM(ndimg, 0), PyArray_DIM(ndimg, 2));
         
-        raw = cimg_library::CImg<PyArray_Descr>();
-        ndraw = ndimg->
-        raw.assign(cimg_library::CImg<PyArray_Descr>(ndimg->data), \
+        raw = cimg_library::CImg<const char>();
+        ndraw = ndimg->PyArray_DATA(ndimg);
+        raw.assign(cimg_library::CImg<const char>(ndraw->data), \
             PyArray_DIM(ndimg, 1), PyArray_DIM(ndimg, 0), 1, PyArray_DIM(ndimg, 2));
         
         
