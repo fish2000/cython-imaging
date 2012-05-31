@@ -1,0 +1,37 @@
+import os
+import scons_tools
+
+targets = {"ndarray":{}}
+
+class EigenConfiguration(scons_tools.LibraryConfiguration):
+    def __new__(cls):
+        self = scons_tools.LibraryConfiguration.__new__(cls, name="eigen", headers=["Eigen/Core"])
+        return self
+EigenConfiguration()
+
+scons_tools.LibraryConfiguration(
+    name="fftw",
+    libraries=["fftw3","fftw3f","fftw3l"],
+    headers=["fftw3.h"]
+    )
+
+scons_tools.LibraryConfiguration(
+    name="levmar",
+    libraries=["levmar"],
+    headers=["levmar.h"]
+    )
+
+base_env = scons_tools.MakeEnvironment()
+base_env.Append(CPPPATH=["#include"])
+base_env.Append(LIBPATH=["#lib"])
+base_env.UseExternalEnv("LD_LIBRARY_PATH")
+base_env.PrependEnvPath("LD_LIBRARY_PATH", os.path.join(os.path.abspath("."), "lib"))
+
+targets.update(SConscript("SConscript"))
+
+local_libs = [
+    base_env.Install("lib", targets["boost.numpy"]["lib"]),
+    base_env.Install("lib", targets["boost.python.ndarray"]["lib"]),
+    ]
+
+scons_tools.MakeAliases(targets)

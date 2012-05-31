@@ -1,0 +1,17 @@
+Import("ndarray_env")
+import os
+import scons_tools
+import sys
+
+tests =[ndarray_env.BoostUnitTest("ndarray", "ndarray.cc"),
+        ndarray_env.BoostUnitTest("ndarray-tables", "ndarray-tables.cc"),
+         ]
+
+for module, dependency in (("eigen", "eigen"), ("fft", "fftw"), ("levmar", "levmar")):
+    if scons_tools.database[dependency].check():
+        ndarray_env.SetupPackages([dependency])
+        tests.append(ndarray_env.BoostUnitTest("ndarray-%s" % module, "ndarray-%s.cc" % module))
+    else:
+        print "Skipping test 'ndarray-%s'." % module
+
+Return("tests")

@@ -1,0 +1,7 @@
+import os
+Import("ndarray_env")
+
+doc = ndarray_env.Doxygen("doxygen.conf")
+ndarray_env.AlwaysBuild(doc)
+doc_tag = ndarray_env.Alias("doc",doc)
+Return("doc_tag")

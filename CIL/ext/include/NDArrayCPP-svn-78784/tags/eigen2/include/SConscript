@@ -1,0 +1,11 @@
+Import("ndarray_env")
+
+generated = ["ndarray/ArrayRef.hpp",
+             "ndarray/operators.hpp",
+             "ndarray/Vector.hpp",
+             "ndarray/fft/FFTWTraits.hpp",
+             ]
+
+headers = [ndarray_env.M4(filename, "%s.m4" % filename) for filename in generated]
+
+Return("headers")

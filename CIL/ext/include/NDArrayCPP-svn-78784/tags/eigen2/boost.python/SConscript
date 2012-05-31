@@ -1,0 +1,15 @@
+import scons_tools
+import os
+
+targets = {}
+
+targets.update(SConscript(os.path.join("numpy", "SConscript")))
+
+targets["boost.python.ndarray"] = SConscript(os.path.join("ndarray", "SConscript"))
+
+if scons_tools.database["eigen"].check():
+    targets["boost.python.eigen"] = SConscript(os.path.join("eigen", "SConscript"))
+else:
+    print "Skipping boost.python.eigen: Eigen 2 not found."
+
+Return("targets")

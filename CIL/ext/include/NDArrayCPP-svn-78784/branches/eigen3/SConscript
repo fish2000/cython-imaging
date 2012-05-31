@@ -1,0 +1,27 @@
+import os
+import scons_tools
+
+targets = {"ndarray":{}}
+
+ndarray_env = scons_tools.GetEnvironment().Clone()
+Export("ndarray_env")
+
+scons_tools.LocalConfiguration(name="ndarray")
+
+targets["ndarray"]["doc"] = SConscript(os.path.join("doc","SConscript"))
+targets["ndarray"]["headers"] = SConscript("include/SConscript")
+targets["ndarray"]["test"] = SConscript("tests/SConscript")
+targets["ndarray"]["install"] = (
+    ndarray_env.RecursiveInstall(
+        ndarray_env["INSTALL_HEADERS"], 
+        "include", 
+        regex="((.*\cc)|(.*\.hpp))(\.m4)?$"
+        )
+    )
+
+if scons_tools.database["numpy"].check() and scons_tools.database["boost.python"].check():
+    targets.update(SConscript(os.path.join("boost.python", "SConscript")))
+else:
+    print "Skipping Python components."
+
+Return("targets")

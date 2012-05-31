@@ -1,0 +1,26 @@
+External dependencies:
+ 
+- Boost MPL, Fusion, Smart Pointer, and Type Traits.
+- Boost Python and Test (optional - needed for Python support and tests).
+- SCons (optional - needed to build non-header-only components).
+- M4 (optional - needed to regenerate some header files).
+- Eigen 2 (optional)
+- FFTW 3 (optional)
+- levmar (optional)
+
+The core ndarray library is a header-only library; you can start using it
+simply by putting the "include" subfolder in your compile-time
+include path.  The headers built by M4 should already be built in any SVN
+checkout or release tarball.
+
+For a complete install, simply run
+
+scons install
+
+and then recursively copy the contents of the top-level 'install' and 'lib'
+folders to your preferred include and library locations.  For more control
+over the build, see
+
+scons --help
+
+for more information.

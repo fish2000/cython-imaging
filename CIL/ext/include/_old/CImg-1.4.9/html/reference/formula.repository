@@ -1,0 +1,27 @@
+\form#0:$I_{(x,y,z,c)}$
+\form#1:$I_{(x,y,z,c)}^2$
+\form#2:$\sqrt{I_{(x,y,z,c)}}$
+\form#3:$e^{I_{(x,y,z,c)}}$
+\form#4:$log_e(I_{(x,y,z,c)})$
+\form#5:$log_{10}(I_{(x,y,z,c)})$
+\form#6:$|I_{(x,y,z,c)}|$
+\form#7:$sign(I_{(x,y,z,c)})$
+\form#8:$cos(I_{(x,y,z,c)})$
+\form#9:$sin(I_{(x,y,z,c)})$
+\form#10:$sinc(I_{(x,y,z,c)})$
+\form#11:$tan(I_{(x,y,z,c)})$
+\form#12:$cosh(I_{(x,y,z,c)})$
+\form#13:$sinh(I_{(x,y,z,c)})$
+\form#14:$tanh(I_{(x,y,z,c)})$
+\form#15:$acos(I_{(x,y,z,c)})$
+\form#16:$asin(I_{(x,y,z,c)})$
+\form#17:$atan(I_{(x,y,z,c)})$
+\form#18:$atan2(I_{(x,y,z,c)})$
+\form#19:$I_{(x,y,z,c)}^p$
+\form#20:$ v = 1/N \sum\limits_{k=1}^{N} (x_k - \bar x)^2 = 1/N \left( \sum\limits_{k=1}^N x_k^2 - \left( \sum\limits_{k=1}^N x_k \right)^2 / N \right) $
+\form#21:$ \bar x = 1/N \sum\limits_{k=1}^N x_k $
+\form#22:$ v = \frac{1}{N-1} \sum\limits_{k=1}^{N} (x_k - \bar x)^2 $
+\form#23:$(\Delta I)^2 $
+\form#24:$c$
+\form#25:$ c E[(\Delta I)^2]= \sigma^2$
+\form#26:$\sigma$
