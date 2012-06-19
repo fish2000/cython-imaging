@@ -119,23 +119,24 @@ setup(
             'ext/*.cpp',
             'ext/*.h',
             'ext/src/*',
-            'ext/include/*'],
+            'ext/include/*',
+            'ext/include/CImg/*'],
     },
 
     ext_package='CIL.ext',
     ext_modules=ext_modules,
 
     setup_requires=[
-        'cython', 'ctypes'
+        'cython', 'h5py'
     ],
 
     install_requires=[
         'numpy', 'scipy', 'h5py', 'ipython',
-        'PIL', 'ctypes'
+        'PIL', 'pyvtk'
     ],
     
     tests_require=[
-        'nose', 'rednose',
+        'nose', 'rednose'
     ],
 
     classifiers=[

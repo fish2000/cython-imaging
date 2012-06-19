@@ -1,1 +1,1 @@
-CImg-1.5.0_beta/CImg.h
+CImg/CImg.h
