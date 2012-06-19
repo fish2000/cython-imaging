@@ -41,19 +41,147 @@
 #include <gsl/gsl_minmax.h>
 #include <gsl/gsl_errno.h>
 #include <gsl/gsl_spline.h>
-#include <flann/flann.hpp>
 */
+
+#include <flann/flann.hpp>
+
 
 /* #include <CImg.h> */
 #include <pHash.h>
 #include <H5Cpp.h>
 
-
 /*****************************************************************************
  * Typedefs
  ****************************************************************************/
+typedef flann::Index< flann::L2<float> >                Flann_index_base;
+typedef boost::scoped_ptr<Flann_index_base>             Flann_index;
+typedef flann::Matrix<int>                              Matrixi;
+typedef flann::Matrix<float>                            Matrixf;
 typedef cimg_library::CImg<float>                       Numpy;
 typedef cimg_library::CImg<int>                         Numpyi;
+
+
+struct Voxel
+{
+    int     label;          // unique. corresponds to column in matrix
+    float   x, y, z;        // 3D world position
+    float   rindex;         // refractive index
+    float   gx, gy, gz;     // refractive index gradient
+
+    Voxel(  int _label,
+            float _x, float _y, float _z,
+            float _rindex,
+            float _gx, float _gy, float _gz):
+
+            label(_label),
+            x(_x), y(_y), z(_z),
+            rindex(_rindex),
+            gx(_gx), gy(_gy), gz(_gz)
+            {}
+
+    Voxel():
+            label(-999), x(0),y(0),z(0), rindex(0), gx(0),gy(0),gz(0)
+            {}
+
+};
+
+struct Ray
+{
+    float  x,  y,  z;
+    float dx, dy, dz;
+
+    Ray(
+        const Numpy& data
+    ):   x(data(0)),  y(data(1)),  z(data(2)),
+        dx(data(3)), dy(data(4)), dz(data(5))
+    {
+        assert( fabs(dx*dx + dy*dy + dz*dz - 1) < 1e-4 );
+    }
+};
+
+// Axis-aligned bounding box
+struct BBox
+{
+    double xmin, ymin, zmin;
+    double xmax, ymax, zmax;
+
+    BBox(
+        float x0, float y0, float z0,
+        float x1, float y1, float z1
+    ): xmin(x0), ymin(y0), zmin(z0),
+       xmax(x1), ymax(y1), zmax(z1)
+    {}
+
+    bool
+    Inside(
+        const double x, const double y, const double z
+    ) {
+        return (x >= xmin) && (x <= xmax) &&
+               (y >= ymin) && (y <= ymax) &&
+               (z >= zmin) && (z <= zmax);
+    }
+
+    // if ray intersects, move its origin to the nearest intersection point
+    // returns dist to nearest intersection point, else 0
+    float
+    Advance_to_Intersection(
+        Ray&    ray,
+        double* interval=NULL       // output dist nearest to farthest intersection
+    ) {
+        // http://people.csail.mit.edu/amy/papers/box-jgt.pdf
+        float tmin, tmax, tymin, tymax, tzmin, tzmax;
+
+        float idx=1/ray.dx, idy=1/ray.dy, idz=1/ray.dz;
+
+        float xbounds[] = { (float)xmin, (float)xmax };
+
+        int b = (idx >= 0) ? 0 : 1;
+        tmin = ( xbounds[b  ] - ray.x ) * idx;
+        tmax = ( xbounds[1-b] - ray.x ) * idx;
+
+        float ybounds[] = { (float)ymin, (float)ymax };
+
+        b = (idy >= 0) ? 0 : 1;
+        tymin = ( ybounds[b  ] - ray.y ) * idy;
+        tymax = ( ybounds[1-b] - ray.y ) * idy;
+        if( (tmin > tymax) || (tymin > tmax) ) { return false; }
+        tmin = std::max( tmin, tymin );
+        tmax = std::min( tmax, tymax );
+
+        float zbounds[] = { (float)zmin, (float)zmax };
+
+        b = (idz >= 0) ? 0 : 1;
+        tzmin = ( zbounds[b  ] - ray.z ) * idz;
+        tzmax = ( zbounds[1-b] - ray.z ) * idz;
+        if( (tmin > tzmax) || (tzmin > tmax) ) { return false; }
+        tmin = std::max( tmin, tzmin );
+        tmax = std::min( tmax, tzmax );
+        // output distance to nearest intersection point
+        if( tmin > 0 )
+        {
+            // go just a little bit further to ensure we don't lie too close
+            // to the boundary for it to be numerically outside
+            tmin  *= 1.00001;
+            ray.x += tmin * ray.dx;
+            ray.y += tmin * ray.dy;
+            ray.z += tmin * ray.dz;
+            // output one mandatory, plus one optional value
+            if( interval )
+            {
+                *interval = tmax - tmin;
+            }
+            return tmin;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+};
+
+
+
 
 /*****************************************************************************
  * Forward declarations
@@ -85,8 +213,25 @@ class RasterSystem : boost::noncopyable
 
 private: // members
 
+    vector<Voxel>               _voxels;
     Numpy                       _rbf_lut;
     Numpy                       _rbf_integral_lut;
+
+    BBox                        _bbox;
+
+    Flann_index                 _flann;
+    /*
+    vector<int>                 _flann_indices_buf;
+    Matrixi                     _flann_indices;
+    vector<float>               _flann_distances_sq_buf;
+    Matrixf                     _flann_distances_sq;
+    vector<float>               _flann_datapoints;
+    */
+
+    // the radius MUST be at least as large as the voxel spacing
+    // otherwise interpolation will look very strange
+    float                       _rbf_radius_sq;
+    float                       _rbf_radius;
 
     // path of ray currently being traced stored here. This is a member of a
     // singleton object, so only one instance exists - this is NOT threadsafe!
@@ -154,27 +299,9 @@ private: // ctor
         _h5_nRows(0),
         _h5_nnz(0)
     {
-        // embedded Runge-Kutta-Fehlberg(4,5)
-        // (good general purpose integrator)
-        const int dim       = 6;
-        _ode_s              = gsl_odeiv_step_alloc( _ode_T, dim );
-        _ode_c              = gsl_odeiv_control_y_new( _tol, 0.0 );
-        _ode_e              = gsl_odeiv_evolve_alloc( dim );
-        _ode_sys.function   = Y_Prime_Wrapper;
-        _ode_sys.jacobian   = NULL;
-        _ode_sys.dimension  = dim;
-        _ode_sys.params     = NULL;
 
-        // if this buffer overflows, bad things will happen
-        // as long as the rbf_radius is not too much greater than the
-        // intervoxel spacing, then it shouldn't go over 100
-        const int maxNeighbours = 100;
-        zero_vector( _flann_indices_buf, maxNeighbours );
-        _flann_indices = Matrixi( &_flann_indices_buf[0],
-                                  1, maxNeighbours );
-        zero_vector( _flann_distances_sq_buf, maxNeighbours );
-        _flann_distances_sq = Matrixf( &_flann_distances_sq_buf[0],
-                                       1, maxNeighbours );
+        const int dim       = 6;
+
     }
 
 
@@ -192,79 +319,11 @@ public: // ctor, dtor
     {
         // write final partial chunks to disk
         Close_HDF5();
-
-        gsl_odeiv_evolve_free( _ode_e );
-        gsl_odeiv_control_free( _ode_c );
-        gsl_odeiv_step_free( _ode_s );
     }
 
 
 
 public: // accessors
-
-    float Get_tol()                     { return _tol;                        }
-    void  Set_tol(float val)            { _tol  = std::max( 0.0f, val );      }
-
-    float Get_hmin()                    { return _hmin;                       }
-    void  Set_hmin(float val)           { _hmin = val;                        }
-
-    float Get_hmax()                    { return _hmax;                       }
-    void  Set_hmax(float val)           { _hmax = val;                        }
-
-    float Get_tpad()                    { return _tpad;                       }
-    void  Set_tpad(float val)           { _tpad = std::max( 0.0f, val );      }
-
-    float Get_rbf_radius()              { return _rbf_radius;                 }
-    void  Set_rbf_radius(float val)     { _rbf_radius = max( 0.001f, val );
-                                          _rbf_radius_sq = _rbf_radius *
-                                                           _rbf_radius;       }
-
-    float Get_rbf_radius_sq()           { return _rbf_radius_sq;              }
-    void  Set_rbf_radius_sq(float val)  { _rbf_radius_sq = max(0.000001f, val);
-                                          _rbf_radius = sqrtf(_rbf_radius_sq);}
-
-    void  Set_rbf_lut(const Numpy& lut) { _rbf_lut.assign(lut,true);          }
-    void  Set_rbf_integral_lut(const Numpy& lut)
-                                        { _rbf_integral_lut.assign(lut,true); }
-
-    const Numpy& Get_path()             { return _path;                       }
-    void  Set_path(const Numpy& p)      { _path.assign(p,true);               }
-    const Numpy& Get_exit_dir()         { return _exit_dir;                   }
-    void  Set_exit_dir(const Numpy& d)  { _exit_dir.assign(d,true);           }
-    const Numpy& Get_ray()              { return _ray;                        }
-    void  Set_ray(const Numpy& r)       { _ray.assign(r,true);                }
-    const Numpyi& Get_row_indices()     { return _row_indices;                }
-    void  Set_row_indices(const Numpyi& i) { _row_indices.assign(i,true);     }
-    const Numpy& Get_row_weights()      { return _row_weights;                }
-    void  Set_row_weights(const Numpy& w)  { _row_weights.assign(w,true);     }
-
-
-
-
-private: // internal methods
-public:  // make visible temporarily, just for debugging
-
-    void
-    Construct_AABB()
-    {
-        float xmin = _voxels[0].x;      float xmax = xmin;
-        float ymin = _voxels[0].y;      float ymax = ymin;
-        float zmin = _voxels[0].z;      float zmax = zmin;
-
-        foreach( const Voxel& voxel, _voxels )
-        {
-            xmin = min( xmin, voxel.x );
-            xmax = max( xmax, voxel.x );
-            ymin = min( ymin, voxel.y );
-            ymax = max( ymax, voxel.y );
-            zmin = min( zmin, voxel.z );
-            zmax = max( zmax, voxel.z );
-        }
-
-        // padding: enlarge slightly to account for outermost basis functions
-        float p = _rbf_radius;
-        _bbox = BBox( xmin-p,ymin-p,zmin-p, xmax+p,ymax+p,zmax+p );
-    }
 
 
 
@@ -286,25 +345,25 @@ public:  // make visible temporarily, just for debugging
 
     int                             /// Calculate the DCT of a Perceptual Hash
     Calculate_PHash_DCT(
-        const Numpyi&   srcimg,     /// uint8_t
+              Numpyi&   srcimg,     /// uint8_t
               ulong64   &hash       /// see pHash.h, ln# 360
     ) {
 
         CImg<float> meanfilter(7, 7, 1, 1, 1);
         CImg<float> img;
 
-        if (src.spectrum() == 3) {
+        if (srcimg.spectrum() == 3) {
             img = srcimg.RGBtoYCbCr().channel(0).get_convolve(meanfilter);
 
-        } else if (src.spectrum() == 4) {
+        } else if (srcimg.spectrum() == 4) {
             int width = img.width();
             int height = img.height();
             int depth = img.depth();
-            img = src.crop(0, 0, 0, 0, width-1, height-1, depth-1, 2).\
+            img = srcimg.crop(0, 0, 0, 0, width-1, height-1, depth-1, 2).\
                         RGBtoYCbCr().channel(0).get_convolve(meanfilter);
 
         } else {
-            img = src.channel(0).get_convolve(meanfilter);
+            img = srcimg.channel(0).get_convolve(meanfilter);
         }
 
         img.resize(32, 32);
@@ -408,6 +467,7 @@ public:  // make visible temporarily, just for debugging
     // in a matrix row, whereas the exitbuf only gains 3 entries per matrix row.
     // Since we only want to flush to disk rarely (when buffers are full) we do
     // these writes at potentially different times.
+    */
     void
     Write_ExitBuf_to_HDF5(
         const int N                         // num float values to write, N=3k
@@ -444,7 +504,7 @@ public:  // make visible temporarily, just for debugging
             // update matrix dimension attributes
             Group root = _h5->openGroup( "/" );
             Attribute size = root.openAttribute( "size" );
-            int sizeVal[] = { _h5_nRows, _voxels.size() };
+            int sizeVal[] = { _h5_nRows, (int)_voxels.size() };
             size.write( PredType::NATIVE_INT32, sizeVal );
         }
     }
@@ -498,7 +558,7 @@ public:  // make visible temporarily, just for debugging
             rows.write( &tmpRowsBuf[0], i32, mspace, fspace );
         }
     }
-
+    /*
 
 
 public: // main interaction methods
@@ -870,7 +930,7 @@ public: // main interaction methods
         // but be sure not to try to modify the file in another process
         // (i.e. from python) while this class still holds an open handle
     }
-
+    */
 
     void
     Close_HDF5()
@@ -895,7 +955,7 @@ public: // main interaction methods
         }
     }
 
-
+    /*
     // call this after tracing each ray. It maintains a 1:1 correspondence
     // between matrix rows and rays, even if the ray hits no voxels (nnz=0)
     // This function assumes that _exit_dir vector has already been set

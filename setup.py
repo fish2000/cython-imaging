@@ -51,9 +51,10 @@ ext_one = Extension('CIL.ext.rastersystem',
                 '/usr/X11/lib',
                 '/usr/lib'],
 
-            libraries=[
-                'pHash', 'hdf5', 'hdf5_cpp', 'gsl',
-                'boost', 'adolc', 'pthread'],
+            libraries=['stdc++',
+                'pHash', 'hdf5', 'hdf5_cpp',
+                'gsl', 'adolc', 'pthread',
+                'boost_system-mt', 'boost_regex-mt', 'boost_thread-mt'],
 
             extra_compile_args=[
                 '-std=c++0x',
