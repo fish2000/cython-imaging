@@ -18,7 +18,7 @@ from datetime import datetime
 from glob import glob
 from optparse import OptionParser
 import os, sys
-import pyvtk
+#import pyvtk
 
 
 ipython = hasattr(sys, 'ipcompleter')
@@ -116,7 +116,7 @@ class RasterSystem(CPlusPlusInterface):
 
     def __init__(self, dataDir):
         # currently need to be in the raytracer dir for this to work
-        self._dll = ctypes.cdll.LoadLibrary('./ext/build/libraytracer.dylib')
+        self._dll = ctypes.cdll.LoadLibrary('./ext/build/librastersystem.dylib')
         self._dll.RasterSystem_Get_Instance.restype = cvoidp
         self.obj = self._dll.RasterSystem_Get_Instance()
 
