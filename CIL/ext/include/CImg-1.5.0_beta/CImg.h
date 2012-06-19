@@ -5834,7 +5834,7 @@ namespace cimg_library_suffixed {
 #endif
 
     // End of the 'cimg' namespace
-  }
+};
 
   /*------------------------------------------------
    #
