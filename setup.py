@@ -47,7 +47,7 @@ ext_pathex =    lambda *pth: join('CIL', 'ext', 'src', *pth)
 
 ext_modules = [
         
-        Extension('rastersystem',
+        Extension('librastersystem',
             sources=[ext_pathex('rastersystem.cpp')],
             language='c++',
 
@@ -127,7 +127,7 @@ setup(
     ext_modules=ext_modules,
 
     setup_requires=[
-        'cython', 'h5py'
+        'cython'
     ],
 
     install_requires=[
