@@ -24,4 +24,4 @@ MANIFEST
 *.dropbox
 .dropbox
 
-
+cython_imaging.egg-info/

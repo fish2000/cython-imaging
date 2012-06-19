@@ -8,17 +8,15 @@
 
 
 import numpy as np
-from os.path import join, isdir, exists, join, basename, splitext
+from os.path import isdir, join, basename, splitext
 from scipy.integrate import quadrature
-from scipy import special, interpolate
-from math import pi, sqrt, floor
+from scipy import special
 from h5py import File
 
 from datetime import datetime
 from glob import glob
 from optparse import OptionParser
-import os, sys
-#import pyvtk
+import sys
 
 
 ipython = hasattr(sys, 'ipcompleter')
@@ -53,6 +51,7 @@ from ctypes import c_char_p as ccharp, c_bool as cbool
 from ctypes import c_uint64 as cuint64
 from ctypes import c_uint8 as cuint8
 from ctypes import c_double as cdouble
+from ctypes import POINTER
 from functools import partial
 
 ptrUInt8_3D = np.ctypeslib.ndpointer(dtype=np.uint8,   ndim=3, flags='CONTIGUOUS')
@@ -150,7 +149,7 @@ class RasterSystem(CPlusPlusInterface):
 
         # MY SHIT
         self.bindfunc( 'Calculate_PHash_Digest',    None,
-                        [ptrUInt8_3D, cdouble, cdouble, Digest(), cint] )
+                        [ptrUInt8_3D, cdouble, cdouble, self.Digest(), cint] )
         self.bindfunc( 'Calculate_PHash_DCT',       None,
                         [ptrUInt8_3D, ] )
 

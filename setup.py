@@ -5,14 +5,18 @@ setup.py
 
 Created by FI$H 2000 on 2012-06-19.
 Copyright (c) 2012 Objects In Space And Time, LLC. All rights reserved.
+
 """
 
 __author__ = 'Alexander Bohn'
+__contact__ = 'fish2000@gmail.com'
 __version__ = (0, 2, 0)
 
 
-from distutils.core import setup, Extension
 from setuptools import find_packages
+from os.path import join, dirname, abspath
+from distutils.core import setup, Extension
+from distutils.sysconfig import get_python_inc
 
 
 try:
@@ -22,40 +26,55 @@ except ImportError:
     import sys
     sys.exit(1)
 
+try:
+    pth = abspath(__file__)
+except (ValueError, AttributeError):
+    import os
+    pth = os.getcwd()
 
-ext_modules =   [
-                    Extension('CIL.ext.rastersystem', sources=['CIL/ext/rastersystem.cpp'],
-                        language='c++',
-                        include_dirs=[
-                            numpy.get_include(),
-                            '/usr/local/include/gsl',
-                            '/usr/local/include',
-                            '/usr/X11/include',
-                            '/usr/include'],
-                        library_dirs=[
-                            '/usr/local/lib',
-                            '/usr/X11/lib',
-                            '/usr/lib'],
-                        libraries=[
-                            'pHash','hdf5','hdf5_cpp','gsl',
-                            'boost','adolc','pthread'],
-                        extra_compile_args=[
-                            '-std=c++0x',
-                            "-PIC", "-dynamiclib", "-march=core2",
-                            "-msse4.1", "-pipe", "-frounding-math"],
-                        ),
-                ]
+ext_pathex = lambda *pth: join('CIL', 'ext', 'src', *pth)
+ext_one = Extension('CIL.ext.rastersystem',
+            sources=[ext_pathex('rastersystem.cpp')],
+            language='c++',
+
+            include_dirs=[
+                join(dirname(abspath(__file__)), 'CIL', 'ext', 'include'),
+                numpy.get_include(),
+                get_python_inc(plat_specific=1),
+                '/usr/local/include/gsl',
+                '/usr/local/include',
+                '/usr/X11/include',
+                '/usr/include'],
+
+            library_dirs=[
+                '/usr/local/lib',
+                '/usr/X11/lib',
+                '/usr/lib'],
+
+            libraries=[
+                'pHash', 'hdf5', 'hdf5_cpp', 'gsl',
+                'boost', 'adolc', 'pthread'],
+
+            extra_compile_args=[
+                '-std=c++0x',
+                "-PIC", "-dynamiclib", "-march=core2",
+                "-msse4.1", "-pipe", "-frounding-math"],
+
+            depends=[
+                ext_pathex('rastersystem.cpp')])
+
 
 
 setup(
-    name='django-signalqueue',
+    name='cython-imaging',
     version='%s.%s.%s' % __version__,
-    description='Truly asynchronous signal dispatch for Django!',
+    description='C++ imaging power with Pythonic aplomb',
+    long_description=""" C++ imaging power, with Pythonic aplomb. """,
 
     author=__author__,
-    author_email='fish2000@gmail.com',
+    author_email=__contact__,
     maintainer=__author__,
-    maintainer_email='fish2000@gmail.com',
+    maintainer_email=__contact__,
 
     license='BSD',
     url='http://github.com/fish2000/django-signalqueue/',
@@ -70,22 +89,19 @@ setup(
         'Cython',
         'Ctypes',
     ],
-
-    namespace_packages=['CIL'],
+    
     packages=find_packages(),
-    include_package_data=True,
-    package_data={
-        'CIL': [
-            'ext/*.cpp',
-            'ext/*.h',
-            'ext/include/*'],
-    },
+    
+    ext_modules=[ext_one],
+
     install_requires=[
-        'django-delegate>=0.2.2', 'tornado', 'tornadio2', 'redis',
+        'numpy', 'scipy', 'h5py', 'ipython',
     ],
+    
     tests_require=[
-        'nose', 'rednose', 'django-nose',
+        'nose', 'rednose',
     ],
+
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
@@ -95,6 +111,5 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2.7',
         'Topic :: Utilities'
-    ]
+    ],
 )
-

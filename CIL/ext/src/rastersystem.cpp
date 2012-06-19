@@ -112,13 +112,6 @@ private: // members
     // input ray to be traced, 6 element vector: x,y,z,dx,dy,dz, unit-length d
     Numpy                       _ray;
 
-    // GSL ODE
-    const gsl_odeiv_step_type*  _ode_T;
-    gsl_odeiv_step*             _ode_s;
-    gsl_odeiv_control*          _ode_c;
-    gsl_odeiv_evolve*           _ode_e;
-    gsl_odeiv_system            _ode_sys;
-
     // absolute error tolerance for determining ODE adaptive step size
     float                       _tol;
 
@@ -128,9 +121,6 @@ private: // members
 
     // controls ODE termination criteria
     float                       _tpad;
-
-    // axis-aligned bounding box for all voxels (vhull) in worldspace
-    BBox                        _bbox;
 
     // HDF5 output file
     scoped_ptr<H5File>          _h5;
@@ -157,7 +147,7 @@ private: // ctor
         _bbox(0,0,0,0,0,0),
         _rbf_radius(0),
         _rbf_radius_sq(0),
-        _ode_T(gsl_odeiv_step_rkf45),
+        /*_ode_T(gsl_odeiv_step_rkf45),*/
 
         _h5_chunk_size(8192),                       // 32Kb @ 4bytes each
         _h5_curRow(0),
@@ -341,7 +331,7 @@ public:  // make visible temporarily, just for debugging
     }
 
 
-
+    /*
     int
     Range_Search(
         const Voxel& voxel      // input query point
@@ -940,7 +930,7 @@ public: // main interaction methods
             }
         }
     }
-
+    */
 
 };
 
