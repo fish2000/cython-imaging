@@ -12,8 +12,16 @@ __author__ = 'Alexander Bohn'
 __contact__ = 'fish2000@gmail.com'
 __version__ = (0, 2, 0)
 
+# You have to import stuff from setuptools before
+# you import from distutils -- and by "before" I mean
+# "from a line in the file nearer to the top" --
+# or the act of doing the import will somehow cause
+# setuptools to sabotage the distutilitarian imports
+# ... notably the Extension class won't work. WTF.
+# that is srsly some unpythonic shit, you guys.
+# get it together.
 
-from setuptools import find_packages
+from setuptools import find_packages 
 from os.path import join, dirname, abspath
 from distutils.core import setup, Extension
 from distutils.sysconfig import get_python_inc
@@ -27,18 +35,24 @@ except ImportError:
     sys.exit(1)
 
 try:
-    pth = abspath(__file__)
+    septh = dirname(abspath(__file__))
 except (ValueError, AttributeError):
+    # not reliably this directory
     import os
-    pth = os.getcwd()
+    septh = os.getcwd() 
 
-ext_pathex = lambda *pth: join('CIL', 'ext', 'src', *pth)
-ext_one = Extension('CIL.ext.rastersystem',
+
+pathex =        lambda *pth: join(septh, *pth)
+ext_pathex =    lambda *pth: join('CIL', 'ext', 'src', *pth)
+
+ext_modules = [
+        
+        Extension('rastersystem',
             sources=[ext_pathex('rastersystem.cpp')],
             language='c++',
 
             include_dirs=[
-                join(dirname(abspath(__file__)), 'CIL', 'ext', 'include'),
+                pathex('CIL', 'ext', 'include'),
                 numpy.get_include(),
                 get_python_inc(plat_specific=1),
                 '/usr/local/include/gsl',
@@ -54,16 +68,22 @@ ext_one = Extension('CIL.ext.rastersystem',
             libraries=['stdc++',
                 'pHash', 'hdf5', 'hdf5_cpp',
                 'gsl', 'adolc', 'pthread',
-                'boost_system-mt', 'boost_regex-mt', 'boost_thread-mt'],
+                'boost_system-mt',
+                'boost_thread-mt',
+                'boost_regex-mt'],
 
             extra_compile_args=[
-                '-std=c++0x',
+                '-std=c++0x', "-O4", "-DNDEBUG"
                 "-PIC", "-dynamiclib", "-march=core2",
                 "-msse4.1", "-pipe", "-frounding-math"],
 
             depends=[
-                ext_pathex('rastersystem.cpp')])
-
+                pathex('setup.py'),
+                ext_pathex('rastersystem.cpp')]
+            
+            ),
+        
+        ]
 
 
 setup(
@@ -92,11 +112,26 @@ setup(
     ],
     
     packages=find_packages(),
-    
-    ext_modules=[ext_one],
+    namespace_packages=['CIL'],
+    include_package_data=True,
+    package_data={
+        'CIL': [
+            'ext/*.cpp',
+            'ext/*.h',
+            'ext/src/*',
+            'ext/include/*'],
+    },
+
+    ext_package='CIL.ext',
+    ext_modules=ext_modules,
+
+    setup_requires=[
+        'cython', 'ctypes'
+    ],
 
     install_requires=[
         'numpy', 'scipy', 'h5py', 'ipython',
+        'PIL', 'ctypes'
     ],
     
     tests_require=[
