@@ -8,7 +8,8 @@
 
 
 import numpy as np
-from os.path import isdir, join, basename, splitext
+from os.path import isdir, join, basename, dirname, abspath, splitext
+from os import getcwd, chdir
 from scipy.integrate import quadrature
 from scipy import special
 from h5py import File
@@ -47,8 +48,9 @@ log = log_quiet
 #############################################################################################
 import ctypes
 from ctypes import c_void_p as cvoidp, c_int as cint, c_float as cfloat
-from ctypes import c_char_p as ccharp, c_bool as cbool
-from ctypes import c_uint64 as cuint64
+from ctypes import c_char_p as ccharp
+#from ctypes import c_bool as cbool
+#from ctypes import c_uint64 as cuint64
 from ctypes import c_uint8 as cuint8
 from ctypes import c_double as cdouble
 from ctypes import POINTER
@@ -69,20 +71,27 @@ ptrUInt64_2D = np.ctypeslib.ndpointer(dtype=np.uint64,   ndim=2, flags='CONTIGUO
 ptrUInt64    = np.ctypeslib.ndpointer(dtype=np.uint64,   ndim=1, flags='CONTIGUOUS')
 
 class CPlusPlusInterface(object):
+    
     def bindfunc(self, name, restype=None, argtypes=[]):
         mangledName = self.__class__.__name__ + '_' + name
         self._dll.__setattr__(mangledName, self._dll.__getattr__(mangledName))
+        
         func = self._dll.__getattr__(mangledName)
         func.restype = restype
         func.argtypes = [cvoidp] + argtypes
+        
         self.__setattr__(name, partial(func, self.obj))
-
+        self._name = {
+            'name': name,
+            'mangledName': mangledName}
 
 
 
 #############################################################################################
 # Example external C++ library interface
 #############################################################################################
+
+'''
 
 class ExampleWrapper(CPlusPlusInterface):
 
@@ -99,7 +108,14 @@ class ExampleWrapper(CPlusPlusInterface):
         self._Sum_Array = self.Sum_Array
         self.Sum_Array = lambda X: self._Sum_Array(np.ascontiguousarray(X), *X.shape)
 
+'''
 
+try:
+    if __file__:
+        pass
+except:
+    from os import environ
+    __file__ = environ.get('PWD')
 
 
 #############################################################################################
@@ -115,7 +131,8 @@ class RasterSystem(CPlusPlusInterface):
 
     def __init__(self, dataDir):
         # currently need to be in the raytracer dir for this to work
-        self._dll = ctypes.cdll.LoadLibrary('./ext/librastersystem.so')
+        chdir(abspath(dirname(__file__)))
+        self._dll = ctypes.cdll.LoadLibrary(join(getcwd(), 'ext/librastersystem.so'))
         self._dll.RasterSystem_Get_Instance.restype = cvoidp
         self.obj = self._dll.RasterSystem_Get_Instance()
 
@@ -187,7 +204,7 @@ class RasterSystem(CPlusPlusInterface):
         assert isdir( dataDir ), "Invalid data directory"
         self.dataDir = dataDir
         voxelFile  = join( dataDir, 'voxels.h5' )
-        rayFile    = join( dataDir, 'rays.h5' )
+        #rayFile    = join( dataDir, 'rays.h5' )
 
         # get interVoxelSpace of finest resolution grid
         log( "Loading " + voxelFile )
@@ -257,7 +274,7 @@ class RasterSystem(CPlusPlusInterface):
                     raise ValueError( "LUT resolution mismatch" )
                 if rbf_lut.size != resolution:
                     raise ValueError( "LUT resolution mismatch" )
-        except IOError, ValueError:
+        except (IOError, ValueError):
             # if it didn't already exist in correct size, create data and save
             (rbf_lut, rbf_integral_lut) = self.kaiser_bessel_filter( resolution, alpha )
             with File( lutFilename, 'w' ) as dat:
@@ -297,7 +314,7 @@ class RasterSystem(CPlusPlusInterface):
         pair = self.Solve_ODE()
         # decode the 'tuple' of two 16bit ints packed into single 32bit int
         pathLength = pair >> 16
-        nnz = pair - (pathLength << 16)
+        #nnz = pair - (pathLength << 16)
         if pathLength > 0:
             # return angle difference between ingoing and exiting directions (radians)
             dot = np.dot( ray[3:], self.exitDir )
