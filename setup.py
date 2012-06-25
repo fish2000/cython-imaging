@@ -46,7 +46,10 @@ pathex =        lambda *pth: join(septh, *pth)
 ext_pathex =    lambda *pth: join('CIL', 'ext', 'src', *pth)
 
 ext_modules = [
+
         
+
+        # librastersystem: C++ called via ctypes
         Extension('librastersystem',
             sources=[ext_pathex('rastersystem.cpp')],
             language='c++',
