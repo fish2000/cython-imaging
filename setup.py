@@ -21,7 +21,7 @@ __version__ = (0, 2, 0)
 # that is srsly some unpythonic shit, you guys.
 # get it together.
 
-from setuptools import find_packages 
+from setuptools import find_packages
 from os.path import join, dirname, abspath
 from distutils.core import setup, Extension
 from distutils.sysconfig import get_python_inc
@@ -39,7 +39,7 @@ try:
 except (ValueError, AttributeError):
     # not reliably this directory
     import os
-    septh = os.getcwd() 
+    septh = os.getcwd()
 
 
 pathex =        lambda *pth: join(septh, *pth)
@@ -115,7 +115,7 @@ setup(
     ],
     
     packages=find_packages(),
-    namespace_packages=['CIL'],
+    namespace_packages=['CIL', 'ciltools'],
     include_package_data=True,
     package_data={
         'CIL': [

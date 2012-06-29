@@ -11,8 +11,9 @@ from __future__ import with_statement
 class CInspectorException(Exception):
     pass
 
+import re
 from os.path import abspath, dirname, join
-#from pybindgen import FileCodeSink
+from collections import OrderedDict
 from pybindgen.gccxmlparser import ModuleParser
 
 class CInspector(object):
@@ -85,7 +86,7 @@ class CInspector(object):
                         cimg_member_classes)))
         return self.cimg_class_typemap
     
-    def get_cimg_methods_for_type(self, typename='char'):
+    def get_cimg_methods_for_type(self, typename='char', exclude_pattern=None):
         cimg_types = self.get_cimg_types()
         if not typename in cimg_types:
             raise CInspectorException("get_cimg_methods_for_type(): <T> typename %s isn't valid.")
@@ -110,7 +111,18 @@ class CInspector(object):
                         #return_value_class_name=method_overload.return_value.cpp_class.name),
                         #return_value_py_name=method_overload.return_value.py_name,
                         ))
-        return self.cimg_methods[typename]
+        out = None
+        if exclude_pattern is None:
+            out = self.cimg_methods[typename]
+        else:
+            excluder = re.compile(exclude_pattern)
+            out = OrderedDict(
+                sorted(
+                    filter(
+                        lambda tup: excluder.match(tup[0]) is None,
+                        self.cimg_methods[typename].items()),
+                    key=lambda tup: tup[0]))
+        return out
     
     def get_cimg_constructors_for_type(self, typename='char'):
         cimg_types = self.get_cimg_types()
@@ -128,6 +140,7 @@ class CInspector(object):
         return self.cimg_constructors[typename]
 
 def load_pickled_cinspector():
+    from ciltools.cinspector import CInspector
     import cPickle as pickle
     out = None
     barrel_pth = join(CInspector.package_root, 'cinspect.dump')
