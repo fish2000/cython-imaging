@@ -1,0 +1,74 @@
+ccopy_reg
+_reconstructor
+p1
+(c__main__
+CInspector
+p2
+c__builtin__
+object
+p3
+NtRp4
+(dp5
+S'cimg_path'
+p6
+S'/Users/fish/Dropbox/cython-imaging/CIL/ext/include/CImg.h'
+p7
+sS'cimg_class_names'
+p8
+c__builtin__
+set
+p9
+((lp10
+S'cimg_library::CImg< float >'
+p11
+aS'cimg_library::CImg< unsigned short >'
+p12
+aS'cimg_library::CImg< long >'
+p13
+aS'cimg_library::CImg< int >'
+p14
+aS'cimg_library::CImg< unsigned long >'
+p15
+aS'cimg_library::CImg< unsigned int >'
+p16
+aS'cimg_library::CImg< char >'
+p17
+aS'cimg_library::CImg< unsigned char >'
+p18
+aS'cimg_library::CImg< short >'
+p19
+aS'cimg_library::CImg< bool >'
+p20
+aS'cimg_library::CImg< double >'
+p21
+atRp22
+sS'cimg_types'
+p23
+g9
+((lp24
+S'short'
+p25
+aS'int'
+p26
+aS'double'
+p27
+aS'unsigned char'
+p28
+aS'float'
+p29
+aS'long'
+p30
+aS'char'
+p31
+aS'unsigned short'
+p32
+aS'bool'
+p33
+aS'signed char'
+p34
+aS'unsigned long'
+p35
+aS'unsigned int'
+p36
+atRp37
+sb.
