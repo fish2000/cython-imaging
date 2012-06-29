@@ -56,6 +56,7 @@ ext_modules = [
 
             include_dirs=[
                 pathex('CIL', 'ext', 'include'),
+                pathex('CIL', 'ext', 'include', 'CImg'),
                 numpy.get_include(),
                 get_python_inc(plat_specific=1),
                 '/usr/local/include/gsl',
@@ -101,7 +102,7 @@ setup(
     maintainer_email=__contact__,
 
     license='BSD',
-    url='http://github.com/fish2000/django-signalqueue/',
+    url='http://github.com/fish2000/cython-imaging/',
     keywords=[
         'imaging',
         'CImg', 'C++',
@@ -145,7 +146,6 @@ setup(
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
-        'Framework :: Django',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',

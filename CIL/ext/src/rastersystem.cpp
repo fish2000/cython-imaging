@@ -45,8 +45,7 @@
 
 #include <flann/flann.hpp>
 
-
-/* #include <CImg.h> */
+#include <CImg.h>
 #include <pHash.h>
 #include <H5Cpp.h>
 

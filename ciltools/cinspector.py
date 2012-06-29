@@ -23,7 +23,7 @@ class CInspector(object):
     
     def __init__(self, cimg_path=None):
         if cimg_path is None:
-            cimg_path = join(self.package_root, 'CIL', 'ext', 'include', 'CImg.h')
+            cimg_path = join(self.package_root, 'CIL', 'ext', 'include', 'CImg', 'CImg.h')
         self.cimg_path = cimg_path
         self.cimg_methods = {}
         self.cimg_constructors = {}
