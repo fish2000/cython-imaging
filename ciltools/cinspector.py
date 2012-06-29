@@ -25,6 +25,7 @@ class CInspector(object):
             cimg_path = join(self.package_root, 'CIL', 'ext', 'include', 'CImg.h')
         self.cimg_path = cimg_path
         self.cimg_methods = {}
+        self.cimg_constructors = {}
         self.modules = dict([(mdname, None) for mdname in self.module_names])
         self.parsers = dict([(str(md), ModuleParser('CImg', md)) for md in self.modules.keys()])
     
@@ -87,10 +88,53 @@ class CInspector(object):
     def get_cimg_methods_for_type(self, typename='char'):
         cimg_types = self.get_cimg_types()
         if not typename in cimg_types:
-            raise CInspectorException("<T> typename %s isn't valid.")
+            raise CInspectorException("get_cimg_methods_for_type(): <T> typename %s isn't valid.")
         if not typename in self.cimg_methods.keys():
-            pass
+            self.cimg_methods[typename] = dict()
+            cls = self.get_cimg_class_typemap()[typename]
+            for method_name, method in cls.methods.items():
+                self.cimg_methods[typename][method.wrapper_name] = list()
+                for method_overload in method.wrappers:
+                    self.cimg_methods[typename][method.wrapper_name].append(dict(
+                        overload_index=method_overload.overload_index,
+                        deprecated=method_overload.deprecated,
+                        is_const=method_overload.is_const,
+                        is_static=method_overload.is_static,
+                        is_virtual=method_overload.is_virtual,
+                        is_pure_virtual=method_overload.is_pure_virtual,
+                        method_name=method_overload.method_name,
+                        meth_flags=method_overload.meth_flags,
+                        visibility=method_overload.visibility,
+                        template_parameters=method_overload.template_parameters,
+                        return_value=method_overload.return_value.value,
+                        #return_value_class_name=method_overload.return_value.cpp_class.name),
+                        #return_value_py_name=method_overload.return_value.py_name,
+                        ))
+        return self.cimg_methods[typename]
+    
+    def get_cimg_constructors_for_type(self, typename='char'):
+        cimg_types = self.get_cimg_types()
+        if not typename in cimg_types:
+            raise CInspectorException("get_cimg_constructors_for_type(): <T> typename %s isn't valid.")
+        if not typename in self.cimg_constructors.keys():
+            self.cimg_constructors[typename] = list()
+            cls = self.get_cimg_class_typemap()[typename]
+            for constructor in cls.constructors:
+                self.cimg_constructors[typename].append(dict(
+                    overload_index=constructor.overload_index,
+                    parameters=[dict(name=p.name, value=p.value, default=p.default_value, ctype=p.ctype) for p in constructor.parameters],
+                    meth_flags=constructor.meth_flags,
+                    visibility=constructor.visibility))
+        return self.cimg_constructors[typename]
 
+def load_pickled_cinspector():
+    import cPickle as pickle
+    out = None
+    barrel_pth = join(CInspector.package_root, 'cinspect.dump')
+    print "Loading pickled CInspector data from %s" % barrel_pth
+    with open(barrel_pth, 'rb') as barrel:
+        out = pickle.load(barrel)
+    return out
 
 def main():
     from pprint import pprint
@@ -109,11 +153,15 @@ def main():
     
     print ""
     for T, cls in cinspector.get_cimg_class_typemap().items():
+        ctors = cinspector.get_cimg_constructors_for_type(T)
+        methods = cinspector.get_cimg_methods_for_type(T)
         print "\t %s:" % cls.full_name
         print "\t\t typename %s" % T
-        print "\t\t\t %5s Constructors" % len(cls.constructors)
+        print "\t\t\t %5s Constructors (from cls.constructors)" % len(cls.constructors)
+        print "\t\t\t %5s Constructors (from get_cimg_constructors_for_type())" % len(ctors)
         print "\t\t\t %5s Methods (from cls.methods)" % len(cls.methods)
         print "\t\t\t %5s Methods (from cls.get_all_methods())" % len(list(cls.get_all_methods()))
+        print "\t\t\t %5s Methods (from get_cimg_methods_for_type())" % len(methods.keys())
     
     print ""
     barrel_pth = join(CInspector.package_root, 'cinspect.dump')
@@ -123,9 +171,7 @@ def main():
     
     print ""
     print "Done."
-    
-    
-    
+
 
 if __name__ == '__main__':
     main()
