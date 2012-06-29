@@ -47,10 +47,11 @@ log = log_quiet
 # C++ interface glue
 #############################################################################################
 import ctypes
-from ctypes import c_void_p as cvoidp, c_int as cint, c_float as cfloat
-from ctypes import c_char_p as ccharp
+from ctypes import c_void_p as cvoidp, c_int as cint
+#from ctypes import c_float as cfloat
+#from ctypes import c_char_p as ccharp
 #from ctypes import c_bool as cbool
-#from ctypes import c_uint64 as cuint64
+from ctypes import c_uint64 as cuint64
 from ctypes import c_uint8 as cuint8
 from ctypes import c_double as cdouble
 from ctypes import POINTER
@@ -135,7 +136,8 @@ class RasterSystem(CPlusPlusInterface):
         self._dll = ctypes.cdll.LoadLibrary(join(getcwd(), 'ext/librastersystem.so'))
         self._dll.RasterSystem_Get_Instance.restype = cvoidp
         self.obj = self._dll.RasterSystem_Get_Instance()
-
+        
+        """
         # setters
         self.bindfunc( 'Bind_Path',             None,
                         [ptrFloat_2D, cint] )
@@ -163,13 +165,16 @@ class RasterSystem(CPlusPlusInterface):
                         [ptrFloat_2D, cint, ptrFloat, ptrFloat_2D] )
         self.bindfunc( 'Solve_ODE',             cint,
                         [] )
-
+        
+        """
+        
         # MY SHIT
         self.bindfunc( 'Calculate_PHash_Digest',    None,
-                        [ptrUInt8_3D, cdouble, cdouble, self.Digest(), cint] )
+                        [ptrUInt8_3D, cdouble, cdouble, self.Digest, cint] )
         self.bindfunc( 'Calculate_PHash_DCT',       None,
-                        [ptrUInt8_3D, ] )
-
+                        [ptrUInt8_3D, cuint64] )
+        
+        """
         # for debugging
         self.bindfunc( 'Build_Matrix_Row',      cint,
                         [ptrFloat_2D, cint] )
@@ -183,7 +188,7 @@ class RasterSystem(CPlusPlusInterface):
                         [] )
         self.bindfunc( 'Get_HMax',              cfloat,
                         [] )
-
+        """
         # init ray in/out buffers
         self.ray = np.zeros( 6, dtype=np.float32 )
         self.Bind_Ray( self.ray )

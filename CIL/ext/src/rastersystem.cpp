@@ -45,7 +45,10 @@
 
 #include <flann/flann.hpp>
 
-#include <CImg.h>
+#define cimg_display 0
+#define cimg_debug 1
+
+/*#include <CImg.h>*/
 #include <pHash.h>
 #include <H5Cpp.h>
 
@@ -59,6 +62,23 @@ typedef flann::Matrix<float>                            Matrixf;
 typedef cimg_library::CImg<float>                       Numpy;
 typedef cimg_library::CImg<int>                         Numpyi;
 
+
+#define DCT_MATRIX_SIZE 32
+
+cimg_library::CImg<float>* get_dct_matrix() {
+
+    cimg_library::CImg<float> *dct_matrix = new cimg_library::CImg<float>(
+        DCT_MATRIX_SIZE, DCT_MATRIX_SIZE,
+        1, 1, 1/sqrt((float)DCT_MATRIX_SIZE));
+
+    for (int x = 0; x < DCT_MATRIX_SIZE; x++) {
+        for (int y = 1; y < DCT_MATRIX_SIZE; y++) {
+            dct_matrix->at(x, y) = SQRT_TWO * cos((cimg::PI/2/DCT_MATRIX_SIZE) * y * (2 * (x + 1)));
+        }
+    }
+
+    return dct_matrix;
+}
 
 struct Voxel
 {
@@ -344,7 +364,7 @@ public: // accessors
 
     int                             /// Calculate the DCT of a Perceptual Hash
     Calculate_PHash_DCT(
-              Numpyi&   srcimg,     /// uint8_t
+        const Numpyi&   srcimg,     /// uint8_t
               ulong64   &hash       /// see pHash.h, ln# 360
     ) {
 
@@ -352,21 +372,22 @@ public: // accessors
         CImg<float> img;
 
         if (srcimg.spectrum() == 3) {
-            img = srcimg.RGBtoYCbCr().channel(0).get_convolve(meanfilter);
+            img = srcimg.get_RGBtoYCbCr().channel(0).get_convolve(meanfilter);
 
         } else if (srcimg.spectrum() == 4) {
             int width = img.width();
             int height = img.height();
             int depth = img.depth();
-            img = srcimg.crop(0, 0, 0, 0, width-1, height-1, depth-1, 2).\
-                        RGBtoYCbCr().channel(0).get_convolve(meanfilter);
+            img = srcimg.get_crop(0, 0, 0, 0, width-1, height-1, depth-1, 2).\
+                        RGBtoYCbCr().get_channel(0).get_convolve(meanfilter);
 
         } else {
-            img = srcimg.channel(0).get_convolve(meanfilter);
+            img = srcimg.get_channel(0).get_convolve(meanfilter);
         }
 
         img.resize(32, 32);
-        CImg<float> *C = ph_dct_matrix(32);
+        /*CImg<float> *C = ph_dct_matrix(32);*/
+        CImg<float> *C = get_dct_matrix();
         CImg<float> Ctransp = C->get_transpose();
 
         CImg<float> dctImage = (*C)*img*Ctransp;
@@ -995,3 +1016,164 @@ public: // main interaction methods
 
 
 
+// interface to expose class methods to Python via C API (using ctypes)
+RasterSystem* asrt(void* ptr)
+{
+    return static_cast<RasterSystem*>(ptr);
+}
+extern "C"
+{
+    void* RasterSystem_Get_Instance(void)
+    {
+        return &(RasterSystem::Get_Instance());
+    }
+
+    void* RasterSystem_Calculate_PHash_Digest(void* ptr,
+        const unsigned char* numpyImg,
+        double sigma, double gamma,
+        Digest digest, int N
+    ) {
+        const Numpyi tmp( numpyImg, 3, 1, 1, 1, true );
+        asrt(ptr)->Calculate_PHash_Digest( tmp, sigma, gamma, digest, N );
+    }
+    void* RasterSystem_Calculate_PHash_DCT(void* ptr,
+        const unsigned char* numpySrcImg,
+        unsigned long long hash
+    ) {
+        const Numpyi tmp( numpySrcImg, 3, 1, 1, 1, true );
+        asrt(ptr)->Calculate_PHash_DCT( tmp, hash );
+    }
+
+    /*
+    void RasterSystem_Bind_Path(void* ptr,
+        const float* numpyPath, const int maxSteps   // maxSteps rows x 3 cols
+    ) {
+        const Numpy tmp( numpyPath, 3, maxSteps, 1, 1, true );
+        asrt(ptr)->Set_path( tmp );
+    }
+
+    void RasterSystem_Bind_Ray(void* ptr,
+        const float* ray                            // 6 element vector
+    ) {
+        const Numpy tmp( ray, 6, 1, 1, 1, true );
+        asrt(ptr)->Set_ray( tmp );
+    }
+
+    void RasterSystem_Bind_Exit_Dir(void* ptr,
+        const float* numpyDir                       // 3 element vector
+    ) {
+        const Numpy tmp( numpyDir, 3, 1, 1, 1, true );
+        asrt(ptr)->Set_exit_dir( tmp );
+    }
+
+    void RasterSystem_Bind_Row_Indices(void* ptr,
+        const int* numpyIndices, const int n        // n element vector
+    ) {
+        const Numpyi tmp( numpyIndices, n, 1, 1, 1, true );
+        asrt(ptr)->Set_row_indices( tmp );
+    }
+
+    void RasterSystem_Bind_Row_Weights(void* ptr,
+        const float* numpyWeights, const int n      // n element vector
+    ) {
+        const Numpy tmp( numpyWeights, n, 1, 1, 1, true );
+        asrt(ptr)->Set_row_weights( tmp );
+    }
+
+    void RasterSystem_Bind_RBF_LUT(void* ptr,
+        const float* numpyLUT, const int n          // n element vector
+    ) {
+        const Numpy tmp( numpyLUT, n, 1, 1, 1, true );
+        asrt(ptr)->Set_rbf_lut( tmp );
+    }
+
+    void RasterSystem_Bind_RBF_Integral_LUT(void* ptr,
+        const float* numpyLUT, const int n          // n element vector
+    ) {
+        const Numpy tmp( numpyLUT, n, 1, 1, 1, true );
+        asrt(ptr)->Set_rbf_integral_lut( tmp );
+    }
+
+    // in world units (ie inches)
+    void RasterSystem_Set_RBF_Radius(void* ptr,
+        const float radius                          // note: NOT squared
+    ) {
+        asrt(ptr)->Set_rbf_radius( radius );
+        asrt(ptr)->Set_hmin( radius / 3 );
+        asrt(ptr)->Set_hmax( radius * 3 );
+    }
+
+    void RasterSystem_Init_HDF5(void* ptr,
+        const char* filename                        // fully qualified path
+    ) {
+        asrt(ptr)->Init_HDF5( filename );
+    }
+    */
+
+    void RasterSystem_Close_HDF5(void* ptr)
+    {
+        asrt(ptr)->Close_HDF5();
+    }
+
+    /*
+    void RasterSystem_Insert_Points(void* ptr,
+        const float* numpyPoints, const int nPoints,// nPoints rows x 3 cols
+        const float* rindices,                      // nPoints rows x 1 col
+        const float* gradients                      // nPoints rows x 3 cols
+    ) {
+        const Numpy pts(  numpyPoints, 3, nPoints,  1, 1, true );
+        const Numpy ind(  rindices,    nPoints, 1,  1, 1, true );
+        const Numpy grad( gradients,   3, nPoints,  1, 1, true );
+        asrt(ptr)->Insert_Points( pts, ind, grad );
+    }
+
+    int RasterSystem_Solve_ODE(void* ptr
+    ) {
+        return asrt(ptr)->Solve_ODE();
+    }
+
+    // these are not part of the public API
+    // just here for debugging
+
+    int RasterSystem_Build_Matrix_Row(void* ptr,
+        const float* numpyPoints, const int mPoints
+    ) {
+        const Numpy tmp( numpyPoints, 3, mPoints, 1, 1, true );
+        return asrt(ptr)->Build_Matrix_Row( tmp, mPoints );
+    }
+
+    int RasterSystem_Range_Search(void* ptr,
+        const float x, const float y, const float z
+    ) {
+        const Voxel voxel( 0, x,y,z, 0, 0,0,0 );
+        return asrt(ptr)->Range_Search( voxel );
+    }
+
+    float RasterSystem_Interpolate(void* ptr,
+        const float x, const float y, const float z,
+        float* gradient
+    ) {
+        Voxel voxel( 0, x,y,z, 0, 0,0,0 );
+        asrt(ptr)->Interpolate( voxel );
+        gradient[0] = voxel.gx;
+        gradient[1] = voxel.gy;
+        gradient[2] = voxel.gz;
+        return voxel.rindex;
+    }
+
+    float RasterSystem_Get_RBF_Radius(void* ptr)
+    {
+        return asrt(ptr)->Get_rbf_radius();
+    }
+
+    float RasterSystem_Get_HMin(void* ptr)
+    {
+        return asrt(ptr)->Get_hmin();
+    }
+
+    float RasterSystem_Get_HMax(void* ptr)
+    {
+        return asrt(ptr)->Get_hmax();
+    }
+    */
+}
