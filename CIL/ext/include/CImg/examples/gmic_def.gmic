@@ -337,9 +337,14 @@ _display_graph : -check "${1=640}>32 && ${2=480}>32" -skip ${3=1},${4=0},${5=0},
     -line[-1] 0,0,100%,0,1,110 -line[-1] 100%,0,100%,100%,1,110
     -line[-1] 100%,100%,0,100%,1,255 -line[-1] 0,100%,0,0,1,255
 
-    100%,100% -axes[-1] $xmin,{$xmin+($xmax-$xmin)*($siz-$one)/($siz-1)},$ymax,$ymin,13,1,1
-    --dilate[-1] 3 --[-1] [-2] -*[-1] 200 -eq[-2] 0
-    -*[-3,-2] -+[-2,-1] -c[-1] 0,255
+    100%,100%,1,1,255
+    xmax_={$xmin+($xmax-$xmin)*($siz-$one)/($siz-1)}
+    -v + -axes[-1] $xmin,$xmax_,$ymax,$ymin,13,1,0 -v -
+    -if {$xmin>0} -axes[-1] 0,0,$ymax,$ymin,13,1,160 -endif
+    -if {$xmax<0} -axes[-1] {w-1},{w-1},$ymax,$ymin,13,1,160 -endif
+    -if {$ymin>0} -axes[-1] $xmin,$xmax_,{h-1},{h-1},13,1,160 -endif
+    -if {$ymax<0} -axes[-1] $xmin,$xmax_,0,0,13,1,160 -endif
+    --erode[-1] 3 -neq[-1] 255 -r[-2] 100%,100%,1,3 -j[-3] [-2],0,0,0,0,1,[-1],1 -rm[-2,-1]
 
     -frame[-1] 16,16,220
     0 -text[-1] "X-axis",0,0,13,1,-220,-220,-220 -j[-2] [-1],{(@{-2,w}-w)/2},{@{-2,h}-16},0,0,-1 -rm[-1]
@@ -1687,6 +1692,15 @@ to_graya :
     -endif
   -mv[-1] 0 -done -v +
 
+#@gmic to_pseudogray
+#@gmic : Convert selected (float-valued) scalar images to (int-valued) pseudo-gray color images.
+#@gmic : The pseudo-gray technique has been introduced by Rich Franzen [http://r0k.us/graphics/pseudoGrey.html].
+to_pseudogray :
+  -e[^-1] "Convert (float-valued) scalar image$? to (int-valued) pseudo-gray color images."
+  -v - -channels 0 -* 6.9765625 -round 1 -i[0] (0,0,1,1,0,0,1^0,0,0,0,1,1,1^0,1,0,1,0,1,0)
+  -repeat {@#-1} --/[-1] 7 -round[-1] 1,-1 -%[-2] 7 -map[-2] [0] -+[-2,-1] -mv[-1] 1 -done
+  -rm[0] -v +
+
 #@gmic to_rgb
 #@gmic : Force selected images to be in RGB mode.
 to_rgb :
@@ -1775,6 +1789,7 @@ append_tiles : -skip ${1=0},${2=1}
     -e[0--3] "Append image$?, as new $1x$2-tiled images." -v -
     M=$1 N=$2
   -endif
+  -if {!@#} -v + -return -endif
   -if {@#%$M} {$M-(@#%$M)} -s[-1] x N={round(@#/$M)} -endif
   -repeat $M i=$> w=0 -repeat {@#/$M} w={max($w,@{{$i+$M*$>},w})} -done -r[$i--1:$M] $w,100%,100%,100%,0,0,0.5,0.5 -done
   MN={$M*$N}
@@ -8983,6 +8998,7 @@ _gimp_no_preview :
 # #@gimp : You are strongly encouraged to download and install this updated version, by clicking on one of the following urls :"}
 # #@gimp : note = note{"\n<span foreground="purple"><u>Windows version :</u></span>"}
 # #@gimp : url = link{"Download G'MIC plug-in for Windows (32 bits)","http://downloads.sourceforge.net/gmic/gmic_gimp_win32.exe"}
+# #@gimp : url = link{"Download G'MIC plug-in for Windows (64 bits)","http://downloads.sourceforge.net/gmic/gmic_gimp_win64.zip"}
 # #@gimp : note = note{"<b>Installation </b>: unzip the archive files and copy them into folder\n
 # #@gimp :              <i>C:\\Program Files\\GIMP\\lib\\gimp\\2.0\\plug-ins\</i>"}
 # #@gimp : note = note{"\n<span foreground="purple"><u>Linux version :</u></span>"}
@@ -9243,10 +9259,10 @@ gimp_logo_ca :
 #@gimp : - <b>2011/06/08</b> : version <i>1.4.9.5</i>.\n
 #@gimp : - <b>2011/07/07</b> : version <i>1.5.0.0</i>.\n
 #@gimp : - <b>2012/03/01</b> : version <i>1.5.1.0</i>.\n
-#@gimp : - <span foreground="purple"><b>2012/06/08</b> : version <i>1.5.1.5</i> (Current stable).</span>\n
+#@gimp : - <span foreground="purple"><b>2012/06/20</b> : version <i>1.5.1.6</i> (Current stable).</span>\n
 #@gimp : "}
-#@gimp : link = link("View latest changelog","http://www.flickr.com/groups/gmic/discuss/72157629888696326/")
-#@gimp : sep = separator(), note = note("<small>Author : <i>David Tschumperl&#233;</i>.      Latest update : <i>2012/06/08</i>.</small>")
+#@gimp : link = link("View latest changelog","http://www.flickr.com/groups/gmic/discuss/72157630110216638/")
+#@gimp : sep = separator(), note = note("<small>Author : <i>David Tschumperl&#233;</i>.      Latest update : <i>2012/06/20</i>.</small>")
 
 #@gimp Contributors : _none_, _none_
 #@gimp : note = note{"
@@ -9284,13 +9300,14 @@ gimp_logo_ca :
 
 #@gimp Friends Hall of Fame : _none_, gimp_friends
 #@gimp : note = note{"\n<span foreground="purple" underline="single">Donators :</span>"}
-#@gimp : note = note{" <b>-</b> We've received <b>4</b> donations from <b>G'MIC</b> mega-enthusiasts so far.
-#@gimp :               You could be the 5th donator :)"}
+#@gimp : note = note{" <b>-</b> We've received <b>5</b> donations from <b>G'MIC</b> mega-enthusiasts so far.
+#@gimp :               You could be the 6th donator :)"}
 #@gimp : note = note{" <b>-</b> A big hug goes to these folks (recently received first) :"}
-#@gimp : link = link(0,"[1] Eddy Vervest","http://www.flickr.com/people/twekkel/")
-#@gimp : link = link(0,"[2] Steven Shupe","http://www.flickr.com/photos/ssshupe/")
-#@gimp : link = link(0,"[3] Flavio Casadei Della Chiesa","http://www.flaviocdc.net/wiki/")
-#@gimp : link = link(0,"[4] Lyle Kroll","http://www.artwanted.com/artist.cfm?artid=10918")
+#@gimp : link = link(0,"[1] Matt Jones","https://plus.google.com/116658221461047313647")
+#@gimp : link = link(0,"[2] Eddy Vervest","http://www.flickr.com/people/twekkel/")
+#@gimp : link = link(0,"[3] Steven Shupe","http://www.flickr.com/photos/ssshupe/")
+#@gimp : link = link(0,"[4] Flavio Casadei Della Chiesa","http://www.flaviocdc.net/wiki/")
+#@gimp : link = link(0,"[5] Lyle Kroll","http://www.artwanted.com/artist.cfm?artid=10918")
 #@gimp : sep = separator()
 #@gimp : note = note{"\n<span foreground="purple" underline="single">Postcard senders :</span>"}
 #@gimp : note = note{" <b>-</b> We've received <b>14</b> postcards from <b>G'MIC</b> enthusiasts so far.
@@ -10227,6 +10244,8 @@ gimp_draw_whirl_preview :
 #@gimp : Local contrast = float(0,0,60)
 #@gimp : Radius = int(16,1,512)
 #@gimp : Contrast smoothness = float(4,0,10)
+#@gimp : sep = separator()
+#@gimp : Pseudo-gray dithering = bool(false)
 #@gimp : sep = separator(), Preview type = choice("Full","Forward horizontal","Forward vertical","Backward horizontal","Backward vertical")
 #@gimp : sep = separator(), note = note("<small>Author : <i>David Tschumperl&#233;</i>.      Latest update : <i>2010/12/29</i>.</small>")
 gimp_blackandwhite :
@@ -10257,7 +10276,8 @@ gimp_blackandwhite :
     -endif
 
     -rv -a c -endl -mv[-1] 0 -done                          # Re-compose opacity and loop to next image.
-  -normalize_local $18,$19,$20,2%,1,0,255
+  -if $18 -normalize_local $18,$19,$20,2%,1,0,255 -endif
+  -if $21 -to_pseudogray -endif
 
 gimp_blackandwhite_preview :
   -gimp_split_preview "-gimp_blackandwhite ${1--2}",$-1

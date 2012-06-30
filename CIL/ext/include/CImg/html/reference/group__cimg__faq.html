@@ -107,7 +107,7 @@ FAQ Summary</h2>
 1.1. What is the CImg Library ?</h3>
 <p>The CImg Library is an <em>open-source C++ toolkit for image processing</em>.<br/>
 </p>
-<p>It mainly consists in a (big) single header file <a href="http://cimg.cvs.sourceforge.net/cimg/CImg/CImg.h?view=markup">CImg.h</a> providing a set of C++ classes and functions that can be used in your own sources, to load/save, manage/process and display generic images. It's actually a very simple and pleasant toolkit for coding image processing stuffs in C++ : Just include the header file <em>CImg.h</em>, and you are ready to handle images in your C++ programs.</p>
+<p>It mainly consists in a (big) single header file <a href="http://cimg.cvs.sourceforge.net/cimg/CImg/CImg.h?view=markup">CImg.h</a> providing a set of C++ classes and functions that can be used in your own sources, to load/save, manage/process and display generic images. It's actually a very simple and pleasant toolkit for coding image processing stuffs in C++ : Just include the header file <code>CImg.h</code>, and you are ready to handle images in your C++ programs.</p>
 <h3><a class="anchor" id="ssf12"></a>
 1.2. What platforms are supported ?</h3>
 <p>CImg has been designed with <em>portability</em> in mind. It is regularly tested on different architectures and compilers, and should also work on any decent OS having a decent C++ compiler. Before each release, the CImg Library is compiled under these different configurations : </p>
@@ -170,9 +170,9 @@ FAQ Summary</h2>
  As a consequence, having a single header file instead of several ones is just a way for you to avoid including all of them, without any consequences on compilation time. This is both good technical and practical reasons to do like this.</li>
 </ul>
 <ul>
-<li>Third, having a single header file has plenty of advantages : Simplicity for the user, and for the developers (maintenance is in fact easier). Look at the <em>CImg.h</em> file, it looks like a mess at a first glance, but it is in fact very well organized and structured. Finding pieces of code in CImg functions or methods is particularly easy and fast. Also, how about the fact that library installation problems just disappear ? Just bring <em>CImg.h</em> with you, put it in your source directory, and the library is ready to go !</li>
+<li>Third, having a single header file has plenty of advantages : Simplicity for the user, and for the developers (maintenance is in fact easier). Look at the <code>CImg.h</code> file, it looks like a mess at a first glance, but it is in fact very well organized and structured. Finding pieces of code in CImg functions or methods is particularly easy and fast. Also, how about the fact that library installation problems just disappear ? Just bring <code>CImg.h</code> with you, put it in your source directory, and the library is ready to go !</li>
 </ul>
-<p>I admit the compilation time of CImg-based programs can be sometime long, but don't think that it is due to the fact that you are using a single header file. Using several header files wouldn't arrange anything since you would need all of them. Having a pre-compiled library object would be the only solution to speed up compilation time, but it is not possible at all, due to the too much generic nature of the library. Think seriously about it, and if you have a better solution to provide, let me know so we can discuss about it. </p>
+<p>I admit the compilation time of CImg-based programs can be sometime long, but don't think that it is due to the fact that you are using a single header file. Using several header files wouldn't arrange anything since you would need all of them. Having a pre-compiled library object would be the only solution to speed up compilation time, but it is not possible at all, due to the too much generic nature of the library. </p>
 </div></div><!-- contents -->
 </td></tr></tbody></table>
 <center>

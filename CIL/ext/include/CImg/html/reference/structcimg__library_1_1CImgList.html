@@ -154,13 +154,13 @@ Constructors / Destructor / Instance Management</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct list from eight images.  <a href="#a93fb657d985355a12ad36af07313b82a"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename t &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a1d748f702cb432edea116fc5df5f3596">CImgList</a> (const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; t &gt; &amp;list)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct list as a copy of an existing list.  <a href="#a1d748f702cb432edea116fc5df5f3596"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct list copy.  <a href="#a1d748f702cb432edea116fc5df5f3596"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a505af5fd1adf73d3429a95bfe6d10f5e"></a><!-- doxytag: member="cimg_library::CImgList::CImgList" ref="a505af5fd1adf73d3429a95bfe6d10f5e" args="(const CImgList&lt; T &gt; &amp;list)" -->
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a505af5fd1adf73d3429a95bfe6d10f5e">CImgList</a> (const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;list)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct list as a copy of an existing list <b>[specialization]</b>. <br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct list copy <b>[specialization]</b>. <br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename t &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a2901f0a17de58c378f131e7cfd69d44b">CImgList</a> (const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; t &gt; &amp;list, const bool is_shared)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct list as a copy of an existing list, and force the shared state of the list elements.  <a href="#a2901f0a17de58c378f131e7cfd69d44b"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct list copy, and force the shared state of the list elements.  <a href="#a2901f0a17de58c378f131e7cfd69d44b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a31c34ce18e197409013e913dbab5a82e">CImgList</a> (const char *const filename)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct list by reading the content of a file.  <a href="#a31c34ce18e197409013e913dbab5a82e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a964303a171630071ee0c839f4c590ea3">CImgList</a> (const <a class="el" href="structcimg__library_1_1CImgDisplay.html">CImgDisplay</a> &amp;disp)</td></tr>
@@ -269,7 +269,7 @@ const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a6b39af0fb3d767237d1bcd7cc82602be">operator,</a> (const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; t &gt; &amp;list)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a copy of the list instance, where all elements of input list <code>list</code> have been inserted at the end.  <a href="#a6b39af0fb3d767237d1bcd7cc82602be"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a6eed4f177047ce79eb3b30f5b713be88">operator&gt;</a> (const char axis) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return image corresponding to the concatenation of all images of the instance list along specified axis.  <a href="#a6eed4f177047ce79eb3b30f5b713be88"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return image corresponding to the appending of all images of the instance list along specified axis.  <a href="#a6eed4f177047ce79eb3b30f5b713be88"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#afe3488dac908a062ddbd0b53a11be712">operator&lt;</a> (const char axis) const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return list corresponding to the splitting of all images of the instance list along specified axis.  <a href="#afe3488dac908a062ddbd0b53a11be712"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="member-group"></a>
@@ -669,7 +669,7 @@ template&lt;typename t &gt; </td></tr>
 const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a317b5c4ad71baf7f160667bc63e5f876">get_shared_images</a> (const unsigned int pos0, const unsigned int pos1) const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a shared sublist <b>[new-instance version]</b>. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a17cc212f73326c769af6ce95bf7c8c3e">get_append</a> (const char axis, const float align=0) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a single image which is the concatenation of all images of the current <a class="el" href="structcimg__library_1_1CImgList.html" title="Represent a list of images CImg&lt;T&gt;.">CImgList</a> instance.  <a href="#a17cc212f73326c769af6ce95bf7c8c3e"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a single image which is the appending of all images of the current <a class="el" href="structcimg__library_1_1CImgList.html" title="Represent a list of images CImg&lt;T&gt;.">CImgList</a> instance.  <a href="#a17cc212f73326c769af6ce95bf7c8c3e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a3143702869165b83627245ca807a4709">split</a> (const char axis, const int nb=0)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a list where each image has been split along the specified axis.  <a href="#a3143702869165b83627245ca807a4709"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc2e5a953d030fca9af7af17119262a9"></a><!-- doxytag: member="cimg_library::CImgList::get_split" ref="adc2e5a953d030fca9af7af17119262a9" args="(const char axis, const int nb=0) const " -->
@@ -780,41 +780,41 @@ Data Output</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a1d0ed65c32cd167a16c0e4077ba8064d">display</a> (const char *const title=0, const bool display_info=true, const char axis='x', const float align=0) const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the current <a class="el" href="structcimg__library_1_1CImgList.html" title="Represent a list of images CImg&lt;T&gt;.">CImgList</a> instance in a new display window.  <a href="#a1d0ed65c32cd167a16c0e4077ba8064d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a814fe09c21090e7673d96c6145fc64bf">save</a> (const char *const filename, const int number=-1) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a list into a file.  <a href="#a814fe09c21090e7673d96c6145fc64bf"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save list into a file.  <a href="#a814fe09c21090e7673d96c6145fc64bf"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#af89a53375d81d5967d89cc1a02b584da">save_ffmpeg</a> (const char *const filename, const unsigned int first_frame=0, const unsigned int last_frame=~0U, const unsigned int fps=25, const unsigned int bitrate=2048) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save an image sequence, using FFMPEG library.  <a href="#af89a53375d81d5967d89cc1a02b584da"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save image sequence, using FFMPEG library.  <a href="#af89a53375d81d5967d89cc1a02b584da"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#aa941820a7371e2d5924c216ba2f81211">save_yuv</a> (const char *const filename=0, const bool is_rgb=true) const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save list as a YUV image sequence file.  <a href="#aa941820a7371e2d5924c216ba2f81211"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a7302ecc503697e7c169ff2c9f095357f">save_yuv</a> (std::FILE *const file, const bool is_rgb=true) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save an image sequence into a YUV file.  <a href="#a7302ecc503697e7c169ff2c9f095357f"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save image sequence into a YUV file.  <a href="#a7302ecc503697e7c169ff2c9f095357f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#aa649a40956b2ca9c54ba8dd744127a34">save_cimg</a> (const char *const filename, const bool is_compressed=false) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a list into a .cimg file.  <a href="#aa649a40956b2ca9c54ba8dd744127a34"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save list into a .cimg file.  <a href="#aa649a40956b2ca9c54ba8dd744127a34"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#ae17a8b68b2569026f1c41f8f20b16428">save_cimg</a> (std::FILE *file, const bool is_compressed=false) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a list into a .cimg file.  <a href="#ae17a8b68b2569026f1c41f8f20b16428"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save list into a .cimg file.  <a href="#ae17a8b68b2569026f1c41f8f20b16428"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#ab1591fa04951c4c11e30fb9813806f2e">save_cimg</a> (const char *const filename, const unsigned int n0, const unsigned int x0, const unsigned int y0, const unsigned int z0, const unsigned int c0) const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert the image instance into into an existing .cimg file, at specified coordinates.  <a href="#ab1591fa04951c4c11e30fb9813806f2e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#ac8f8a249c4c75634265db9bf0ae2e54e">save_cimg</a> (std::FILE *const file, const unsigned int n0, const unsigned int x0, const unsigned int y0, const unsigned int z0, const unsigned int c0) const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert the image instance into into an existing .cimg file, at specified coordinates.  <a href="#ac8f8a249c4c75634265db9bf0ae2e54e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a30a5c616f89c3e0b618027f750296df3">save_tiff</a> (const char *const filename, const unsigned int compression_type=0) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a file in TIFF format.  <a href="#a30a5c616f89c3e0b618027f750296df3"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save list as a TIFF file.  <a href="#a30a5c616f89c3e0b618027f750296df3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#ae9d11f1d698df3ffe1ef4a9ede594e1e">save_gzip_external</a> (const char *const filename) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a list as a gzipped file, using external tool 'gzip'.  <a href="#ae9d11f1d698df3ffe1ef4a9ede594e1e"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save list as a gzipped file, using external tool 'gzip'.  <a href="#ae9d11f1d698df3ffe1ef4a9ede594e1e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a515ff2015237152ba20e69ae2272386f">save_ffmpeg_external</a> (const char *const filename, const unsigned int first_frame=0, const unsigned int last_frame=~0U, const char *const codec=0, const unsigned int fps=25, const unsigned int bitrate=2048) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save an image sequence using the external tool 'ffmpeg'.  <a href="#a515ff2015237152ba20e69ae2272386f"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save image sequence, using the external tool 'ffmpeg'.  <a href="#a515ff2015237152ba20e69ae2272386f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#ae6b840a6196e38324e09f24c4d8591d4">is_saveable</a> (const char *const filename)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Tell if an image list can be saved as one single file.  <a href="#ae6b840a6196e38324e09f24c4d8591d4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a3cb95e9115f5a5c48f93a87f65265a42">save_empty_cimg</a> (const char *const filename, const unsigned int nb, const unsigned int dx, const unsigned int dy=1, const unsigned int dz=1, const unsigned int dc=1)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an empty (non-compressed) .cimg file with specified dimensions.  <a href="#a3cb95e9115f5a5c48f93a87f65265a42"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save empty (non-compressed) .cimg file with specified dimensions.  <a href="#a3cb95e9115f5a5c48f93a87f65265a42"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#ae279dbad076425b487bdff7ca0bc6189">save_empty_cimg</a> (std::FILE *const file, const unsigned int nb, const unsigned int dx, const unsigned int dy=1, const unsigned int dz=1, const unsigned int dc=1)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an empty .cimg file with specified dimensions.  <a href="#ae279dbad076425b487bdff7ca0bc6189"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save empty .cimg file with specified dimensions.  <a href="#ae279dbad076425b487bdff7ca0bc6189"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="member-group"></a>
 Others</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b57756b26a0473e3539c6af86d876b5"></a><!-- doxytag: member="cimg_library::CImgList::crop_font" ref="a3b57756b26a0473e3539c6af86d876b5" args="()" -->
 <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a3b57756b26a0473e3539c6af86d876b5">crop_font</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an auto-cropped font (along the X axis) from a input font. <br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Crop font along the X-axis. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa240a3e4e9713b62189f8df7fa47a988"></a><!-- doxytag: member="cimg_library::CImgList::get_crop_font" ref="aa240a3e4e9713b62189f8df7fa47a988" args="() const " -->
 <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#aa240a3e4e9713b62189f8df7fa47a988">get_crop_font</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an auto-cropped font (along the X axis) from a input font <b>[new-instance version]</b>. <br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Crop font along the X-axis <b>[new-instance version]</b>. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImgList.html#a231161b57fc1e5d813f254f65afefd8b">FFT</a> (const char axis, const bool invert=false)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a 1d Fast Fourier Transform, along specified axis.  <a href="#a231161b57fc1e5d813f254f65afefd8b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9e7074da9c9955e37e9eebbd5bd9c22"></a><!-- doxytag: member="cimg_library::CImgList::get_FFT" ref="ae9e7074da9c9955e37e9eebbd5bd9c22" args="(const char axis, const bool invert=false) const " -->
@@ -1800,7 +1800,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Construct list as a copy of an existing list. </p>
+<p>Construct list copy. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">list</td><td>Input list to copy. </td></tr>
@@ -1836,7 +1836,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Construct list as a copy of an existing list, and force the shared state of the list elements. </p>
+<p>Construct list copy, and force the shared state of the list elements. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">list</td><td>Input list to copy. </td></tr>
@@ -2681,7 +2681,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 <div class="memdoc">
 
 <p>Construct list as a copy of an existing list and force the shared state of the list elements <b>[in-place version]</b>. </p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="structcimg__library_1_1CImgList.html#a2901f0a17de58c378f131e7cfd69d44b" title="Construct list as a copy of an existing list, and force the shared state of the list elements...">CImgList(const CImgList&lt;t&gt;&amp;, bool is_shared)</a>. </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="structcimg__library_1_1CImgList.html#a2901f0a17de58c378f131e7cfd69d44b" title="Construct list copy, and force the shared state of the list elements.">CImgList(const CImgList&lt;t&gt;&amp;, bool is_shared)</a>. </dd></dl>
 
 </div>
 </div>
@@ -3139,10 +3139,10 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Return image corresponding to the concatenation of all images of the instance list along specified axis. </p>
+<p>Return image corresponding to the appending of all images of the instance list along specified axis. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">axis</td><td>Axis used for image concatenation. </td></tr>
+    <tr><td class="paramname">axis</td><td>Appending axis. Can be <code>{ 'x' | 'y' | 'z' | 'c' }</code>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -4652,7 +4652,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
   <table class="params">
     <tr><td class="paramname">img</td><td>Image to insert a copy to the list. </td></tr>
     <tr><td class="paramname">pos</td><td>Index of the insertion. </td></tr>
-    <tr><td class="paramname">is_shared</td><td>Flag telling if the inserted image is a shared copy of <code>img</code> or not. </td></tr>
+    <tr><td class="paramname">is_shared</td><td>Tells if the inserted image is a shared copy of <code>img</code> or not. </td></tr>
   </table>
   </dd>
 </dl>
@@ -4738,7 +4738,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
     <tr><td class="paramname">n</td><td>Number of image copies to insert. </td></tr>
     <tr><td class="paramname">img</td><td>Image to insert by copy. </td></tr>
     <tr><td class="paramname">pos</td><td>Index of the insertion. </td></tr>
-    <tr><td class="paramname">is_shared</td><td>Flag telling if inserted images are shared copies of <code>img</code> or not. </td></tr>
+    <tr><td class="paramname">is_shared</td><td>Tells if inserted images are shared copies of <code>img</code> or not. </td></tr>
   </table>
   </dd>
 </dl>
@@ -4781,7 +4781,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
   <table class="params">
     <tr><td class="paramname">list</td><td>Image list to insert. </td></tr>
     <tr><td class="paramname">pos</td><td>Index of the insertion. </td></tr>
-    <tr><td class="paramname">is_shared</td><td>Flag telling if inserted images are shared copies of images of <code>list</code> or not. </td></tr>
+    <tr><td class="paramname">is_shared</td><td>Tells if inserted images are shared copies of images of <code>list</code> or not. </td></tr>
   </table>
   </dd>
 </dl>
@@ -4831,7 +4831,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
     <tr><td class="paramname">n</td><td>Number of list copies to insert. </td></tr>
     <tr><td class="paramname">list</td><td>Image list to insert. </td></tr>
     <tr><td class="paramname">pos</td><td>Index of the insertion. </td></tr>
-    <tr><td class="paramname">is_shared</td><td>Flag telling if inserted images are shared copies of images of <code>list</code> or not. </td></tr>
+    <tr><td class="paramname">is_shared</td><td>Tells if inserted images are shared copies of images of <code>list</code> or not. </td></tr>
   </table>
   </dd>
 </dl>
@@ -4996,15 +4996,14 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Return a single image which is the concatenation of all images of the current <a class="el" href="structcimg__library_1_1CImgList.html" title="Represent a list of images CImg&lt;T&gt;.">CImgList</a> instance. </p>
+<p>Return a single image which is the appending of all images of the current <a class="el" href="structcimg__library_1_1CImgList.html" title="Represent a list of images CImg&lt;T&gt;.">CImgList</a> instance. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">axis</td><td>: specify the axis for image concatenation. Can be 'x','y','z' or 'c'. </td></tr>
-    <tr><td class="paramname">align</td><td>: specify the alignment for image concatenation. Can be '0' (top), '0.5' (center) or '1' (bottom) for instance. </td></tr>
+    <tr><td class="paramname">axis</td><td>Appending axis. Can be <code>{ 'x' | 'y' | 'z' | 'c' }</code>. </td></tr>
+    <tr><td class="paramname">align</td><td>Appending alignment. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>A CImg&lt;T&gt; image corresponding to the concatenation is returned. </dd></dl>
 
 </div>
 </div>
@@ -5919,12 +5918,12 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">disp</td><td>Reference to an existing <a class="el" href="structcimg__library_1_1CImgDisplay.html" title="Allow to create windows, display images on them and manage user events (keyboard, mouse and windows e...">CImgDisplay</a> instance, where the current image list will be displayed. </td></tr>
-    <tr><td class="paramname">axis</td><td>Appending axis. Can be 'x','y','z' or 'c'. </td></tr>
+    <tr><td class="paramname">axis</td><td>Appending axis. Can be <code>{ 'x' | 'y' | 'z' | 'c' }</code>. </td></tr>
     <tr><td class="paramname">align</td><td>Appending alignmenet. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="note"><dt><b>Note:</b></dt><dd>This function displays the list images of the current <a class="el" href="structcimg__library_1_1CImgList.html" title="Represent a list of images CImg&lt;T&gt;.">CImgList</a> instance into an existing <a class="el" href="structcimg__library_1_1CImgDisplay.html" title="Allow to create windows, display images on them and manage user events (keyboard, mouse and windows e...">CImgDisplay</a> window. Images of the list are concatenated in a single temporarly image for visualization purposes. The function returns immediately. </dd></dl>
+<dl class="note"><dt><b>Note:</b></dt><dd>This function displays the list images of the current <a class="el" href="structcimg__library_1_1CImgList.html" title="Represent a list of images CImg&lt;T&gt;.">CImgList</a> instance into an existing <a class="el" href="structcimg__library_1_1CImgDisplay.html" title="Allow to create windows, display images on them and manage user events (keyboard, mouse and windows e...">CImgDisplay</a> window. Images of the list are appended in a single temporarly image for visualization purposes. The function returns immediately. </dd></dl>
 
 </div>
 </div>
@@ -5975,7 +5974,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
   </table>
   </dd>
 </dl>
-<dl class="note"><dt><b>Note:</b></dt><dd>This function opens a new window with a specific title and displays the list images of the current <a class="el" href="structcimg__library_1_1CImgList.html" title="Represent a list of images CImg&lt;T&gt;.">CImgList</a> instance into it. Images of the list are concatenated in a single temporarly image for visualization purposes. The function returns when a key is pressed or the display window is closed by the user. </dd></dl>
+<dl class="note"><dt><b>Note:</b></dt><dd>This function opens a new window with a specific title and displays the list images of the current <a class="el" href="structcimg__library_1_1CImgList.html" title="Represent a list of images CImg&lt;T&gt;.">CImgList</a> instance into it. Images of the list are appended in a single temporarly image for visualization purposes. The function returns when a key is pressed or the display window is closed by the user. </dd></dl>
 
 </div>
 </div>
@@ -6020,8 +6019,8 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">title</td><td>Title of the opening display window. </td></tr>
-    <tr><td class="paramname">display_info</td><td>Flag telling if list informations must be written on standard output. </td></tr>
-    <tr><td class="paramname">axis</td><td>Axis for image concatenation. Can be 'x','y','z' or 'c'. </td></tr>
+    <tr><td class="paramname">display_info</td><td>Tells if list informations must be written on standard output. </td></tr>
+    <tr><td class="paramname">axis</td><td>Appending axis. Can be <code>{ 'x' | 'y' | 'z' | 'c' }</code>. </td></tr>
     <tr><td class="paramname">align</td><td>Appending alignment. </td></tr>
   </table>
   </dd>
@@ -6054,7 +6053,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Save a list into a file. </p>
+<p>Save list into a file. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename to write data to. </td></tr>
@@ -6134,7 +6133,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Save an image sequence, using FFMPEG library. </p>
+<p>Save image sequence, using FFMPEG library. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename to write data to. </td></tr>
@@ -6177,7 +6176,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename to write data to. </td></tr>
-    <tr><td class="paramname">is_rgb</td><td>Flag telling if the RGB to YUV conversion must be done for saving. </td></tr>
+    <tr><td class="paramname">is_rgb</td><td>Tells if the RGB to YUV conversion must be done for saving. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6209,11 +6208,11 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Save an image sequence into a YUV file. </p>
+<p>Save image sequence into a YUV file. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">file</td><td>File to write data to. </td></tr>
-    <tr><td class="paramname">is_rgb</td><td>Flag telling if the RGB to YUV conversion must be done for saving. </td></tr>
+    <tr><td class="paramname">is_rgb</td><td>Tells if the RGB to YUV conversion must be done for saving. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6245,11 +6244,11 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Save a list into a .cimg file. </p>
+<p>Save list into a .cimg file. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename to write data to. </td></tr>
-    <tr><td class="paramname">is_compressed</td><td>Flag telling if data compression must be enabled. </td></tr>
+    <tr><td class="paramname">is_compressed</td><td>Tells if data compression must be enabled. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6281,11 +6280,11 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Save a list into a .cimg file. </p>
+<p>Save list into a .cimg file. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">file</td><td>File to write data to. </td></tr>
-    <tr><td class="paramname">is_compressed</td><td>Flag telling if data compression must be enabled. </td></tr>
+    <tr><td class="paramname">is_compressed</td><td>Tells if data compression must be enabled. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6469,7 +6468,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Create an empty (non-compressed) .cimg file with specified dimensions. </p>
+<p>Save empty (non-compressed) .cimg file with specified dimensions. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename to write data to. </td></tr>
@@ -6533,7 +6532,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Create an empty .cimg file with specified dimensions. </p>
+<p>Save empty .cimg file with specified dimensions. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">file</td><td>File to write data to. </td></tr>
@@ -6573,7 +6572,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Save a file in TIFF format. </p>
+<p>Save list as a TIFF file. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename to write data to. </td></tr>
@@ -6599,7 +6598,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Save a list as a gzipped file, using external tool 'gzip'. </p>
+<p>Save list as a gzipped file, using external tool 'gzip'. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename to write data to. </td></tr>
@@ -6658,7 +6657,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Save an image sequence using the external tool 'ffmpeg'. </p>
+<p>Save image sequence, using the external tool 'ffmpeg'. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename to write data to. </td></tr>
@@ -6738,7 +6737,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">axis</td><td>Axis along which the Fourier transform is computed. </td></tr>
-    <tr><td class="paramname">invert</td><td>Flag telling if the direct (<code>false</code>) or inverse transform (<code>true</code>) is computed. </td></tr>
+    <tr><td class="paramname">invert</td><td>Tells if the direct (<code>false</code>) or inverse transform (<code>true</code>) is computed. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6763,7 +6762,7 @@ struct cimg_library::CImgList&lt; T &gt;</h3>
 <p>Compute a n-d Fast Fourier Transform. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">invert</td><td>Flag telling if the direct (<code>false</code>) or inverse transform (<code>true</code>) is computed. </td></tr>
+    <tr><td class="paramname">invert</td><td>Tells if the direct (<code>false</code>) or inverse transform (<code>true</code>) is computed. </td></tr>
   </table>
   </dd>
 </dl>

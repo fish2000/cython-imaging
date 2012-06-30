@@ -26,8 +26,9 @@
     denoising and interpolation. Command-line and GIMP plug-in versions are available.</li>
   <li><b><a href="http://www.eng.cam.ac.uk/~ajk61/IDIL/">IDIL</a></b> (Integrated Data & Image Library), a cross-platform library for
     computing, plotting and image analysis.</li>
-  <li><b><a href="http://gmic.sourceforge.net/">G'MIC</a></b> is a command-line image manipulation tool able to deal with sequences of
-                1d/2d/3d multi-spectral images.</li>
+  <li><b><a href="http://gmic.sourceforge.net/">G'MIC</a></b> is a scripting language around CImg functionalities.
+    It provides a command-line image manipulation tool able to deal with sequences of 1d/2d/3d multi-spectral images, as well as an interactive
+    plug-in for the <a href="http://www.gimp.org">GIMP</a> software.</li>
   <li><b><a href="http://koti.kapsi.fi/thirsima/gocam/">GoCam</a></b>, an open source project for developing a computer vision system that analyses
     video capture of a go game.</li>
   <li><b><a href="http://www.imagico.de/ascos/index.html">ASCOS</a></b>, a correction tool for satellite images.</li>

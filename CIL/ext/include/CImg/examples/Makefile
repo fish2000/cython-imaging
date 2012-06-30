@@ -84,7 +84,7 @@ CIMG_EXTRA_FILES = use_jpeg_buffer \
 #---------------------------------
 # Set correct variables and paths
 #---------------------------------
-CIMG_VERSION = 1.5.0_beta
+CIMG_VERSION = 1.5.0
 X11PATH      = /usr/X11R6
 CC           = g++
 EXEPFX       =

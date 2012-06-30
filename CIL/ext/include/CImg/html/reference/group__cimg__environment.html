@@ -82,7 +82,7 @@
 <div class="contents">
 <div class="textblock"><p>The CImg library is a multiplatform library, working on a wide variety of systems. This implies the existence of some <em>environment</em> <em>variables</em> that must be correctly defined depending on your current system. Most of the time, the CImg Library defines these variables automatically (for popular systems). Anyway, if your system is not recognized, you will have to set the environment variables by hand. Here is a quick explanations of environment variables.<br/>
 </p>
-<p>Setting the environment variables is done with the <code>#define</code> keyword. This setting must be done <em>before including the file CImg.h</em> in your source code. For instance, defining the environment variable <code>cimg_display</code> would be done like this : </p>
+<p>Setting the environment variables is done with the <code>#define</code> keyword. This setting must be done <em>before including the file <code>CImg.h</code></em> in your source code. For instance, defining the environment variable <code>cimg_display</code> would be done like this : </p>
 <div class="fragment"><pre class="fragment"><span class="preprocessor">  #define cimg_display 0</span>
 <span class="preprocessor"></span><span class="preprocessor">  #include &quot;CImg.h&quot;</span>
   ...
@@ -100,7 +100,7 @@
 <li><b><code>cimg_verbosity</code> </b>: This variable defines the level of run-time debug messages that will be displayed by the CImg Library. It can be set to 0 (no debug messages), 1 (normal debug messages displayed on standard error), 2 (normal debug messages displayed in modal windows, which is the default value), or 3 (high debug messages). Note that setting this value to 3 may slow down your program since more debug tests are made by the library (particularly to check if pixel access is made outside image boundaries). See also CImgException to better understand how debug messages are working.</li>
 </ul>
 <ul>
-<li><b><code>cimg_plugin</code> </b>: This variable tells the library to use a plugin file to add features to the CImg&lt;T&gt; class. Define it with the path of your plugin file, if you want to add member functions to the CImg&lt;T&gt; class, without having to modify directly the <code>"CImg.h"</code> file. An include of the plugin file is performed in the CImg&lt;T&gt; class. If <code>cimg_plugin</code> if not specified (default), no include is done.</li>
+<li><b><code>cimg_plugin</code> </b>: This variable tells the library to use a plugin file to add features to the CImg&lt;T&gt; class. Define it with the path of your plugin file, if you want to add member functions to the CImg&lt;T&gt; class, without having to modify directly the <code>"&lt;tt&gt;CImg.h&lt;/tt&gt;"</code> file. An include of the plugin file is performed in the CImg&lt;T&gt; class. If <code>cimg_plugin</code> if not specified (default), no include is done.</li>
 </ul>
 <ul>
 <li><b><code>cimglist_plugin</code> </b>: Same as <code>cimg_plugin</code>, but to add features to the CImgList&lt;T&gt; class.</li>

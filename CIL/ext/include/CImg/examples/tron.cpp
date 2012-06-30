@@ -78,7 +78,7 @@ int main(int argc, char **argv) {
   // Create background image
   //--------------------------
   CImg<unsigned char> background, img;
-  background.assign(64,64,1,3,0).noise(60).draw_plasma().resize(W,H).blur(2).draw_rectangle(0,0,W-1,H-1,white,1.0f,~0U);
+  background.assign(64,64,1,3,0).noise(60).draw_plasma().resize(W,H).blur(2).normalize(0,128).draw_rectangle(0,0,W-1,H-1,white,1.0f,~0U);
 
   // Open display window
   //---------------------
@@ -108,11 +108,11 @@ int main(int argc, char **argv) {
         draw_text(W/2-60,H/2+10,"Blue ( %u )",blue,0,1,13,score1).
         draw_text(W/2+10,H/2+10,"Red ( %u )",red,0,1,13,score2);
       pressakey.draw_text(0,0,"* Press a key to start round *",white);
-      for (float i=0; i<1; i+=0.05f) ((+tmp)*=i).display(disp.wait(20));
+      for (float i = 0; i<1; i+=0.05f) ((+tmp)*=i).display(disp.wait(20));
       disp.flush();
-      while (!disp.key() && !disp.is_closed()) {
-        disp.display(tmp).wait(200).display((+tmp).draw_image(W/2-70,H/2+50,pressakey,pressakey,1,255)).wait(400);
-        if (disp.is_resized()) disp.resize(disp);
+      for (unsigned long t = 0; !disp.key() && !disp.is_closed(); ++t) {
+        if (!(t%10)) { if (t%20) disp.display(tmp); else disp.display((+tmp).draw_image(W/2-70,H/2+50,pressakey,pressakey,1,255)); }
+        if (disp.wait(20).is_resized()) disp.resize(disp);
       }
       if (disp.is_keyESC()) disp.flush();
     }

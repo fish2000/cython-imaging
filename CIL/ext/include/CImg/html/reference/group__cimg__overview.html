@@ -83,11 +83,11 @@
 <div class="textblock"><p>The <b>CImg Library</b> is an image processing library, designed for C++ programmers. It provides useful classes and functions to load/save, display and process various types of images.</p>
 <h2><a class="anchor" id="s1"></a>
 Library structure</h2>
-<p>The CImg Library consists in a <b>single header file</b> CImg.h providing a set of C++ template classes that can be used in your own sources, to load/save, process and display images or list of images. Very portable (Unix/X11,Windows, MacOS X, FreeBSD,..), efficient, simple to use, it's a pleasant toolkit for coding image processing stuffs in C++.</p>
-<p>The header file CImg.h contains all the classes and functions that compose the library itself. This is one originality of the CImg Library. This particularly means that :</p>
+<p>The CImg Library consists in a single header file <code>CImg.h</code> providing a set of C++ template classes that can be used in your own sources, to load/save, process and display images or list of images. Very portable (Unix/X11,Windows, MacOS X, FreeBSD,..), efficient, simple to use, it's a pleasant toolkit for coding image processing stuffs in C++.</p>
+<p>The header file <code>CImg.h</code> contains all the classes and functions that compose the library itself. This is one originality of the CImg Library. This particularly means that :</p>
 <ul>
 <li>No pre-compilation of the library is needed, since the compilation of the CImg functions is done at the same time as the compilation of your own C++ code.</li>
-<li>No complex dependencies have to be handled : Just include the CImg.h file, and you get a working C++ image processing toolkit.</li>
+<li>No complex dependencies have to be handled : Just include the <code>CImg.h</code> file, and you get a working C++ image processing toolkit.</li>
 <li>The compilation is done on the fly : only CImg functionalities really used by your program are compiled and appear in the compiled executable program. This leads to very compact code, without any unused stuffs.</li>
 <li>Class members and functions are inlined, leading to better performance during the program execution.</li>
 </ul>

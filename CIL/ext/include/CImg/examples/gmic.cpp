@@ -8616,7 +8616,7 @@ gmic& gmic::parse(const CImgList<char>& commands_line, unsigned int& position,
           // SVD.
           if (!std::strcmp("-svd",command)) {
             print(images,"Compute SVD decomposition%s of matri%s%s.",
-                  selection.height()>1?"ce":"x",selection.height()>1?"s":"",gmic_selection);
+                  selection.height()>1?"s":"",selection.height()>1?"ce":"x",gmic_selection);
             CImg<float> U, S, V;
             unsigned int off = 0;
             cimg_forY(selection,l) {

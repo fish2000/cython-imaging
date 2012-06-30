@@ -91,13 +91,16 @@
 Loops over the pixel buffer</h2>
 <p>Loops over the pixel buffer are really basic loops that iterate a pointer on the pixel data buffer of a <code><a class="el" href="structcimg__library_1_1CImg.html" title="Class representing an image (up to 4 dimensions wide), each pixel being of type T.">cimg_library::CImg</a></code> image. Two macros are defined for this purpose :</p>
 <ul>
-<li><b>cimg_for(img,ptr,T)</b> : This macro loops over the pixel data buffer of the image <code>img</code>, using a pointer <code>T* ptr</code>, starting from the end of the buffer (last pixel) till the beginning of the buffer (first pixel).<ul>
+<li><b>cimg_for(img,ptr,T)</b> : This macro loops over the pixel data buffer of the image <code>img</code>, using a pointer <code>T* ptr</code>, starting from the beginning of the buffer (first pixel) till the end of the buffer (first pixel).<ul>
 <li><code>img</code> must be a (non empty) <code><a class="el" href="structcimg__library_1_1CImg.html" title="Class representing an image (up to 4 dimensions wide), each pixel being of type T.">cimg_library::CImg</a></code> image of pixels <code>T</code>.</li>
 <li><code>ptr</code> is a pointer of type <code>T*</code>. This kind of loop should not appear a lot in your own source code, since this is a low-level loop and many functions of the CImg class may be used instead. Here is an example of use : <div class="fragment"><pre class="fragment">  CImg&lt;float&gt; img(320,200);
   cimg_for(img,ptr,<span class="keywordtype">float</span>) { *ptr=0; }      <span class="comment">// Equivalent to &#39;img.fill(0);&#39;</span>
 </pre></div></li>
 </ul>
 </li>
+</ul>
+<ul>
+<li><b>cimg_rof(img,ptr,T)</b> : This macro does the same as <code>cimg_for()</code> but from the end to the beginning of the pixel buffer.</li>
 </ul>
 <ul>
 <li><b>cimg_foroff(img,off)</b> : This macro loops over the pixel data buffer of the image <code>img</code>, using an offset <code></code>, starting from the beginning of the buffer (first pixel, <code>off=0</code>) till the end of the buffer (last pixel value, <code>off = img.size()-1</code>).<ul>
@@ -177,20 +180,20 @@ Loops using neighborhoods.</h2>
 Neighborhood-based loops for 2D images</h3>
 <p>For 2D images, the neighborhood-based loop macros are :</p>
 <ul>
-<li><b>cimg_for2x2(img,x,y,z,v,I)</b> : Loop along the (x,y)-axes using a centered 2x2 neighborhood.</li>
-<li><b>cimg_for3x3(img,x,y,z,v,I)</b> : Loop along the (x,y)-axes using a centered 3x3 neighborhood.</li>
-<li><b>cimg_for4x4(img,x,y,z,v,I)</b> : Loop along the (x,y)-axes using a centered 4x4 neighborhood.</li>
-<li><b>cimg_for5x5(img,x,y,z,v,I)</b> : Loop along the (x,y)-axes using a centered 5x5 neighborhood.</li>
+<li><b>cimg_for2x2(img,x,y,z,v,I,T)</b> : Loop along the (x,y)-axes using a centered 2x2 neighborhood.</li>
+<li><b>cimg_for3x3(img,x,y,z,v,I,T)</b> : Loop along the (x,y)-axes using a centered 3x3 neighborhood.</li>
+<li><b>cimg_for4x4(img,x,y,z,v,I,T)</b> : Loop along the (x,y)-axes using a centered 4x4 neighborhood.</li>
+<li><b>cimg_for5x5(img,x,y,z,v,I,T)</b> : Loop along the (x,y)-axes using a centered 5x5 neighborhood.</li>
 </ul>
-<p>For all these loops, <code>x</code> and <code>y</code> are inner-defined variables only visible inside the scope of the loop. They don't have to be defined before the call of the macro. <code>img</code> is a non empty CImg&lt;T&gt; image. <code>z</code> and <code>v</code> are constants that define on which image slice and vector channel the loop must apply (usually both 0 for grayscale 2D images). Finally, <code>I</code> is the 2x2, 3x3, 4x4 or 5x5 neighborhood that will be updated with the correct pixel values during the loop (see <a class="el" href="group__cimg__loops.html#lo9">Defining neighborhoods</a>).</p>
+<p>For all these loops, <code>x</code> and <code>y</code> are inner-defined variables only visible inside the scope of the loop. They don't have to be defined before the call of the macro. <code>img</code> is a non empty CImg&lt;T&gt; image. <code>z</code> and <code>v</code> are constants that define on which image slice and vector channel the loop must apply (usually both 0 for grayscale 2D images). Finally, <code>I</code> is the 2x2, 3x3, 4x4 or 5x5 neighborhood of type <code>T</code> that will be updated with the correct pixel values during the loop (see <a class="el" href="group__cimg__loops.html#lo9">Defining neighborhoods</a>).</p>
 <h3><a class="anchor" id="lo8"></a>
 Neighborhood-based loops for 3D images</h3>
 <p>For 3D images, the neighborhood-based loop macros are :</p>
 <ul>
-<li><b>cimg_for2x2x2(img,x,y,z,v,I)</b> : Loop along the (x,y,z)-axes using a centered 2x2x2 neighborhood.</li>
-<li><b>cimg_for3x3x3(img,x,y,z,v,I)</b> : Loop along the (x,y,z)-axes using a centered 3x3x3 neighborhood.</li>
+<li><b>cimg_for2x2x2(img,x,y,z,v,I,T)</b> : Loop along the (x,y,z)-axes using a centered 2x2x2 neighborhood.</li>
+<li><b>cimg_for3x3x3(img,x,y,z,v,I,T)</b> : Loop along the (x,y,z)-axes using a centered 3x3x3 neighborhood.</li>
 </ul>
-<p>For all these loops, <code>x</code>, <code>y</code> and <code>z</code> are inner-defined variables only visible inside the scope of the loop. They don't have to be defined before the call of the macro. <code>img</code> is a non empty CImg&lt;T&gt; image. <code>v</code> is a constant that defines on which image channel the loop must apply (usually 0 for grayscale 3D images). Finally, <code>I</code> is the 2x2x2 or 3x3x3 neighborhood that will be updated with the correct pixel values during the loop (see <a class="el" href="group__cimg__loops.html#lo9">Defining neighborhoods</a>).</p>
+<p>For all these loops, <code>x</code>, <code>y</code> and <code>z</code> are inner-defined variables only visible inside the scope of the loop. They don't have to be defined before the call of the macro. <code>img</code> is a non empty CImg&lt;T&gt; image. <code>v</code> is a constant that defines on which image channel the loop must apply (usually 0 for grayscale 3D images). Finally, <code>I</code> is the 2x2x2 or 3x3x3 neighborhood of type <code>T</code> that will be updated with the correct pixel values during the loop (see <a class="el" href="group__cimg__loops.html#lo9">Defining neighborhoods</a>).</p>
 <h3><a class="anchor" id="lo9"></a>
 Defining neighborhoods</h3>
 <p>A neighborhood is defined as an instance of a class having operator[] defined. This particularly includes classical C-array, as well as CImg&lt;T&gt; objects.</p>

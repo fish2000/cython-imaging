@@ -53,16 +53,16 @@
 
   \section s1 Library structure
 
-  The %CImg Library consists in a <b>single header file</b> CImg.h providing a set of C++ template classes that
+  The %CImg Library consists in a single header file <tt>CImg.h</tt> providing a set of C++ template classes that
   can be used in your own sources, to load/save, process and display images or list of images.
   Very portable (Unix/X11,Windows, MacOS X, FreeBSD,..), efficient, simple to use, it's a pleasant toolkit
   for coding image processing stuffs in C++.
 
-  The header file CImg.h contains all the classes and functions that compose the library itself.
+  The header file <tt>CImg.h</tt> contains all the classes and functions that compose the library itself.
   This is one originality of the %CImg Library. This particularly means that :
   - No pre-compilation of the library is needed, since the compilation of the CImg functions is done at the same time as
   the compilation of your own C++ code.
-  - No complex dependencies have to be handled : Just include the CImg.h file, and you get a working C++ image processing toolkit.
+  - No complex dependencies have to be handled : Just include the <tt>CImg.h</tt> file, and you get a working C++ image processing toolkit.
   - The compilation is done on the fly : only CImg functionalities really used by your program are compiled and appear in the
   compiled executable program. This leads to very compact code, without any unused stuffs.
   - Class members and functions are inlined, leading to better performance during the program execution.
@@ -214,7 +214,7 @@
   providing a set of C++ classes and functions that can be used in your own sources,
   to load/save, manage/process and display generic images.
   It's actually a very simple and pleasant toolkit for coding image processing stuffs in C++ :
-  Just include the header file <i>CImg.h</i>, and you are ready to handle images in your C++ programs.
+  Just include the header file <tt>CImg.h</tt>, and you are ready to handle images in your C++ programs.
 
   \subsection ssf12 1.2. What platforms are supported ?
 
@@ -348,16 +348,15 @@
   without any consequences on compilation time. This is both good technical and practical reasons to do like this.
 
   - Third, having a single header file has plenty of advantages : Simplicity for the user, and for the developers (maintenance is in fact easier).
-  Look at the <i>CImg.h</i> file, it looks like a mess at a first glance, but it is in fact very well organized and structured.
+  Look at the <tt>CImg.h</tt> file, it looks like a mess at a first glance, but it is in fact very well organized and structured.
   Finding pieces of code in CImg functions or methods is particularly easy and fast.
   Also, how about the fact that library installation problems just disappear ?
-  Just bring <i>CImg.h</i> with you, put it in your source directory, and the library is ready to go !
+  Just bring <tt>CImg.h</tt> with you, put it in your source directory, and the library is ready to go !
 
   I admit the compilation time of CImg-based programs can be sometime long, but don't think that it is due to the fact that you are
   using a single header file. Using several header files wouldn't arrange anything since you would need all of them.
   Having a pre-compiled library object would be the only solution to speed up compilation time, but it is not possible at all,
   due to the too much generic nature of the library.
-  Think seriously about it, and if you have a better solution to provide, let me know so we can discuss about it.
 
 **/
 /*@}*/
@@ -381,7 +380,7 @@
   variables by hand. Here is a quick explanations of environment variables.\n
 
   Setting the environment variables is done with the <tt>#define</tt> keyword.
-  This setting must be done <i>before including the file CImg.h</i> in your source code.
+  This setting must be done <i>before including the file <tt>CImg.h</tt></i> in your source code.
   For instance,
   defining the environment variable \c cimg_display would be done like this :
   \code
@@ -417,7 +416,7 @@
 
   - \b \c cimg_plugin : This variable tells the library to use a plugin file to add features to the CImg<T> class.
   Define it with the path of your plugin file, if you want to add member functions to the CImg<T> class,
-  without having to modify directly the \c "CImg.h" file. An include of the plugin file is performed in the CImg<T>
+  without having to modify directly the \c "<tt>CImg.h</tt>" file. An include of the plugin file is performed in the CImg<T>
   class. If \c cimg_plugin if not specified (default), no include is done.
 
   - \b \c cimglist_plugin : Same as \c cimg_plugin, but to add features to the CImgList<T> class.
@@ -620,7 +619,7 @@
 
   - \b cimg_for(img,ptr,T) :
   This macro loops over the pixel data buffer of the image \c img, using a pointer <tt>T* ptr</tt>,
-  starting from the end of the buffer (last pixel) till the beginning of the buffer (first pixel).
+  starting from the beginning of the buffer (first pixel) till the end of the buffer (first pixel).
       - \c img must be a (non empty) \c cimg_library::CImg image of pixels \c T.
       - \c ptr is a pointer of type \c T*.
   This kind of loop should not appear a lot in your own source code, since this is a low-level loop
@@ -629,6 +628,9 @@
   CImg<float> img(320,200);
   cimg_for(img,ptr,float) { *ptr=0; }      // Equivalent to 'img.fill(0);'
   \endcode
+
+  - \b cimg_rof(img,ptr,T) :
+  This macro does the same as \c cimg_for() but from the end to the beginning of the pixel buffer.
 
   - \b cimg_foroff(img,off) :
   This macro loops over the pixel data buffer of the image \c img, using an offset \c ,
@@ -723,30 +725,30 @@
 
   For 2D images, the neighborhood-based loop macros are :
 
-  - \b cimg_for2x2(img,x,y,z,v,I) : Loop along the (x,y)-axes using a centered 2x2 neighborhood.
-  - \b cimg_for3x3(img,x,y,z,v,I) : Loop along the (x,y)-axes using a centered 3x3 neighborhood.
-  - \b cimg_for4x4(img,x,y,z,v,I) : Loop along the (x,y)-axes using a centered 4x4 neighborhood.
-  - \b cimg_for5x5(img,x,y,z,v,I) : Loop along the (x,y)-axes using a centered 5x5 neighborhood.
+  - \b cimg_for2x2(img,x,y,z,v,I,T) : Loop along the (x,y)-axes using a centered 2x2 neighborhood.
+  - \b cimg_for3x3(img,x,y,z,v,I,T) : Loop along the (x,y)-axes using a centered 3x3 neighborhood.
+  - \b cimg_for4x4(img,x,y,z,v,I,T) : Loop along the (x,y)-axes using a centered 4x4 neighborhood.
+  - \b cimg_for5x5(img,x,y,z,v,I,T) : Loop along the (x,y)-axes using a centered 5x5 neighborhood.
 
   For all these loops, \c x and \c y are inner-defined variables only visible inside the scope of the loop.
   They don't have to be defined before the call of the macro.
   \c img is a non empty CImg<T> image. \c z and \c v are constants that define on which image slice and
   vector channel the loop must apply (usually both 0 for grayscale 2D images).
-  Finally, \c I is the 2x2, 3x3, 4x4 or 5x5 neighborhood that will be updated with the correct pixel values
+  Finally, \c I is the 2x2, 3x3, 4x4 or 5x5 neighborhood of type \c T that will be updated with the correct pixel values
   during the loop (see \ref lo9).
 
   \subsection lo8 Neighborhood-based loops for 3D images
 
   For 3D images, the neighborhood-based loop macros are :
 
-  - \b cimg_for2x2x2(img,x,y,z,v,I) : Loop along the (x,y,z)-axes using a centered 2x2x2 neighborhood.
-  - \b cimg_for3x3x3(img,x,y,z,v,I) : Loop along the (x,y,z)-axes using a centered 3x3x3 neighborhood.
+  - \b cimg_for2x2x2(img,x,y,z,v,I,T) : Loop along the (x,y,z)-axes using a centered 2x2x2 neighborhood.
+  - \b cimg_for3x3x3(img,x,y,z,v,I,T) : Loop along the (x,y,z)-axes using a centered 3x3x3 neighborhood.
 
   For all these loops, \c x, \c y and \c z are inner-defined variables only visible inside the scope of the loop.
   They don't have to be defined before the call of the macro.
   \c img is a non empty CImg<T> image. \c v is a constant that defines on which image channel
   the loop must apply (usually 0 for grayscale 3D images).
-  Finally, \c I is the 2x2x2 or 3x3x3 neighborhood that will be updated with the correct pixel values
+  Finally, \c I is the 2x2x2 or 3x3x3 neighborhood of type \c T that will be updated with the correct pixel values
   during the loop (see \ref lo9).
 
   \subsection lo9 Defining neighborhoods

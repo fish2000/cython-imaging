@@ -112,9 +112,9 @@ Public Types</h2></td></tr>
 <tr><td colspan="2"><h2><a name="member-group"></a>
 Constructors / Destructor / Instance Management</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#ad71c294580a5307aa31246e4a1ee7866">~CImg</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ad71c294580a5307aa31246e4a1ee7866"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy image.  <a href="#ad71c294580a5307aa31246e4a1ee7866"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a8a31842596268c9fc95810890607762f">CImg</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#a8a31842596268c9fc95810890607762f"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct empty image.  <a href="#a8a31842596268c9fc95810890607762f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a7e7097f15580db1005cb28a8218ac9ac">CImg</a> (const unsigned int size_x, const unsigned int size_y=1, const unsigned int size_z=1, const unsigned int size_c=1)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image with specified size.  <a href="#a7e7097f15580db1005cb28a8218ac9ac"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#aa4de788eefea3fbe420dcf9bb9197554">CImg</a> (const unsigned int size_x, const unsigned int size_y, const unsigned int size_z, const unsigned int size_c, const T value)</td></tr>
@@ -135,10 +135,10 @@ Constructors / Destructor / Instance Management</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image from reading an image file.  <a href="#aade5358c8a81825b86e6c654194b33d2"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename t &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#aff97beaa34b9061351711dcdaed85c58">CImg</a> (const <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; t &gt; &amp;img)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#aff97beaa34b9061351711dcdaed85c58"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image copy.  <a href="#aff97beaa34b9061351711dcdaed85c58"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae1d70bef944e9263b73d0d318b42d7f"></a><!-- doxytag: member="cimg_library::CImg::CImg" ref="aae1d70bef944e9263b73d0d318b42d7f" args="(const CImg&lt; T &gt; &amp;img)" -->
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#aae1d70bef944e9263b73d0d318b42d7f">CImg</a> (const <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;img)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor <b>[specialization]</b>. <br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image copy <b>[specialization]</b>. <br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename t &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#ad98a6287e13cfa22b2c25475a6edacaf">CImg</a> (const <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; t &gt; &amp;img, const bool <a class="el" href="structcimg__library_1_1CImg.html#a89c9d2adf59c941c548b2dbb85d9224d">is_shared</a>)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Advanced copy constructor.  <a href="#ad98a6287e13cfa22b2c25475a6edacaf"></a><br/></td></tr>
@@ -154,47 +154,48 @@ Constructors / Destructor / Instance Management</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#aceaeb1e13cdb9e681ddc4341807f6fac">CImg</a> (const <a class="el" href="structcimg__library_1_1CImgDisplay.html">CImgDisplay</a> &amp;disp)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image from a display window.  <a href="#aceaeb1e13cdb9e681ddc4341807f6fac"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a65018fb0cbdbd9e8d1404321cd69bfe5">assign</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of the default constructor/destructor.  <a href="#a65018fb0cbdbd9e8d1404321cd69bfe5"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct empty image <b>[in-place version]</b>.  <a href="#a65018fb0cbdbd9e8d1404321cd69bfe5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#ae885930f4f1bfe0be8fd470dd722de7f">assign</a> (const unsigned int size_x, const unsigned int size_y=1, const unsigned int size_z=1, const unsigned int size_c=1)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of a constructor.  <a href="#ae885930f4f1bfe0be8fd470dd722de7f"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image with specified size <b>[in-place version]</b>.  <a href="#ae885930f4f1bfe0be8fd470dd722de7f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a70997cba20d53be792a1d38fe9114552">assign</a> (const unsigned int size_x, const unsigned int size_y, const unsigned int size_z, const unsigned int size_c, const T value)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of a constructor.  <a href="#a70997cba20d53be792a1d38fe9114552"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image with specified size and initialize pixel values <b>[in-place version]</b>.  <a href="#a70997cba20d53be792a1d38fe9114552"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a8ef115e55a55b7a702c69dae72c635f3">assign</a> (const unsigned int size_x, const unsigned int size_y, const unsigned int size_z, const unsigned int size_c, const int value0, const int value1,...)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of a constructor.  <a href="#a8ef115e55a55b7a702c69dae72c635f3"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image with specified size and initialize pixel values from a sequence of integers <b>[in-place version]</b>.  <a href="#a8ef115e55a55b7a702c69dae72c635f3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#adcf87c8ceb410466a88200bc69be5d7e">assign</a> (const unsigned int size_x, const unsigned int size_y, const unsigned int size_z, const unsigned int size_c, const double value0, const double value1,...)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of a constructor.  <a href="#adcf87c8ceb410466a88200bc69be5d7e"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image with specified size and initialize pixel values from a sequence of doubles <b>[in-place version]</b>.  <a href="#adcf87c8ceb410466a88200bc69be5d7e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a0b34f3f15dc5abdef3a196077c584885">assign</a> (const unsigned int size_x, const unsigned int size_y, const unsigned int size_z, const unsigned int size_c, const char *const values, const bool repeat_values)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of a constructor.  <a href="#a0b34f3f15dc5abdef3a196077c584885"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image with specified size and initialize pixel values from a value string <b>[in-place version]</b>.  <a href="#a0b34f3f15dc5abdef3a196077c584885"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename t &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a023093ec3d1ff135dca6de2805993530">assign</a> (const t *const values, const unsigned int size_x, const unsigned int size_y=1, const unsigned int size_z=1, const unsigned int size_c=1)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of a constructor.  <a href="#a023093ec3d1ff135dca6de2805993530"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image with specified size and initialize pixel values from a memory buffer <b>[in-place version]</b>.  <a href="#a023093ec3d1ff135dca6de2805993530"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abcfbc68be872b7db2aa398f82daca4a6"></a><!-- doxytag: member="cimg_library::CImg::assign" ref="abcfbc68be872b7db2aa398f82daca4a6" args="(const T *const values, const unsigned int size_x, const unsigned int size_y=1, const unsigned int size_z=1, const unsigned int size_c=1)" -->
 <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#abcfbc68be872b7db2aa398f82daca4a6">assign</a> (const T *const values, const unsigned int size_x, const unsigned int size_y=1, const unsigned int size_z=1, const unsigned int size_c=1)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of a constructor <b>[specialization]</b>. <br/></td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;typename t &gt; </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image with specified size and initialize pixel values from a memory buffer <b>[specialization]</b>. <br/></td></tr>
+<tr><td class="memTemplParams" colspan="2"><a class="anchor" id="a12201b54504c9d3ef3160104c38d8ff0"></a><!-- doxytag: member="cimg_library::CImg::assign" ref="a12201b54504c9d3ef3160104c38d8ff0" args="(const t *const values, const unsigned int size_x, const unsigned int size_y, const unsigned int size_z, const unsigned int size_c, const bool is_shared)" -->
+template&lt;typename t &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a12201b54504c9d3ef3160104c38d8ff0">assign</a> (const t *const values, const unsigned int size_x, const unsigned int size_y, const unsigned int size_z, const unsigned int size_c, const bool <a class="el" href="structcimg__library_1_1CImg.html#a89c9d2adf59c941c548b2dbb85d9224d">is_shared</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of a constructor.  <a href="#a12201b54504c9d3ef3160104c38d8ff0"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image with specified size and initialize pixel values from a memory buffer <b>[overloading]</b>. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99d7e2099083b8edb253e30e89123490"></a><!-- doxytag: member="cimg_library::CImg::assign" ref="a99d7e2099083b8edb253e30e89123490" args="(const T *const values, const unsigned int size_x, const unsigned int size_y, const unsigned int size_z, const unsigned int size_c, const bool is_shared)" -->
 <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a99d7e2099083b8edb253e30e89123490">assign</a> (const T *const values, const unsigned int size_x, const unsigned int size_y, const unsigned int size_z, const unsigned int size_c, const bool <a class="el" href="structcimg__library_1_1CImg.html#a89c9d2adf59c941c548b2dbb85d9224d">is_shared</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of a constructor <b>[specialization]</b>. <br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image with specified size and initialize pixel values from a memory buffer <b>[overloading]</b>. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a78c78d152f5012d2e8fdcc35235c62a4">assign</a> (const char *const filename)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of a constructor.  <a href="#a78c78d152f5012d2e8fdcc35235c62a4"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image from reading an image file <b>[in-place version]</b>.  <a href="#a78c78d152f5012d2e8fdcc35235c62a4"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename t &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a152060b1a0a5e380e03ea7a26177f24e">assign</a> (const <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; t &gt; &amp;img)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of the default copy constructor.  <a href="#a152060b1a0a5e380e03ea7a26177f24e"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image copy <b>[in-place version]</b>.  <a href="#a152060b1a0a5e380e03ea7a26177f24e"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename t &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a8c4c263ec40a5dc14564a794f0e319f3">assign</a> (const <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; t &gt; &amp;img, const bool <a class="el" href="structcimg__library_1_1CImg.html#a89c9d2adf59c941c548b2dbb85d9224d">is_shared</a>)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of the advanced copy constructor.  <a href="#a8c4c263ec40a5dc14564a794f0e319f3"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename t &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a40a26eedeeda359a33b44a5f5214bbe0">assign</a> (const <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; t &gt; &amp;img, const char *const dimensions)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of a constructor.  <a href="#a40a26eedeeda359a33b44a5f5214bbe0"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image with dimensions borrowed from another image <b>[in-place version]</b>.  <a href="#a40a26eedeeda359a33b44a5f5214bbe0"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename t &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#aa233a5b0174b89637fc20d86450c6621">assign</a> (const <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; t &gt; &amp;img, const char *const dimensions, const T value)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of a constructor.  <a href="#aa233a5b0174b89637fc20d86450c6621"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image with dimensions borrowed from another image and initialize pixel values <b>[in-place version]</b>.  <a href="#aa233a5b0174b89637fc20d86450c6621"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a48123f96bfb3eff6ba15dc4b40a8f81a">assign</a> (const <a class="el" href="structcimg__library_1_1CImgDisplay.html">CImgDisplay</a> &amp;disp)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of a constructor.  <a href="#a48123f96bfb3eff6ba15dc4b40a8f81a"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct image from a display window <b>[in-place version]</b>.  <a href="#a48123f96bfb3eff6ba15dc4b40a8f81a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#ab5cdf8f13cc7065fef4da8214ff36d5d">clear</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place version of the default constructor.  <a href="#ab5cdf8f13cc7065fef4da8214ff36d5d"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct empty image <b>[in-place version]</b>.  <a href="#ab5cdf8f13cc7065fef4da8214ff36d5d"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename t &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; t &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a09aeb03ffe6512209f64b92fbef9574c">move_to</a> (<a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; t &gt; &amp;img)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer content of an image instance into another one.  <a href="#a09aeb03ffe6512209f64b92fbef9574c"></a><br/></td></tr>
@@ -1726,7 +1727,7 @@ template&lt;typename t &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#aef67e0dd6d2007915d2e30d46b8a8a79">get_warp</a> (const <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; t &gt; &amp;<a class="el" href="structcimg__library_1_1CImg.html#a66deda62b55f310e0f74a2525a1e94de">warp</a>, const bool is_relative=false, const bool is_linear_interpolation=true, const unsigned int boundary_conditions=0) const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Warp image content by a warping field <b>[new-instance version]</b> <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a90cecb0e4c93540c4ae26aba54a1aa34">get_projections2d</a> (const unsigned int x0, const unsigned int y0, const unsigned int z0) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a 2d representation of a 3d image, with XY,XZ and YZ views.  <a href="#a90cecb0e4c93540c4ae26aba54a1aa34"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a 2d representation of a 3d image, with XY,XZ and YZ views.  <a href="#a90cecb0e4c93540c4ae26aba54a1aa34"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66fdd54d4317acf39da2fe465fd0f6c4"></a><!-- doxytag: member="cimg_library::CImg::projections2d" ref="a66fdd54d4317acf39da2fe465fd0f6c4" args="(const unsigned int x0, const unsigned int y0, const unsigned int z0)" -->
 <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a66fdd54d4317acf39da2fe465fd0f6c4">projections2d</a> (const unsigned int x0, const unsigned int y0, const unsigned int z0)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a 2d representation of a 3d image, with XY,XZ and YZ views <b>[in-place version]</b>. <br/></td></tr>
@@ -2085,16 +2086,16 @@ template&lt;typename t &gt; </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Texturize primitives of a 3d object.  <a href="#abca39d330d36cd7872bf4ef5722e8f03"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename tf , typename tc , typename te &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; floatT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a26d868df92542026e0ab60df4c7f286a">get_elevation3d</a> (<a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tf &gt; &amp;primitives, <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tc &gt; &amp;colors, const <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; te &gt; &amp;elevation) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and return a 3d elevation of the image instance.  <a href="#a26d868df92542026e0ab60df4c7f286a"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a 3d elevation of the image instance.  <a href="#a26d868df92542026e0ab60df4c7f286a"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename tf , typename tc &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; floatT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a7c80766958254bcb13e9f18fc6e4980c">get_projections3d</a> (<a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tf &gt; &amp;primitives, <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tc &gt; &amp;colors, const unsigned int x0, const unsigned int y0, const unsigned int z0, const bool normalize_colors=false) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and return the 3d projection planes of the image instance.  <a href="#a7c80766958254bcb13e9f18fc6e4980c"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the 3d projection planes of the image instance.  <a href="#a7c80766958254bcb13e9f18fc6e4980c"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename tf &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; floatT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#aea6465db01b6f6fcb9ffc3699432040e">get_isoline3d</a> (<a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tf &gt; &amp;primitives, const float isovalue, const int size_x=-100, const int size_y=-100) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and return a isoline of the image instance as a 3d object.  <a href="#aea6465db01b6f6fcb9ffc3699432040e"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a isoline of the image instance as a 3d object.  <a href="#aea6465db01b6f6fcb9ffc3699432040e"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename tf &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; floatT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a898b5f9a3612526e76a2f009c246a73e">get_isosurface3d</a> (<a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tf &gt; &amp;primitives, const float isovalue, const int size_x=-100, const int size_y=-100, const int size_z=-100) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and return a isosurface of the image instance as a 3d object.  <a href="#a898b5f9a3612526e76a2f009c246a73e"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate an isosurface of the image instance as a 3d object.  <a href="#a898b5f9a3612526e76a2f009c246a73e"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename tp , typename tc , typename to &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a3e7263be46749f21bd846c4f4bc756a6">object3dtoCImg3d</a> (const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tp &gt; &amp;primitives, const <a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tc &gt; &amp;colors, const to &amp;opacities)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert 3d object into a CImg3d representation.  <a href="#a3e7263be46749f21bd846c4f4bc756a6"></a><br/></td></tr>
@@ -2154,25 +2155,25 @@ template&lt;typename tf &gt; </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute isosurface of a function, as a 3d object <b>[overloading]</b>. <br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename tf &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; floatT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a5796d94bd48d3f3b5fde6b3955ec68e1">box3d</a> (<a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tf &gt; &amp;primitives, const float size_x=200, const float size_y=100, const float size_z=100)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and return a 3d box object.  <a href="#a5796d94bd48d3f3b5fde6b3955ec68e1"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a 3d box object.  <a href="#a5796d94bd48d3f3b5fde6b3955ec68e1"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename tf &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; floatT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a744a584d87f069fb5b2511a4b6449425">cone3d</a> (<a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tf &gt; &amp;primitives, const float radius=50, const float size_z=100, const unsigned int subdivisions=24)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and return a 3d cone.  <a href="#a744a584d87f069fb5b2511a4b6449425"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a 3d cone.  <a href="#a744a584d87f069fb5b2511a4b6449425"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename tf &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; floatT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#ab924fbf66b85c9ff9bfbb1e31f0640c7">cylinder3d</a> (<a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tf &gt; &amp;primitives, const float radius=50, const float size_z=100, const unsigned int subdivisions=24)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and return a 3d cylinder.  <a href="#ab924fbf66b85c9ff9bfbb1e31f0640c7"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a 3d cylinder.  <a href="#ab924fbf66b85c9ff9bfbb1e31f0640c7"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename tf &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; floatT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#aa7da4d9793caecfa69abdfc7700866ae">torus3d</a> (<a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tf &gt; &amp;primitives, const float radius1=100, const float radius2=30, const unsigned int subdivisions1=24, const unsigned int subdivisions2=12)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and return a 3d torus.  <a href="#aa7da4d9793caecfa69abdfc7700866ae"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a 3d torus.  <a href="#aa7da4d9793caecfa69abdfc7700866ae"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename tf &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; floatT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a87e86f1b61f3fb913567e685c8552f0c">plane3d</a> (<a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tf &gt; &amp;primitives, const float size_x=100, const float size_y=100, const unsigned int subdivisions_x=10, const unsigned int subdivisions_y=10)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and return a 3d XY-plane.  <a href="#a87e86f1b61f3fb913567e685c8552f0c"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a 3d XY-plane.  <a href="#a87e86f1b61f3fb913567e685c8552f0c"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename tf &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; floatT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#ae0b5b46dede282a2a817519ed24fb601">sphere3d</a> (<a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tf &gt; &amp;primitives, const float radius=50, const unsigned int subdivisions=3)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and return a 3d sphere.  <a href="#ae0b5b46dede282a2a817519ed24fb601"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a 3d sphere.  <a href="#ae0b5b46dede282a2a817519ed24fb601"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename tf , typename t &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; floatT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a79e70bda268fd54cb31e9e9e2347afb8">ellipsoid3d</a> (<a class="el" href="structcimg__library_1_1CImgList.html">CImgList</a>&lt; tf &gt; &amp;primitives, const <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; t &gt; &amp;<a class="el" href="structcimg__library_1_1CImg.html#a5d2d10755254c77c93b671d7cce54dcf">tensor</a>, const unsigned int subdivisions=3)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and return a 3d ellipsoid.  <a href="#a79e70bda268fd54cb31e9e9e2347afb8"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a 3d ellipsoid.  <a href="#a79e70bda268fd54cb31e9e9e2347afb8"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="member-group"></a>
 Drawing Functions</h2></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename tc &gt; </td></tr>
@@ -2920,9 +2921,9 @@ const <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; 
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save image as a Dicom file.  <a href="#af3608edc3098e7c850c69cd347d4f9e8"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a3c48c6414547b87d5b3dbf17ac84b393">save_other</a> (const char *const filename, const unsigned int quality=100) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a6be9b90fe347cd59875682a4b80c24cc">save_empty_cimg</a> (const char *const filename, const unsigned int dx, const unsigned int dy=1, const unsigned int dz=1, const unsigned int dc=1)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a blank image as a .cimg file.  <a href="#a6be9b90fe347cd59875682a4b80c24cc"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save blank image as a .cimg file.  <a href="#a6be9b90fe347cd59875682a4b80c24cc"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcimg__library_1_1CImg.html#a2b1c9c930bba551167e332f23fd04a9b">save_empty_cimg</a> (std::FILE *const file, const unsigned int dx, const unsigned int dy=1, const unsigned int dz=1, const unsigned int dc=1)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a blank image as a .cimg file <b>[overloading]</b>.  <a href="#a2b1c9c930bba551167e332f23fd04a9b"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save blank image as a .cimg file <b>[overloading]</b>.  <a href="#a2b1c9c930bba551167e332f23fd04a9b"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br/>
@@ -3068,8 +3069,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Destructor. </p>
-<p>Destroy current image instance. </p>
+<p>Destroy image. </p>
 <dl class="note"><dt><b>Note:</b></dt><dd><ul>
 <li>The pixel buffer <a class="el" href="structcimg__library_1_1CImg.html#a1699472936b80a88d3fc8096975d21b2" title="Return a pointer to the first pixel value.">data()</a> is deallocated if necessary, e.g. for non-empty and non-shared image instances.</li>
 <li>Destroying an empty or shared image does nothing actually. </li>
@@ -3096,11 +3096,10 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Default constructor. </p>
-<p>Construct a new empty image instance. </p>
+<p>Construct empty image. </p>
 <dl class="note"><dt><b>Note:</b></dt><dd><ul>
 <li>An empty image has no pixel data and all of its dimensions <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>, <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>, <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>, <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a> are set to <code>0</code>, as well as its pixel buffer pointer <a class="el" href="structcimg__library_1_1CImg.html#a1699472936b80a88d3fc8096975d21b2" title="Return a pointer to the first pixel value.">data()</a>.</li>
-<li>An empty image may be re-assigned afterwards, e.g. with the family of <a class="el" href="structcimg__library_1_1CImg.html#ae885930f4f1bfe0be8fd470dd722de7f" title="In-place version of a constructor.">assign(unsigned int,unsigned int,unsigned int,unsigned int)</a> methods, or by <a class="el" href="structcimg__library_1_1CImg.html#a3f46b6df062666bdc6135e7cbcdba040" title="Copy an image into the current image instance.">operator=(const CImg&lt;t&gt;&amp;)</a>. In all cases, the type of pixels stays <code>T</code>.</li>
+<li>An empty image may be re-assigned afterwards, e.g. with the family of <a class="el" href="structcimg__library_1_1CImg.html#ae885930f4f1bfe0be8fd470dd722de7f" title="Construct image with specified size [in-place version].">assign(unsigned int,unsigned int,unsigned int,unsigned int)</a> methods, or by <a class="el" href="structcimg__library_1_1CImg.html#a3f46b6df062666bdc6135e7cbcdba040" title="Copy an image into the current image instance.">operator=(const CImg&lt;t&gt;&amp;)</a>. In all cases, the type of pixels stays <code>T</code>.</li>
 <li>An empty image is never shared. </li>
 </ul>
 </dd></dl>
@@ -3150,13 +3149,12 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <div class="memdoc">
 
 <p>Construct image with specified size. </p>
-<p>Construct a new image instance of size <code>size_x</code> x <code>size_y</code> x <code>size_z</code> x <code>size_c</code>, with pixels of type <code>T</code>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">size_x</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
-    <tr><td class="paramname">size_y</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
-    <tr><td class="paramname">size_z</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
-    <tr><td class="paramname">size_c</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a>. </td></tr>
+    <tr><td class="paramname">size_x</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
+    <tr><td class="paramname">size_y</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
+    <tr><td class="paramname">size_z</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
+    <tr><td class="paramname">size_c</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a> (number of channels). </td></tr>
   </table>
   </dd>
 </dl>
@@ -3220,14 +3218,13 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <div class="memdoc">
 
 <p>Construct image with specified size and initialize pixel values. </p>
-<p>Construct a new image instance of size <code>size_x</code> x <code>size_y</code> x <code>size_z</code> x <code>size_c</code>, with pixels of type <code>T</code>, and set all pixel values to specified <code>value</code>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">size_x</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
-    <tr><td class="paramname">size_y</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
-    <tr><td class="paramname">size_z</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
-    <tr><td class="paramname">size_c</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a>. </td></tr>
-    <tr><td class="paramname">value</td><td>: Value used for initialization. </td></tr>
+    <tr><td class="paramname">size_x</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
+    <tr><td class="paramname">size_y</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
+    <tr><td class="paramname">size_z</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
+    <tr><td class="paramname">size_c</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a> (number of channels). </td></tr>
+    <tr><td class="paramname">value</td><td>Initialization value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -3301,12 +3298,12 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Construct a new image instance of size <code>size_x</code> x <code>size_y</code> x <code>size_z</code> x <code>size_c</code>, with pixels of type <code>T</code>, and initialize pixel values from the specified sequence of integers <code>value0</code>,<code>value1</code>,<code></code>... </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">size_x</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
-    <tr><td class="paramname">size_y</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
-    <tr><td class="paramname">size_z</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
-    <tr><td class="paramname">size_c</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a>. </td></tr>
-    <tr><td class="paramname">value0</td><td>: First value of the initialization sequence (must be an <em>integer</em>). </td></tr>
-    <tr><td class="paramname">value1</td><td>: Second value of the initialization sequence (must be an <em>integer</em>). </td></tr>
+    <tr><td class="paramname">size_x</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
+    <tr><td class="paramname">size_y</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
+    <tr><td class="paramname">size_z</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
+    <tr><td class="paramname">size_c</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a> (number of channels). </td></tr>
+    <tr><td class="paramname">value0</td><td>First value of the initialization sequence (must be an <em>integer</em>). </td></tr>
+    <tr><td class="paramname">value1</td><td>Second value of the initialization sequence (must be an <em>integer</em>). </td></tr>
     <tr><td class="paramname">...</td><td></td></tr>
   </table>
   </dd>
@@ -3390,12 +3387,12 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Construct a new image instance of size <code>size_x</code> x <code>size_y</code> x <code>size_z</code> x <code>size_c</code>, with pixels of type <code>T</code>, and initialize pixel values from the specified sequence of doubles <code>value0</code>,<code>value1</code>,<code></code>... </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">size_x</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
-    <tr><td class="paramname">size_y</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
-    <tr><td class="paramname">size_z</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
-    <tr><td class="paramname">size_c</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a>. </td></tr>
-    <tr><td class="paramname">value0</td><td>: First value of the initialization sequence (must be a <em>double</em>). </td></tr>
-    <tr><td class="paramname">value1</td><td>: Second value of the initialization sequence (must be a <em>double</em>). </td></tr>
+    <tr><td class="paramname">size_x</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
+    <tr><td class="paramname">size_y</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
+    <tr><td class="paramname">size_z</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
+    <tr><td class="paramname">size_c</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a> (number of channels). </td></tr>
+    <tr><td class="paramname">value0</td><td>First value of the initialization sequence (must be a <em>double</em>). </td></tr>
+    <tr><td class="paramname">value1</td><td>Second value of the initialization sequence (must be a <em>double</em>). </td></tr>
     <tr><td class="paramname">...</td><td></td></tr>
   </table>
   </dd>
@@ -3465,12 +3462,12 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Construct a new image instance of size <code>size_x</code> x <code>size_y</code> x <code>size_z</code> x <code>size_c</code>, with pixels of type <code>T</code>, and initializes pixel values from the specified string <code>values</code>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">size_x</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
-    <tr><td class="paramname">size_y</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
-    <tr><td class="paramname">size_z</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
-    <tr><td class="paramname">size_c</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a>. </td></tr>
-    <tr><td class="paramname">values</td><td>: Value string describing the way pixel values are set. </td></tr>
-    <tr><td class="paramname">repeat_values</td><td>: Flag telling if the value filling process is periodic. </td></tr>
+    <tr><td class="paramname">size_x</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
+    <tr><td class="paramname">size_y</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
+    <tr><td class="paramname">size_z</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
+    <tr><td class="paramname">size_c</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a> (number of channels). </td></tr>
+    <tr><td class="paramname">values</td><td>Value string describing the way pixel values are set. </td></tr>
+    <tr><td class="paramname">repeat_values</td><td>Tells if the value filling process is repeated over the image. </td></tr>
   </table>
   </dd>
 </dl>
@@ -3548,12 +3545,12 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Construct a new image instance of size <code>size_x</code> x <code>size_y</code> x <code>size_z</code> x <code>size_c</code>, with pixels of type <code>T</code>, and initializes pixel values from the specified <code>t*</code> memory buffer. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">values</td><td>: Pointer to the input memory buffer. </td></tr>
-    <tr><td class="paramname">size_x</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
-    <tr><td class="paramname">size_y</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
-    <tr><td class="paramname">size_z</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
-    <tr><td class="paramname">size_c</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a>. </td></tr>
-    <tr><td class="paramname">is_shared</td><td>: Flag telling if input memory buffer must be shared by the current instance. </td></tr>
+    <tr><td class="paramname">values</td><td>Pointer to the input memory buffer. </td></tr>
+    <tr><td class="paramname">size_x</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
+    <tr><td class="paramname">size_y</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
+    <tr><td class="paramname">size_z</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
+    <tr><td class="paramname">size_c</td><td>Image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a> (number of channels). </td></tr>
+    <tr><td class="paramname">is_shared</td><td>Tells if input memory buffer must be shared by the current instance. </td></tr>
   </table>
   </dd>
 </dl>
@@ -3629,11 +3626,11 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Copy constructor. </p>
+<p>Construct image copy. </p>
 <p>Construct a new image instance with pixels of type <code>T</code>, as a copy of an existing <code>CImg&lt;t&gt;</code> instance. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: Input image to copy. </td></tr>
+    <tr><td class="paramname">img</td><td>Input image to copy. </td></tr>
   </table>
   </dd>
 </dl>
@@ -3677,13 +3674,13 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Construct a new image instance with pixels of type <code>T</code>, as a copy of an existing <code>CImg&lt;t&gt;</code> instance, while forcing the shared state of the constructed copy. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: Input image to copy. </td></tr>
-    <tr><td class="paramname">is_shared</td><td>: Desired shared state of the constructed copy. </td></tr>
+    <tr><td class="paramname">img</td><td>Input image to copy. </td></tr>
+    <tr><td class="paramname">is_shared</td><td>Tells about the shared state of the constructed copy. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>Similar to <a class="el" href="structcimg__library_1_1CImg.html#aff97beaa34b9061351711dcdaed85c58" title="Copy constructor.">CImg(const CImg&lt;t&gt;&amp;)</a>, except that it allows to decide the shared state of the constructed image, which does not depend anymore on the shared state of the input image <code>img</code> :<ul>
+<li>Similar to <a class="el" href="structcimg__library_1_1CImg.html#aff97beaa34b9061351711dcdaed85c58" title="Construct image copy.">CImg(const CImg&lt;t&gt;&amp;)</a>, except that it allows to decide the shared state of the constructed image, which does not depend anymore on the shared state of the input image <code>img</code> :<ul>
 <li>If <code>is_shared</code> is <code>true</code>, the constructed copy will share its pixel buffer with the input image <code>img</code>. For that case, the pixel types <code>T</code> and <code>t</code> <em>must</em> be the same.</li>
 <li>If <code>is_shared</code> is <code>false</code>, the constructed copy will allocate its own pixel buffer, whether the input image <code>img</code> is shared or not.</li>
 </ul>
@@ -3723,8 +3720,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Construct a new image instance with pixels of type <code>T</code>, and size get from some dimensions of an existing <code>CImg&lt;t&gt;</code> instance. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: Input image from which dimensions are borrowed. </td></tr>
-    <tr><td class="paramname">dimensions</td><td>: String describing the image size along the X,Y,Z and C-dimensions. </td></tr>
+    <tr><td class="paramname">img</td><td>Input image from which dimensions are borrowed. </td></tr>
+    <tr><td class="paramname">dimensions</td><td>C-string describing the image size along the X,Y,Z and C-dimensions. </td></tr>
   </table>
   </dd>
 </dl>
@@ -3776,9 +3773,9 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Construct a new image instance with pixels of type <code>T</code>, and size get from the dimensions of an existing <code>CImg&lt;t&gt;</code> instance, and set all pixel values to specified <code>value</code>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: Input image from which dimensions are borrowed. </td></tr>
-    <tr><td class="paramname">dimensions</td><td>: String describing the image size along the X,Y,Z and V-dimensions. </td></tr>
-    <tr><td class="paramname">value</td><td>: Value used for initialization. </td></tr>
+    <tr><td class="paramname">img</td><td>Input image from which dimensions are borrowed. </td></tr>
+    <tr><td class="paramname">dimensions</td><td>String describing the image size along the X,Y,Z and V-dimensions. </td></tr>
+    <tr><td class="paramname">value</td><td>Value used for initialization. </td></tr>
   </table>
   </dd>
 </dl>
@@ -3808,7 +3805,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Construct a new image instance with pixels of type <code>T</code>, as a snapshot of an existing <code><a class="el" href="structcimg__library_1_1CImgDisplay.html" title="Allow to create windows, display images on them and manage user events (keyboard, mouse and windows e...">CImgDisplay</a></code> instance. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">disp</td><td>: Input display window. </td></tr>
+    <tr><td class="paramname">disp</td><td>Input display window. </td></tr>
   </table>
   </dd>
 </dl>
@@ -3836,15 +3833,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>In-place version of the default constructor/destructor. </p>
-<p>In-place version of the default constructor <a class="el" href="structcimg__library_1_1CImg.html#a8a31842596268c9fc95810890607762f" title="Default constructor.">CImg()</a>. It simply resets the instance to an empty image. </p>
-<dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>It reinitializes the current image instance to a new constructed image instance.</li>
-<li>Memory used by the previous pixel buffer of the image instance is deallocated if necessary (i.e. if instance was not empty nor shared).</li>
-<li>If the image instance was shared, it is replaced by a (non-shared) empty image without a deallocation process.</li>
-<li>It can be useful to force memory deallocation of a pixel buffer used by an image instance, before its formal destruction. </li>
-</ul>
-</dd></dl>
+<p>Construct empty image <b>[in-place version]</b>. </p>
+<p>In-place version of the default constructor <a class="el" href="structcimg__library_1_1CImg.html#a8a31842596268c9fc95810890607762f" title="Construct empty image.">CImg()</a>. It simply resets the instance to an empty image. </p>
 
 </div>
 </div>
@@ -3885,21 +3875,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>In-place version of a constructor. </p>
+<p>Construct image with specified size <b>[in-place version]</b>. </p>
 <p>In-place version of the constructor <a class="el" href="structcimg__library_1_1CImg.html#a7e7097f15580db1005cb28a8218ac9ac" title="Construct image with specified size.">CImg(unsigned int,unsigned int,unsigned int,unsigned int)</a>. </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">size_x</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
-    <tr><td class="paramname">size_y</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
-    <tr><td class="paramname">size_z</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
-    <tr><td class="paramname">size_c</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>It reinitializes the current image instance to a new constructed image instance. </li>
-</ul>
-</dd></dl>
 
 </div>
 </div>
@@ -3946,22 +3923,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>In-place version of a constructor. </p>
+<p>Construct image with specified size and initialize pixel values <b>[in-place version]</b>. </p>
 <p>In-place version of the constructor <a class="el" href="structcimg__library_1_1CImg.html#aa4de788eefea3fbe420dcf9bb9197554" title="Construct image with specified size and initialize pixel values.">CImg(unsigned int,unsigned int,unsigned int,unsigned int,T)</a>. </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">size_x</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
-    <tr><td class="paramname">size_y</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
-    <tr><td class="paramname">size_z</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
-    <tr><td class="paramname">size_c</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a>. </td></tr>
-    <tr><td class="paramname">value</td><td>: Value for initialization. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>It reinitializes the current image instance to a new constructed image instance. </li>
-</ul>
-</dd></dl>
 
 </div>
 </div>
@@ -4020,24 +3983,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>In-place version of a constructor. </p>
+<p>Construct image with specified size and initialize pixel values from a sequence of integers <b>[in-place version]</b>. </p>
 <p>In-place version of the constructor <a class="el" href="structcimg__library_1_1CImg.html" title="Class representing an image (up to 4 dimensions wide), each pixel being of type T.">CImg</a>(unsigned int,unsigned int,unsigned int,unsigned int,int,int,...). </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">size_x</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
-    <tr><td class="paramname">size_y</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
-    <tr><td class="paramname">size_z</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
-    <tr><td class="paramname">size_c</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a>. </td></tr>
-    <tr><td class="paramname">value0</td><td>: First value of the initialization sequence (must be an integer). </td></tr>
-    <tr><td class="paramname">value1</td><td>: Second value of the initialization sequence (must be an integer). </td></tr>
-    <tr><td class="paramname">...</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>It reinitializes the current image instance to a new constructed image instance. </li>
-</ul>
-</dd></dl>
 
 </div>
 </div>
@@ -4096,24 +4043,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>In-place version of a constructor. </p>
+<p>Construct image with specified size and initialize pixel values from a sequence of doubles <b>[in-place version]</b>. </p>
 <p>In-place version of the constructor <a class="el" href="structcimg__library_1_1CImg.html" title="Class representing an image (up to 4 dimensions wide), each pixel being of type T.">CImg</a>(unsigned int,unsigned int,unsigned int,unsigned int,double,double,...). </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">size_x</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
-    <tr><td class="paramname">size_y</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
-    <tr><td class="paramname">size_z</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
-    <tr><td class="paramname">size_c</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a>. </td></tr>
-    <tr><td class="paramname">value0</td><td>: First value of the initialization sequence (must be a double). </td></tr>
-    <tr><td class="paramname">value1</td><td>: Second value of the initialization sequence (must be a double). </td></tr>
-    <tr><td class="paramname">...</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>It reinitializes the current image instance to a new constructed image instance. </li>
-</ul>
-</dd></dl>
 
 </div>
 </div>
@@ -4166,23 +4097,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>In-place version of a constructor. </p>
+<p>Construct image with specified size and initialize pixel values from a value string <b>[in-place version]</b>. </p>
 <p>In-place version of the constructor <a class="el" href="structcimg__library_1_1CImg.html#a166c79d3886a4587c9e7d85ec450a110" title="Construct image with specified size and initialize pixel values from a value string.">CImg(unsigned int,unsigned int,unsigned int,unsigned int,const char*,bool)</a>. </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">size_x</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
-    <tr><td class="paramname">size_y</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
-    <tr><td class="paramname">size_z</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
-    <tr><td class="paramname">size_c</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a>. </td></tr>
-    <tr><td class="paramname">values</td><td>: Value string describing the way pixel values are set. </td></tr>
-    <tr><td class="paramname">repeat_values</td><td>: Flag telling if filling process is periodic. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>It reinitializes the current image instance to a new constructed image instance. </li>
-</ul>
-</dd></dl>
 
 </div>
 </div>
@@ -4229,91 +4145,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>In-place version of a constructor. </p>
+<p>Construct image with specified size and initialize pixel values from a memory buffer <b>[in-place version]</b>. </p>
 <p>In-place version of the constructor CImg(const t*,unsigned int,unsigned int,unsigned int,unsigned int). </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">values</td><td>: Pointer to the input memory buffer. </td></tr>
-    <tr><td class="paramname">size_x</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
-    <tr><td class="paramname">size_y</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
-    <tr><td class="paramname">size_z</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
-    <tr><td class="paramname">size_c</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>It reinitializes the current image instance to a new constructed image instance. </li>
-</ul>
-</dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a12201b54504c9d3ef3160104c38d8ff0"></a><!-- doxytag: member="cimg_library::CImg::assign" ref="a12201b54504c9d3ef3160104c38d8ff0" args="(const t *const values, const unsigned int size_x, const unsigned int size_y, const unsigned int size_z, const unsigned int size_c, const bool is_shared)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structcimg__library_1_1CImg.html">CImg</a>&lt;T&gt;&amp; <a class="el" href="structcimg__library_1_1CImg.html#a65018fb0cbdbd9e8d1404321cd69bfe5">assign</a> </td>
-          <td>(</td>
-          <td class="paramtype">const t *const&#160;</td>
-          <td class="paramname"><em>values</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>size_x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>size_y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>size_z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>size_c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>is_shared</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>In-place version of a constructor. </p>
-<p>In-place version of the constructor <a class="el" href="structcimg__library_1_1CImg.html#a24f3b43daa4444b94a973c2c3fff82c5" title="Construct image with specified size and initialize pixel values from a memory buffer.">CImg(const t*,unsigned int,unsigned int,unsigned int,unsigned int,bool)</a>. </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">values</td><td>: Pointer to the input memory buffer. </td></tr>
-    <tr><td class="paramname">size_x</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>. </td></tr>
-    <tr><td class="paramname">size_y</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f" title="Return the number of image rows.">height()</a>. </td></tr>
-    <tr><td class="paramname">size_z</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745" title="Return the number of image slices.">depth()</a>. </td></tr>
-    <tr><td class="paramname">size_c</td><td>: Desired image <a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a>. </td></tr>
-    <tr><td class="paramname">is_shared</td><td>: Flag telling if input memory buffer must be shared by the current instance. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>It reinitializes the current image instance to a new constructed image instance. </li>
-</ul>
-</dd></dl>
 
 </div>
 </div>
@@ -4332,19 +4165,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>In-place version of a constructor. </p>
+<p>Construct image from reading an image file <b>[in-place version]</b>. </p>
 <p>In-place version of the constructor <a class="el" href="structcimg__library_1_1CImg.html#aade5358c8a81825b86e6c654194b33d2" title="Construct image from reading an image file.">CImg(const char*)</a>. </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">filename</td><td>Filename, as a C-string. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>It reinitializes the current image instance to a new constructed image instance.</li>
-<li>Equivalent to <a class="el" href="structcimg__library_1_1CImg.html#a138dcc5db93d511d224d88405a0041ce" title="Load image from a file.">load(const char*)</a>. </li>
-</ul>
-</dd></dl>
 
 </div>
 </div>
@@ -4363,18 +4185,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>In-place version of the default copy constructor. </p>
-<p>In-place version of the constructor <a class="el" href="structcimg__library_1_1CImg.html#aff97beaa34b9061351711dcdaed85c58" title="Copy constructor.">CImg(const CImg&lt;t&gt;&amp;)</a>. </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">img</td><td>: Input image to copy. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>It reinitializes the current image instance to a new constructed image instance. </li>
-</ul>
-</dd></dl>
+<p>Construct image copy <b>[in-place version]</b>. </p>
+<p>In-place version of the constructor <a class="el" href="structcimg__library_1_1CImg.html#aff97beaa34b9061351711dcdaed85c58" title="Construct image copy.">CImg(const CImg&lt;t&gt;&amp;)</a>. </p>
 
 </div>
 </div>
@@ -4405,13 +4217,6 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 
 <p>In-place version of the advanced copy constructor. </p>
 <p>In-place version of the constructor <a class="el" href="structcimg__library_1_1CImg.html#ad98a6287e13cfa22b2c25475a6edacaf" title="Advanced copy constructor.">CImg(const CImg&lt;t&gt;&amp;,bool)</a>. </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">img</td><td>: Input image to copy. </td></tr>
-    <tr><td class="paramname">is_shared</td><td>: Desired shared state of the constructed copy. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -4440,19 +4245,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>In-place version of a constructor. </p>
+<p>Construct image with dimensions borrowed from another image <b>[in-place version]</b>. </p>
 <p>In-place version of the constructor <a class="el" href="structcimg__library_1_1CImg.html#abb4ac5ea84fa7abb34b7353bad883fb3" title="Construct image with dimensions borrowed from another image.">CImg(const CImg&lt;t&gt;&amp;,const char*)</a>. </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">img</td><td>: Input image from which dimensions are borrowed. </td></tr>
-    <tr><td class="paramname">dimensions</td><td>: String describing the image size along the X,Y,Z and V-dimensions. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>It reinitializes the current image instance to a new constructed image instance. </li>
-</ul>
-</dd></dl>
 
 </div>
 </div>
@@ -4487,20 +4281,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>In-place version of a constructor. </p>
+<p>Construct image with dimensions borrowed from another image and initialize pixel values <b>[in-place version]</b>. </p>
 <p>In-place version of the constructor <a class="el" href="structcimg__library_1_1CImg.html#a04358eed1f499c76c9ff07b9f9891b23" title="Construct image with dimensions borrowed from another image and initialize pixel values.">CImg(const CImg&lt;t&gt;&amp;,const char*,T)</a>. </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">img</td><td>: Input image from which dimensions are borrowed. </td></tr>
-    <tr><td class="paramname">dimensions</td><td>: String describing the image size along the X,Y,Z and V-dimensions. </td></tr>
-    <tr><td class="paramname">value</td><td>: Value for initialization. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>It reinitializes the current image instance to a new constructed image instance. </li>
-</ul>
-</dd></dl>
 
 </div>
 </div>
@@ -4519,18 +4301,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>In-place version of a constructor. </p>
+<p>Construct image from a display window <b>[in-place version]</b>. </p>
 <p>In-place version of the constructor <a class="el" href="structcimg__library_1_1CImg.html#aceaeb1e13cdb9e681ddc4341807f6fac" title="Construct image from a display window.">CImg(const CImgDisplay&amp;)</a>. </p>
-<dl class="params"><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">disp</td><td>: Input <code><a class="el" href="structcimg__library_1_1CImgDisplay.html" title="Allow to create windows, display images on them and manage user events (keyboard, mouse and windows e...">CImgDisplay</a></code>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>It reinitializes the current image instance to a new constructed image instance. </li>
-</ul>
-</dd></dl>
 
 </div>
 </div>
@@ -4548,8 +4320,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>In-place version of the default constructor. </p>
-<p>Equivalent to <a class="el" href="structcimg__library_1_1CImg.html#a65018fb0cbdbd9e8d1404321cd69bfe5" title="In-place version of the default constructor/destructor.">assign()</a>. </p>
+<p>Construct empty image <b>[in-place version]</b>. </p>
+<p>Equivalent to <a class="el" href="structcimg__library_1_1CImg.html#a65018fb0cbdbd9e8d1404321cd69bfe5" title="Construct empty image [in-place version].">assign()</a>. </p>
 <dl class="note"><dt><b>Note:</b></dt><dd><ul>
 <li>It has been defined for compatibility with STL naming conventions. </li>
 </ul>
@@ -4576,7 +4348,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Transfer the dimensions and the pixel buffer content of an image instance into another one, and replace instance by an empty image. It avoids the copy of the pixel buffer when possible. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: Destination image. </td></tr>
+    <tr><td class="paramname">img</td><td>Destination image. </td></tr>
   </table>
   </dd>
 </dl>
@@ -4620,8 +4392,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Transfer the dimensions and the pixel buffer content of an image instance into a newly inserted image at position <code>pos</code> in specified <code>CImgList&lt;t&gt;</code> instance. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>: Destination list. </td></tr>
-    <tr><td class="paramname">pos</td><td>: Position of the newly inserted image in the list. </td></tr>
+    <tr><td class="paramname">list</td><td>Destination list. </td></tr>
+    <tr><td class="paramname">pos</td><td>Position of the newly inserted image in the list. </td></tr>
   </table>
   </dd>
 </dl>
@@ -4655,7 +4427,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Swap fields of two image instances. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: Image to swap fields with. </td></tr>
+    <tr><td class="paramname">img</td><td>Image to swap fields with. </td></tr>
   </table>
   </dd>
 </dl>
@@ -4810,12 +4582,12 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Access to a pixel value. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>: X-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">y</td><td>: Y-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">z</td><td>: Z-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">c</td><td>: C-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">wh</td><td>: Precomputed offset, must be equal to <code><a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>*<a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f">height()</a></code>. </td></tr>
-    <tr><td class="paramname">whd</td><td>: Precomputed offset, must be equal to <code><a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>*<a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f">height()</a>*<a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745">depth()</a></code>. </td></tr>
+    <tr><td class="paramname">x</td><td>X-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">y</td><td>Y-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">z</td><td>Z-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">c</td><td>C-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">wh</td><td>Precomputed offset, must be equal to <code><a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>*<a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f">height()</a></code>. </td></tr>
+    <tr><td class="paramname">whd</td><td>Precomputed offset, must be equal to <code><a class="el" href="structcimg__library_1_1CImg.html#a369399896761e31ae71db57fdd0ba431" title="Return the number of image columns.">width()</a>*<a class="el" href="structcimg__library_1_1CImg.html#ae26bcfe2f33f5873dbdfb6948cf1f59f">height()</a>*<a class="el" href="structcimg__library_1_1CImg.html#a3275d1392d01b26af1c8cd52b0d10745">depth()</a></code>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -4879,7 +4651,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Assign specified <code>value</code> to each pixel value of the image instance. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>: Value that will be assigned to image pixels. </td></tr>
+    <tr><td class="paramname">value</td><td>Value that will be assigned to image pixels. </td></tr>
   </table>
   </dd>
 </dl>
@@ -4914,7 +4686,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Initialize all pixel values from the specified string <code>expression</code>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">expression</td><td>: Value string describing the way pixel values are set. </td></tr>
+    <tr><td class="paramname">expression</td><td>Value string describing the way pixel values are set. </td></tr>
   </table>
   </dd>
 </dl>
@@ -4954,7 +4726,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <div class="memdoc">
 
 <p>Copy an image into the current image instance. </p>
-<p>Similar to the in-place copy constructor <a class="el" href="structcimg__library_1_1CImg.html#a152060b1a0a5e380e03ea7a26177f24e" title="In-place version of the default copy constructor.">assign(const CImg&lt;t&gt;&amp;)</a>. </p>
+<p>Similar to the in-place copy constructor <a class="el" href="structcimg__library_1_1CImg.html#a152060b1a0a5e380e03ea7a26177f24e" title="Construct image copy [in-place version].">assign(const CImg&lt;t&gt;&amp;)</a>. </p>
 
 </div>
 </div>
@@ -4974,7 +4746,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <div class="memdoc">
 
 <p>Copy the content of a display window to the current image instance. </p>
-<p>Similar to <a class="el" href="structcimg__library_1_1CImg.html#a48123f96bfb3eff6ba15dc4b40a8f81a" title="In-place version of a constructor.">assign(const CImgDisplay&amp;)</a>. </p>
+<p>Similar to <a class="el" href="structcimg__library_1_1CImg.html#a48123f96bfb3eff6ba15dc4b40a8f81a" title="Construct image from a display window [in-place version].">assign(const CImgDisplay&amp;)</a>. </p>
 
 </div>
 </div>
@@ -4997,7 +4769,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Add specified <code>value</code> to all pixels of an image instance. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>: Value to add. </td></tr>
+    <tr><td class="paramname">value</td><td>Value to add. </td></tr>
   </table>
   </dd>
 </dl>
@@ -5043,7 +4815,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Add values to image pixels, according to the specified string <code>expression</code>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">expression</td><td>: Value string describing the way pixel values are added. </td></tr>
+    <tr><td class="paramname">expression</td><td>Value string describing the way pixel values are added. </td></tr>
   </table>
   </dd>
 </dl>
@@ -5073,7 +4845,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Add values to image pixels, according to the values of the input image <code>img</code>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: Input image to add. </td></tr>
+    <tr><td class="paramname">img</td><td>Input image to add. </td></tr>
   </table>
   </dd>
 </dl>
@@ -5157,7 +4929,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 
 <p>Return a non-shared copy of the image instance. </p>
 <dl class="note"><dt><b>Note:</b></dt><dd><ul>
-<li>Use this operator to ensure you get a non-shared copy of an image instance with same pixel type <code>T</code>. Indeed, the usual copy constructor <a class="el" href="structcimg__library_1_1CImg.html#aae1d70bef944e9263b73d0d318b42d7f" title="Copy constructor [specialization].">CImg&lt;T&gt;(const CImg&lt;T&gt;&amp;)</a> returns a shared copy of a shared input image, and it may be not desirable to work on a regular copy (e.g. for a resize operation) if you have no informations about the shared state of the input image.</li>
+<li>Use this operator to ensure you get a non-shared copy of an image instance with same pixel type <code>T</code>. Indeed, the usual copy constructor <a class="el" href="structcimg__library_1_1CImg.html#aae1d70bef944e9263b73d0d318b42d7f" title="Construct image copy [specialization].">CImg&lt;T&gt;(const CImg&lt;T&gt;&amp;)</a> returns a shared copy of a shared input image, and it may be not desirable to work on a regular copy (e.g. for a resize operation) if you have no informations about the shared state of the input image.</li>
 <li>Writing <code></code>(+img) is equivalent to <code>CImg&lt;T&gt;(img,false)</code>. </li>
 </ul>
 </dd></dl>
@@ -5472,7 +5244,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Replace the image instance by the matrix multiplication between the image instance and the specified matrix <code>img</code>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: Second operand of the matrix multiplication. </td></tr>
+    <tr><td class="paramname">img</td><td>Second operand of the matrix multiplication. </td></tr>
   </table>
   </dd>
 </dl>
@@ -5608,7 +5380,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Replace the image instance by the (right) matrix division between the image instance and the specified matrix <code>img</code>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: Second operand of the matrix division. </td></tr>
+    <tr><td class="paramname">img</td><td>Second operand of the matrix division. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6451,7 +6223,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return <code>true</code> is all pixels of the image instance are equal to the specified <code>value</code>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>: Reference value to compare with. </td></tr>
+    <tr><td class="paramname">value</td><td>Reference value to compare with. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6477,7 +6249,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return <code>true</code> is all pixels of the image instance are equal to the specified <code>expression</code>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">expression</td><td>: Value string describing the way pixel values are compared. </td></tr>
+    <tr><td class="paramname">expression</td><td>Value string describing the way pixel values are compared. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6503,7 +6275,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return <code>true</code> if the image instance and the input image <code>img</code> have the same dimensions and pixel values, and <code>false</code> otherwise. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: Input image to compare with. </td></tr>
+    <tr><td class="paramname">img</td><td>Input image to compare with. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6539,7 +6311,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return <code>true</code> is all pixels of the image instance are different than the specified <code>value</code>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>: Reference value to compare with. </td></tr>
+    <tr><td class="paramname">value</td><td>Reference value to compare with. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6565,7 +6337,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return <code>true</code> is all pixels of the image instance are different to the specified <code>expression</code>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">expression</td><td>: Value string describing the way pixel values are compared. </td></tr>
+    <tr><td class="paramname">expression</td><td>Value string describing the way pixel values are compared. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6591,7 +6363,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return <code>true</code> if the image instance and the input image <code>img</code> have different dimensions or pixel values, and <code>false</code> otherwise. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: input image to compare with. </td></tr>
+    <tr><td class="paramname">img</td><td>Input image to compare with. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6625,7 +6397,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </ul>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: Input image that will be the second image of the resulting list. </td></tr>
+    <tr><td class="paramname">img</td><td>Input image that will be the second image of the resulting list. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6675,7 +6447,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </ul>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">list</td><td>: Input image list that will be appended to the image instance. </td></tr>
+    <tr><td class="paramname">list</td><td>Input image list that will be appended to the image instance. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6705,7 +6477,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return a new list of images (<code><a class="el" href="structcimg__library_1_1CImgList.html" title="Represent a list of images CImg&lt;T&gt;.">CImgList</a></code> instance) containing the splitted components of the instance image along the specified axis. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">axis</td><td>: Splitting axis (can be '<code>x'</code>,'<code>y'</code>,'<code>z'</code> or '<code>c'</code>) </td></tr>
+    <tr><td class="paramname">axis</td><td>Splitting axis (can be '<code>x'</code>,'<code>y'</code>,'<code>z'</code> or '<code>c'</code>) </td></tr>
   </table>
   </dd>
 </dl>
@@ -6941,10 +6713,10 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return a <code>T*</code>, or a <code>const</code> <code>T*</code> pointer to the value located at (<code>x</code>,<code>y</code>,<code>z</code>,<code>c</code>) in the pixel buffer of the image instance, whether the instance is <code>const</code> or not. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>: X-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">y</td><td>: Y-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">z</td><td>: Z-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">c</td><td>: C-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">x</td><td>X-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">y</td><td>Y-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">z</td><td>Z-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">c</td><td>C-coordinate of the pixel value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -6995,10 +6767,10 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return the offset to a located pixel value, with respect to the beginning of the pixel buffer. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>: X-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">y</td><td>: Y-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">z</td><td>: Z-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">c</td><td>: C-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">x</td><td>X-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">y</td><td>Y-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">z</td><td>Z-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">c</td><td>C-coordinate of the pixel value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -7142,8 +6914,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return a reference to the pixel value of the image instance located at a specified <code>offset</code>, or to a specified default value in case of out-of-bounds access. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">offset</td><td>: Offset to the desired pixel value. </td></tr>
-    <tr><td class="paramname">out_value</td><td>: Default value returned if <code>offset</code> is outside image bounds. </td></tr>
+    <tr><td class="paramname">offset</td><td>Offset to the desired pixel value. </td></tr>
+    <tr><td class="paramname">out_value</td><td>Default value returned if <code>offset</code> is outside image bounds. </td></tr>
   </table>
   </dd>
 </dl>
@@ -7174,7 +6946,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return a reference to the pixel value of the image instance located at a specified <code>offset</code>, or to the nearest pixel location in the image instance in case of out-of-bounds access. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">offset</td><td>: Offset to the desired pixel value. </td></tr>
+    <tr><td class="paramname">offset</td><td>Offset to the desired pixel value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -7238,11 +7010,11 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return a reference to the pixel value of the image instance located at (<code>x</code>,<code>y</code>,<code>z</code>,<code>c</code>), or to a specified default value in case of out-of-bounds access along the X-axis. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>: X-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">y</td><td>: Y-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">z</td><td>: Z-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">c</td><td>: C-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">out_value</td><td>: Default value returned if <code></code>(<code>x</code>,<code>y</code>,<code>z</code>,<code>c</code>) is outside image bounds. </td></tr>
+    <tr><td class="paramname">x</td><td>X-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">y</td><td>Y-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">z</td><td>Z-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">c</td><td>C-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">out_value</td><td>Default value returned if <code></code>(<code>x</code>,<code>y</code>,<code>z</code>,<code>c</code>) is outside image bounds. </td></tr>
   </table>
   </dd>
 </dl>
@@ -7299,10 +7071,10 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return a reference to the pixel value of the image instance located at (<code>x</code>,<code>y</code>,<code>z</code>,<code>c</code>), or to the nearest pixel location in the image instance in case of out-of-bounds access along the X-axis. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>: X-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">y</td><td>: Y-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">z</td><td>: Z-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">c</td><td>: C-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">x</td><td>X-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">y</td><td>Y-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">z</td><td>Z-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">c</td><td>C-coordinate of the pixel value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -7648,11 +7420,11 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return a linearly-interpolated pixel value of the image instance located at (<code>fx</code>,<code>y</code>,<code>z</code>,<code>c</code>), or a specified default value in case of out-of-bounds access along the X-axis. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">fx</td><td>: X-coordinate of the pixel value (float-valued). </td></tr>
-    <tr><td class="paramname">y</td><td>: Y-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">z</td><td>: Z-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">c</td><td>: C-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">out_value</td><td>: Default value returned if <code></code>(<code>fx</code>,<code>y</code>,<code>z</code>,<code>c</code>) is outside image bounds. </td></tr>
+    <tr><td class="paramname">fx</td><td>X-coordinate of the pixel value (float-valued). </td></tr>
+    <tr><td class="paramname">y</td><td>Y-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">z</td><td>Z-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">c</td><td>C-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">out_value</td><td>Default value returned if <code></code>(<code>fx</code>,<code>y</code>,<code>z</code>,<code>c</code>) is outside image bounds. </td></tr>
   </table>
   </dd>
 </dl>
@@ -7709,10 +7481,10 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return a linearly-interpolated pixel value of the image instance located at (<code>fx</code>,<code>y</code>,<code>z</code>,<code>c</code>), or the value of the nearest pixel location in the image instance in case of out-of-bounds access along the X-axis. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">fx</td><td>: X-coordinate of the pixel value (float-valued). </td></tr>
-    <tr><td class="paramname">y</td><td>: Y-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">z</td><td>: Z-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">c</td><td>: C-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">fx</td><td>X-coordinate of the pixel value (float-valued). </td></tr>
+    <tr><td class="paramname">y</td><td>Y-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">z</td><td>Z-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">c</td><td>C-coordinate of the pixel value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -8057,11 +7829,11 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return a cubicly-interpolated pixel value of the image instance located at (<code>fx</code>,<code>y</code>,<code>z</code>,<code>c</code>), or a specified default value in case of out-of-bounds access along the X-axis. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">fx</td><td>: X-coordinate of the pixel value (float-valued). </td></tr>
-    <tr><td class="paramname">y</td><td>: Y-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">z</td><td>: Z-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">c</td><td>: C-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">out_value</td><td>: Default value returned if <code></code>(<code>fx</code>,<code>y</code>,<code>z</code>,<code>c</code>) is outside image bounds. </td></tr>
+    <tr><td class="paramname">fx</td><td>d X-coordinate of the pixel value (float-valued). </td></tr>
+    <tr><td class="paramname">y</td><td>Y-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">z</td><td>Z-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">c</td><td>C-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">out_value</td><td>Default value returned if <code></code>(<code>fx</code>,<code>y</code>,<code>z</code>,<code>c</code>) is outside image bounds. </td></tr>
   </table>
   </dd>
 </dl>
@@ -8178,10 +7950,10 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return a cubicly-interpolated pixel value of the image instance located at (<code>fx</code>,<code>y</code>,<code>z</code>,<code>c</code>), or the value of the nearest pixel location in the image instance in case of out-of-bounds access along the X-axis. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">fx</td><td>: X-coordinate of the pixel value (float-valued). </td></tr>
-    <tr><td class="paramname">y</td><td>: Y-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">z</td><td>: Z-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">c</td><td>: C-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">fx</td><td>X-coordinate of the pixel value (float-valued). </td></tr>
+    <tr><td class="paramname">y</td><td>Y-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">z</td><td>Z-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">c</td><td>C-coordinate of the pixel value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -8720,12 +8492,12 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Set pixel value at specified coordinates (<code>fx</code>,<code>fy</code>,<code>z</code>,<code>c</code>) in the image instance, in a way that the value is spread amongst several neighbors if the pixel coordinates are indeed float-valued. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>: Pixel value to set. </td></tr>
-    <tr><td class="paramname">fx</td><td>: X-coordinate of the pixel value (float-valued). </td></tr>
-    <tr><td class="paramname">fy</td><td>: Y-coordinate of the pixel value (float-valued). </td></tr>
-    <tr><td class="paramname">z</td><td>: Z-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">c</td><td>: C-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">is_added</td><td>: Boolean telling if the pixel value is added to (<code>true</code>), or simply replace (<code>false</code>) the current image pixel(s). </td></tr>
+    <tr><td class="paramname">value</td><td>Pixel value to set. </td></tr>
+    <tr><td class="paramname">fx</td><td>X-coordinate of the pixel value (float-valued). </td></tr>
+    <tr><td class="paramname">fy</td><td>Y-coordinate of the pixel value (float-valued). </td></tr>
+    <tr><td class="paramname">z</td><td>Z-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">c</td><td>C-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">is_added</td><td>Tells if the pixel value is added to (<code>true</code>), or simply replace (<code>false</code>) the current image pixel(s). </td></tr>
   </table>
   </dd>
 </dl>
@@ -8820,8 +8592,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return a new <code>CImg&lt;char&gt;</code> image whose buffer <a class="el" href="structcimg__library_1_1CImg.html#a1699472936b80a88d3fc8096975d21b2" title="Return a pointer to the first pixel value.">data()</a> is a <code>char*</code> string describing the list of all pixel values of the image instance (written in base 10), separated by specified <code>separator</code> character. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">separator</td><td>: a <code>char</code> character which specifies the separator between values in the returned C-string. </td></tr>
-    <tr><td class="paramname">max_size</td><td>: Maximum size of the returned image. </td></tr>
+    <tr><td class="paramname">separator</td><td>A <code>char</code> character which specifies the separator between values in the returned C-string. </td></tr>
+    <tr><td class="paramname">max_size</td><td>Maximum size of the returned image. </td></tr>
   </table>
   </dd>
 </dl>
@@ -9564,10 +9336,10 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return <code>true</code> if pixel located at (<code>x</code>,<code>y</code>,<code>z</code>,<code>c</code>) is inside bounds of the image instance, and <code>false</code> otherwise. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>: X-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">y</td><td>: Y-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">z</td><td>: Z-coordinate of the pixel value. </td></tr>
-    <tr><td class="paramname">c</td><td>: C-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">x</td><td>X-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">y</td><td>Y-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">z</td><td>Z-coordinate of the pixel value. </td></tr>
+    <tr><td class="paramname">c</td><td>C-coordinate of the pixel value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -9632,11 +9404,11 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return <code>true</code>, if specified reference refers to a pixel value inside bounds of the image instance, and <code>false</code> otherwise. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">pixel</td><td>: Reference to pixel value to test. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td>: X-coordinate of the pixel value, if test succeeds. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>: Y-coordinate of the pixel value, if test succeeds. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">z</td><td>: Z-coordinate of the pixel value, if test succeeds. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">c</td><td>: C-coordinate of the pixel value, if test succeeds. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">pixel</td><td>Reference to pixel value to test. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td>X-coordinate of the pixel value, if test succeeds. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Y-coordinate of the pixel value, if test succeeds. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">z</td><td>Z-coordinate of the pixel value, if test succeeds. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">c</td><td>C-coordinate of the pixel value, if test succeeds. </td></tr>
   </table>
   </dd>
 </dl>
@@ -9801,7 +9573,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return <code>true</code>, if pixel buffers attached to image instance and input image <code>img</code> overlap, and <code>false</code> otherwise. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: Input image to compare with. </td></tr>
+    <tr><td class="paramname">img</td><td>Input image to compare with. </td></tr>
   </table>
   </dd>
 </dl>
@@ -9871,7 +9643,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
     <tr><td class="paramdir"></td><td class="paramname">primitives</td><td>List of primitives of the 3d object. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">colors</td><td>List of colors of the 3d object. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">opacities</td><td>List (or image) of opacities of the 3d object. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">is_full_check</td><td>Boolean telling if full checking of the 3d object must be performed. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">is_full_check</td><td>Tells if full checking of the 3d object must be performed. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">error_message</td><td>C-string to contain the error message, if the test does not succeed. </td></tr>
   </table>
   </dd>
@@ -9913,8 +9685,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Return <code>true</code> if the image instance represents a valid serialization of a 3d object, and <code>false</code> otherwise. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">is_full_check</td><td>: Boolean telling if full checking of the instance must be performed. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">error_message</td><td>: C-string to contain the error message, if the test does not succeed. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">is_full_check</td><td>Tells if full checking of the instance must be performed. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">error_message</td><td>C-string to contain the error message, if the test does not succeed. </td></tr>
   </table>
   </dd>
 </dl>
@@ -10399,7 +10171,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Replace each pixel value <img class="formulaInl" alt="$I_{(x,y,z,c)}$" src="form_0.png"/> of the image instance by its arctangent2 <img class="formulaInl" alt="$\mathrm{atan2}(I_{(x,y,z,c)})$" src="form_19.png"/>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: The image whose pixel values specify the second argument of the <code><a class="el" href="structcimg__library_1_1CImg.html#afb8190c87c178fde2e78c54a490aed33" title="Compute the arctangent2 of each pixel value.">atan2()</a></code> function. </td></tr>
+    <tr><td class="paramname">img</td><td>Image whose pixel values specify the second argument of the <code><a class="el" href="structcimg__library_1_1CImg.html#afb8190c87c178fde2e78c54a490aed33" title="Compute the arctangent2 of each pixel value.">atan2()</a></code> function. </td></tr>
   </table>
   </dd>
 </dl>
@@ -10436,7 +10208,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Compute the pointwise multiplication between the image instance and the specified input image <code>img</code>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">img</td><td>: Input image, as the second operand of the multiplication. </td></tr>
+    <tr><td class="paramname">img</td><td>Input image, as the second operand of the multiplication. </td></tr>
   </table>
   </dd>
 </dl>
@@ -10493,7 +10265,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <p>Replace each pixel value <img class="formulaInl" alt="$I_{(x,y,z,c)}$" src="form_0.png"/> of the image instance by its power <img class="formulaInl" alt="$I_{(x,y,z,c)}^p$" src="form_20.png"/>. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td>: Used exponent. </td></tr>
+    <tr><td class="paramname">p</td><td>Exponent value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -14413,7 +14185,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Create a 2d representation of a 3d image, with XY,XZ and YZ views. </p>
+<p>Generate a 2d representation of a 3d image, with XY,XZ and YZ views. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">x0</td><td>X-coordinate of the projection point. </td></tr>
@@ -15207,7 +14979,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">img</td><td>Image to append with instance image. </td></tr>
-    <tr><td class="paramname">axis</td><td>Appending axis </td></tr>
+    <tr><td class="paramname">axis</td><td>Appending axis. Can be <code>{ 'x' | 'y' | 'z' | 'c' }</code>. </td></tr>
     <tr><td class="paramname">align</td><td>Append alignment in <code></code>[0,1]. </td></tr>
   </table>
   </dd>
@@ -16968,7 +16740,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Create and return a 3d elevation of the image instance. </p>
+<p>Generate a 3d elevation of the image instance. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">primitives</td><td>The returned list of the 3d object primitives (template type <em>tf</em> should be at least <em>unsigned</em> <em>int</em>). </td></tr>
@@ -17039,7 +16811,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Create and return the 3d projection planes of the image instance. </p>
+<p>Generate the 3d projection planes of the image instance. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">primitives</td><td>Primitives data of the returned 3d object. </td></tr>
@@ -17091,7 +16863,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Create and return a isoline of the image instance as a 3d object. </p>
+<p>Generate a isoline of the image instance as a 3d object. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">primitives</td><td>The returned list of the 3d object primitives (template type <em>tf</em> should be at least <em>unsigned</em> <em>int</em>). </td></tr>
@@ -17156,7 +16928,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Create and return a isosurface of the image instance as a 3d object. </p>
+<p>Generate an isosurface of the image instance as a 3d object. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">primitives</td><td>The returned list of the 3d object primitives (template type <em>tf</em> should be at least <em>unsigned</em> <em>int</em>). </td></tr>
@@ -17487,7 +17259,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Create and return a 3d box object. </p>
+<p>Generate a 3d box object. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">primitives</td><td>The returned list of the 3d object primitives (template type <em>tf</em> should be at least <em>unsigned</em> <em>int</em>). </td></tr>
@@ -17499,7 +17271,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The N vertices (xi,yi,zi) of the 3d object as a Nx3 CImg&lt;float&gt; image (0&lt;=i&lt;=N-1). </dd></dl>
 <dl class="user"><dt><b>Example</b></dt><dd><div class="fragment"><pre class="fragment">       CImgList&lt;unsigned int&gt; faces3d;
-       <span class="keyword">const</span> CImg&lt;float&gt; points3d = <a class="code" href="structcimg__library_1_1CImg.html#a5796d94bd48d3f3b5fde6b3955ec68e1" title="Create and return a 3d box object.">CImg&lt;float&gt;::box3d</a>(faces3d,10,20,30);
+       <span class="keyword">const</span> CImg&lt;float&gt; points3d = <a class="code" href="structcimg__library_1_1CImg.html#a5796d94bd48d3f3b5fde6b3955ec68e1" title="Generate a 3d box object.">CImg&lt;float&gt;::box3d</a>(faces3d,10,20,30);
        CImg&lt;unsigned char&gt;().<a class="code" href="structcimg__library_1_1CImg.html#acb19c2b11e2ff87e7ba4d28e74e4e904" title="Display object 3d in an interactive window.">display_object3d</a>(<span class="stringliteral">&quot;Box3d&quot;</span>,points3d,faces3d);
 </pre></div> <div class="image">
 <img src="ref_box3d.jpg" alt="ref_box3d.jpg"/>
@@ -17545,7 +17317,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Create and return a 3d cone. </p>
+<p>Generate a 3d cone. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">primitives</td><td>The returned list of the 3d object primitives (template type <em>tf</em> should be at least <em>unsigned</em> <em>int</em>). </td></tr>
@@ -17557,7 +17329,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The N vertices (xi,yi,zi) of the 3d object as a Nx3 CImg&lt;float&gt; image (0&lt;=i&lt;=N-1). </dd></dl>
 <dl class="user"><dt><b>Example</b></dt><dd><div class="fragment"><pre class="fragment">       CImgList&lt;unsigned int&gt; faces3d;
-       <span class="keyword">const</span> CImg&lt;float&gt; points3d = <a class="code" href="structcimg__library_1_1CImg.html#a744a584d87f069fb5b2511a4b6449425" title="Create and return a 3d cone.">CImg&lt;float&gt;::cone3d</a>(faces3d,50);
+       <span class="keyword">const</span> CImg&lt;float&gt; points3d = <a class="code" href="structcimg__library_1_1CImg.html#a744a584d87f069fb5b2511a4b6449425" title="Generate a 3d cone.">CImg&lt;float&gt;::cone3d</a>(faces3d,50);
        CImg&lt;unsigned char&gt;().<a class="code" href="structcimg__library_1_1CImg.html#acb19c2b11e2ff87e7ba4d28e74e4e904" title="Display object 3d in an interactive window.">display_object3d</a>(<span class="stringliteral">&quot;Cone3d&quot;</span>,points3d,faces3d);
 </pre></div> <div class="image">
 <img src="ref_cone3d.jpg" alt="ref_cone3d.jpg"/>
@@ -17603,7 +17375,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Create and return a 3d cylinder. </p>
+<p>Generate a 3d cylinder. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">primitives</td><td>The returned list of the 3d object primitives (template type <em>tf</em> should be at least <em>unsigned</em> <em>int</em>). </td></tr>
@@ -17615,7 +17387,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The N vertices (xi,yi,zi) of the 3d object as a Nx3 CImg&lt;float&gt; image (0&lt;=i&lt;=N-1). </dd></dl>
 <dl class="user"><dt><b>Example</b></dt><dd><div class="fragment"><pre class="fragment">       CImgList&lt;unsigned int&gt; faces3d;
-       <span class="keyword">const</span> CImg&lt;float&gt; points3d = <a class="code" href="structcimg__library_1_1CImg.html#ab924fbf66b85c9ff9bfbb1e31f0640c7" title="Create and return a 3d cylinder.">CImg&lt;float&gt;::cylinder3d</a>(faces3d,50);
+       <span class="keyword">const</span> CImg&lt;float&gt; points3d = <a class="code" href="structcimg__library_1_1CImg.html#ab924fbf66b85c9ff9bfbb1e31f0640c7" title="Generate a 3d cylinder.">CImg&lt;float&gt;::cylinder3d</a>(faces3d,50);
        CImg&lt;unsigned char&gt;().<a class="code" href="structcimg__library_1_1CImg.html#acb19c2b11e2ff87e7ba4d28e74e4e904" title="Display object 3d in an interactive window.">display_object3d</a>(<span class="stringliteral">&quot;Cylinder3d&quot;</span>,points3d,faces3d);
 </pre></div> <div class="image">
 <img src="ref_cylinder3d.jpg" alt="ref_cylinder3d.jpg"/>
@@ -17667,7 +17439,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Create and return a 3d torus. </p>
+<p>Generate a 3d torus. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">primitives</td><td>The returned list of the 3d object primitives (template type <em>tf</em> should be at least <em>unsigned</em> <em>int</em>). </td></tr>
@@ -17680,7 +17452,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The N vertices (xi,yi,zi) of the 3d object as a Nx3 CImg&lt;float&gt; image (0&lt;=i&lt;=N-1). </dd></dl>
 <dl class="user"><dt><b>Example</b></dt><dd><div class="fragment"><pre class="fragment">       CImgList&lt;unsigned int&gt; faces3d;
-       <span class="keyword">const</span> CImg&lt;float&gt; points3d = <a class="code" href="structcimg__library_1_1CImg.html#aa7da4d9793caecfa69abdfc7700866ae" title="Create and return a 3d torus.">CImg&lt;float&gt;::torus3d</a>(faces3d,20,4);
+       <span class="keyword">const</span> CImg&lt;float&gt; points3d = <a class="code" href="structcimg__library_1_1CImg.html#aa7da4d9793caecfa69abdfc7700866ae" title="Generate a 3d torus.">CImg&lt;float&gt;::torus3d</a>(faces3d,20,4);
        CImg&lt;unsigned char&gt;().<a class="code" href="structcimg__library_1_1CImg.html#acb19c2b11e2ff87e7ba4d28e74e4e904" title="Display object 3d in an interactive window.">display_object3d</a>(<span class="stringliteral">&quot;Torus3d&quot;</span>,points3d,faces3d);
 </pre></div> <div class="image">
 <img src="ref_torus3d.jpg" alt="ref_torus3d.jpg"/>
@@ -17732,7 +17504,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Create and return a 3d XY-plane. </p>
+<p>Generate a 3d XY-plane. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">primitives</td><td>The returned list of the 3d object primitives (template type <em>tf</em> should be at least <em>unsigned</em> <em>int</em>). </td></tr>
@@ -17745,7 +17517,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The N vertices (xi,yi,zi) of the 3d object as a Nx3 CImg&lt;float&gt; image (0&lt;=i&lt;=N-1). </dd></dl>
 <dl class="user"><dt><b>Example</b></dt><dd><div class="fragment"><pre class="fragment">       CImgList&lt;unsigned int&gt; faces3d;
-       <span class="keyword">const</span> CImg&lt;float&gt; points3d = <a class="code" href="structcimg__library_1_1CImg.html#a87e86f1b61f3fb913567e685c8552f0c" title="Create and return a 3d XY-plane.">CImg&lt;float&gt;::plane3d</a>(faces3d,100,50);
+       <span class="keyword">const</span> CImg&lt;float&gt; points3d = <a class="code" href="structcimg__library_1_1CImg.html#a87e86f1b61f3fb913567e685c8552f0c" title="Generate a 3d XY-plane.">CImg&lt;float&gt;::plane3d</a>(faces3d,100,50);
        CImg&lt;unsigned char&gt;().<a class="code" href="structcimg__library_1_1CImg.html#acb19c2b11e2ff87e7ba4d28e74e4e904" title="Display object 3d in an interactive window.">display_object3d</a>(<span class="stringliteral">&quot;Plane3d&quot;</span>,points3d,faces3d);
 </pre></div> <div class="image">
 <img src="ref_plane3d.jpg" alt="ref_plane3d.jpg"/>
@@ -17785,7 +17557,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Create and return a 3d sphere. </p>
+<p>Generate a 3d sphere. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">primitives</td><td>The returned list of the 3d object primitives (template type <em>tf</em> should be at least <em>unsigned</em> <em>int</em>). </td></tr>
@@ -17796,7 +17568,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The N vertices (xi,yi,zi) of the 3d object as a Nx3 CImg&lt;float&gt; image (0&lt;=i&lt;=N-1). </dd></dl>
 <dl class="user"><dt><b>Example</b></dt><dd><div class="fragment"><pre class="fragment">       CImgList&lt;unsigned int&gt; faces3d;
-       <span class="keyword">const</span> CImg&lt;float&gt; points3d = <a class="code" href="structcimg__library_1_1CImg.html#ae0b5b46dede282a2a817519ed24fb601" title="Create and return a 3d sphere.">CImg&lt;float&gt;::sphere3d</a>(faces3d,100,4);
+       <span class="keyword">const</span> CImg&lt;float&gt; points3d = <a class="code" href="structcimg__library_1_1CImg.html#ae0b5b46dede282a2a817519ed24fb601" title="Generate a 3d sphere.">CImg&lt;float&gt;::sphere3d</a>(faces3d,100,4);
        CImg&lt;unsigned char&gt;().<a class="code" href="structcimg__library_1_1CImg.html#acb19c2b11e2ff87e7ba4d28e74e4e904" title="Display object 3d in an interactive window.">display_object3d</a>(<span class="stringliteral">&quot;Sphere3d&quot;</span>,points3d,faces3d);
 </pre></div> <div class="image">
 <img src="ref_sphere3d.jpg" alt="ref_sphere3d.jpg"/>
@@ -17836,7 +17608,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Create and return a 3d ellipsoid. </p>
+<p>Generate a 3d ellipsoid. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">primitives</td><td>The returned list of the 3d object primitives (template type <em>tf</em> should be at least <em>unsigned</em> <em>int</em>). </td></tr>
@@ -17848,7 +17620,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The N vertices (xi,yi,zi) of the 3d object as a Nx3 CImg&lt;float&gt; image (0&lt;=i&lt;=N-1). </dd></dl>
 <dl class="user"><dt><b>Example</b></dt><dd><div class="fragment"><pre class="fragment">       CImgList&lt;unsigned int&gt; faces3d;
        <span class="keyword">const</span> CImg&lt;float&gt; <a class="code" href="structcimg__library_1_1CImg.html#a5d2d10755254c77c93b671d7cce54dcf" title="Resize image to become a symmetric tensor.">tensor</a> = <a class="code" href="structcimg__library_1_1CImg.html#a9b38ad4f425b6b4768d5ee82cb562119" title="Resize image to become a diagonal matrix.">CImg&lt;float&gt;::diagonal</a>(10,7,3),
-                         points3d = <a class="code" href="structcimg__library_1_1CImg.html#a79e70bda268fd54cb31e9e9e2347afb8" title="Create and return a 3d ellipsoid.">CImg&lt;float&gt;::ellipsoid3d</a>(faces3d,tensor,4);
+                         points3d = <a class="code" href="structcimg__library_1_1CImg.html#a79e70bda268fd54cb31e9e9e2347afb8" title="Generate a 3d ellipsoid.">CImg&lt;float&gt;::ellipsoid3d</a>(faces3d,tensor,4);
        CImg&lt;unsigned char&gt;().<a class="code" href="structcimg__library_1_1CImg.html#acb19c2b11e2ff87e7ba4d28e74e4e904" title="Display object 3d in an interactive window.">display_object3d</a>(<span class="stringliteral">&quot;Ellipsoid3d&quot;</span>,points3d,faces3d);
 </pre></div> <div class="image">
 <img src="ref_ellipsoid3d.jpg" alt="ref_ellipsoid3d.jpg"/>
@@ -18120,7 +17892,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
     <tr><td class="paramname">color</td><td>Pointer to <code><a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a></code> consecutive values of type <code>T</code>, defining the drawing color. </td></tr>
     <tr><td class="paramname">opacity</td><td>Drawing opacity. </td></tr>
     <tr><td class="paramname">pattern</td><td>An integer whose bits describe the line pattern. </td></tr>
-    <tr><td class="paramname">init_hatch</td><td>Flag telling if a reinitialization of the hash state must be done. </td></tr>
+    <tr><td class="paramname">init_hatch</td><td>Tells if a reinitialization of the hash state must be done. </td></tr>
   </table>
   </dd>
 </dl>
@@ -18228,7 +18000,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
     <tr><td class="paramname">color</td><td>Pointer to <code><a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a></code> consecutive values of type <code>T</code>, defining the drawing color. </td></tr>
     <tr><td class="paramname">opacity</td><td>Drawing opacity. </td></tr>
     <tr><td class="paramname">pattern</td><td>An integer whose bits describe the line pattern. </td></tr>
-    <tr><td class="paramname">init_hatch</td><td>Flag telling if a reinitialization of the hash state must be done. </td></tr>
+    <tr><td class="paramname">init_hatch</td><td>Tells if a reinitialization of the hash state must be done. </td></tr>
   </table>
   </dd>
 </dl>
@@ -18320,7 +18092,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
     <tr><td class="paramname">color</td><td>Pointer to <code><a class="el" href="structcimg__library_1_1CImg.html#acd2ee207fa512e34b45ff548082f70ba" title="Return the number of image channels.">spectrum()</a></code> consecutive values of type <code>T</code>, defining the drawing color. </td></tr>
     <tr><td class="paramname">opacity</td><td>Drawing opacity. </td></tr>
     <tr><td class="paramname">pattern</td><td>An integer whose bits describe the line pattern. </td></tr>
-    <tr><td class="paramname">init_hatch</td><td>Flag telling if a reinitialization of the hash state must be done. </td></tr>
+    <tr><td class="paramname">init_hatch</td><td>Tells if a reinitialization of the hash state must be done. </td></tr>
   </table>
   </dd>
 </dl>
@@ -18426,7 +18198,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
     <tr><td class="paramname">ty1</td><td>Y-coordinate of the ending texture point. </td></tr>
     <tr><td class="paramname">opacity</td><td>Drawing opacity. </td></tr>
     <tr><td class="paramname">pattern</td><td>An integer whose bits describe the line pattern. </td></tr>
-    <tr><td class="paramname">init_hatch</td><td>Flag telling if the hash variable must be reinitialized. </td></tr>
+    <tr><td class="paramname">init_hatch</td><td>Tells if the hash variable must be reinitialized. </td></tr>
   </table>
   </dd>
 </dl>
@@ -18554,7 +18326,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
     <tr><td class="paramname">ty1</td><td>Y-coordinate of the ending texture point. </td></tr>
     <tr><td class="paramname">opacity</td><td>Drawing opacity. </td></tr>
     <tr><td class="paramname">pattern</td><td>An integer whose bits describe the line pattern. </td></tr>
-    <tr><td class="paramname">init_hatch</td><td>Flag telling if the hash variable must be reinitialized. </td></tr>
+    <tr><td class="paramname">init_hatch</td><td>Tells if the hash variable must be reinitialized. </td></tr>
   </table>
   </dd>
 </dl>
@@ -18681,7 +18453,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
     <tr><td class="paramname">ty1</td><td>Y-coordinate of the ending texture point. </td></tr>
     <tr><td class="paramname">opacity</td><td>Drawing opacity. </td></tr>
     <tr><td class="paramname">pattern</td><td>An integer whose bits describe the line pattern. </td></tr>
-    <tr><td class="paramname">init_hatch</td><td>Flag telling if the hash variable must be reinitialized. </td></tr>
+    <tr><td class="paramname">init_hatch</td><td>Tells if the hash variable must be reinitialized. </td></tr>
   </table>
   </dd>
 </dl>
@@ -23022,7 +22794,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename, as a C-string. </td></tr>
-    <tr><td class="paramname">axis</td><td>Appending axis, when the .cimg file contains multiple images. </td></tr>
+    <tr><td class="paramname">axis</td><td>Appending axis, if file contains multiple images. Can be <code>{ 'x' | 'y' | 'z' | 'c' }</code>. </td></tr>
     <tr><td class="paramname">align</td><td>Appending alignment. </td></tr>
   </table>
   </dd>
@@ -23135,7 +22907,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
     <tr><td class="paramname">y1</td><td>Y-coordinate of the ending sub-image vertex. </td></tr>
     <tr><td class="paramname">z1</td><td>Z-coordinate of the ending sub-image vertex. </td></tr>
     <tr><td class="paramname">c1</td><td>C-coordinate of the ending sub-image vertex. </td></tr>
-    <tr><td class="paramname">axis</td><td>Appending axis, when the .cimg file contains multiple images. </td></tr>
+    <tr><td class="paramname">axis</td><td>Appending axis, if file contains multiple images. Can be <code>{ 'x' | 'y' | 'z' | 'c' }</code>. </td></tr>
     <tr><td class="paramname">align</td><td>Appending alignment. </td></tr>
   </table>
   </dd>
@@ -23264,7 +23036,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename, as a C-string. </td></tr>
-    <tr><td class="paramname">axis</td><td>Appending axis, when the .cimg file contains multiple images. </td></tr>
+    <tr><td class="paramname">axis</td><td>Appending axis, if file contains multiple images. Can be <code>{ 'x' | 'y' | 'z' | 'c' }</code>. </td></tr>
     <tr><td class="paramname">align</td><td>Appending alignment. </td></tr>
   </table>
   </dd>
@@ -23413,7 +23185,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
     <tr><td class="paramname">step_frame</td><td>Step value for frame reading. </td></tr>
     <tr><td class="paramname">pixel_format</td><td>To be documented. </td></tr>
     <tr><td class="paramname">resume</td><td>To be documented. </td></tr>
-    <tr><td class="paramname">axis</td><td>Appending axis, when the file contains multiple images. </td></tr>
+    <tr><td class="paramname">axis</td><td>Appending axis, if file contains multiple images. Can be <code>{ 'x' | 'y' | 'z' | 'c' }</code>. </td></tr>
     <tr><td class="paramname">align</td><td>Appending alignment. </td></tr>
   </table>
   </dd>
@@ -23492,7 +23264,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
     <tr><td class="paramname">last_frame</td><td>Index of the last frame to read. </td></tr>
     <tr><td class="paramname">step_frame</td><td>Step value for frame reading. </td></tr>
     <tr><td class="paramname">yuv2rgb</td><td>Tells if the YUV to RGB transform must be applied. </td></tr>
-    <tr><td class="paramname">axis</td><td>Appending axis, when the file contains multiple images. </td></tr>
+    <tr><td class="paramname">axis</td><td>Appending axis, if file contains multiple images. Can be <code>{ 'x' | 'y' | 'z' | 'c' }</code>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -23577,7 +23349,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename, as a C-string. </td></tr>
-    <tr><td class="paramname">axis</td><td>Appending axis, when the file contains multiple images. </td></tr>
+    <tr><td class="paramname">axis</td><td>Appending axis, if file contains multiple images. Can be <code>{ 'x' | 'y' | 'z' | 'c' }</code>. </td></tr>
     <tr><td class="paramname">align</td><td>Appending alignment. </td></tr>
   </table>
   </dd>
@@ -24779,7 +24551,7 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Save a blank image as a .cimg file. </p>
+<p>Save blank image as a .cimg file. </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename, as a C-string. </td></tr>
@@ -24841,8 +24613,8 @@ struct cimg_library::CImg&lt; T &gt;</h3>
 </div>
 <div class="memdoc">
 
-<p>Save a blank image as a .cimg file <b>[overloading]</b>. </p>
-<p>Same as <a class="el" href="structcimg__library_1_1CImg.html#a6be9b90fe347cd59875682a4b80c24cc" title="Save a blank image as a .cimg file.">save_empty_cimg(const char *,unsigned int,unsigned int,unsigned int,unsigned int)</a> with a file stream argument instead of a filename string. </p>
+<p>Save blank image as a .cimg file <b>[overloading]</b>. </p>
+<p>Same as <a class="el" href="structcimg__library_1_1CImg.html#a6be9b90fe347cd59875682a4b80c24cc" title="Save blank image as a .cimg file.">save_empty_cimg(const char *,unsigned int,unsigned int,unsigned int,unsigned int)</a> with a file stream argument instead of a filename string. </p>
 
 </div>
 </div>
