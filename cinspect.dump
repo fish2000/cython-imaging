@@ -42,7 +42,7 @@ p20
 atRp21
 sS'cimg_path'
 p22
-S'/Users/fish/Dropbox/cython-imaging/CIL/ext/include/CImg.h'
+S'/Users/fish/Dropbox/cython-imaging/CIL/ext/include/CImg/CImg.h'
 p23
 sS'cimg_constructors'
 p24

@@ -189,6 +189,8 @@ class RasterSystem(CPlusPlusInterface):
         self.bindfunc( 'Get_HMax',              cfloat,
                         [] )
         """
+    
+    def old_init(self, dataDir):
         # init ray in/out buffers
         self.ray = np.zeros( 6, dtype=np.float32 )
         self.Bind_Ray( self.ray )
