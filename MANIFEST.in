@@ -1,8 +1,8 @@
+exclude *.pyc *~ .DS_Store
+
 include .gitignore
 include cinspect.dump
 include README.md
-include setup.py
-include teardown.sh
 
 recursive-include CIL *
 recursive-include ciltools *
